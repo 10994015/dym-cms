@@ -1,0 +1,73 @@
+#loginPage{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #212121;
+    height: 100vh;
+    >.center{
+        width:100%;
+        max-width: 500px;
+        >h2{
+            text-align: center;
+            font-size: 50px;
+            color:#fff;
+            font-weight: 900;
+        }
+        >p{
+            color:#aaa;
+            font-size: 14px;
+        }
+        >.logo{
+            width:100px;
+            margin:0 auto;
+        }
+        input{
+            background-color: #121212;
+        }
+        button{
+            width:100%;
+            background-color: #0D6EFD;
+            font-weight: 700;
+            &:hover{
+                background-color: transparent;
+            }
+        }
+       
+    }
+}
+#registerPage{
+    width:100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #212121;
+    >h2{
+        text-align: center;
+        font-size: 50px;
+        color:#fff;
+        font-weight: 900;
+    }
+    >p{
+        color:#aaa;
+        font-size: 14px;
+    }
+    >.logo{
+        width:100px;
+    }
+    form{
+        width:100%;
+        max-width: 500px;
+        input{
+            background-color: #121212;
+        }
+        button{
+            background-color: #F6BA08;
+            width:100%;
+            font-weight: 700;
+           
+        }
+    }
+}

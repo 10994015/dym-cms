@@ -1,0 +1,72 @@
+#loginPage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #212121;
+  height: 100vh;
+}
+#loginPage > .center {
+  width: 100%;
+  max-width: 500px;
+}
+#loginPage > .center > h2 {
+  text-align: center;
+  font-size: 50px;
+  color: #fff;
+  font-weight: 900;
+}
+#loginPage > .center > p {
+  color: #aaa;
+  font-size: 14px;
+}
+#loginPage > .center > .logo {
+  width: 100px;
+  margin: 0 auto;
+}
+#loginPage > .center input {
+  background-color: #121212;
+}
+#loginPage > .center button {
+  width: 100%;
+  background-color: #0D6EFD;
+  font-weight: 700;
+}
+#loginPage > .center button:hover {
+  background-color: transparent;
+}
+
+#registerPage {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #212121;
+}
+#registerPage > h2 {
+  text-align: center;
+  font-size: 50px;
+  color: #fff;
+  font-weight: 900;
+}
+#registerPage > p {
+  color: #aaa;
+  font-size: 14px;
+}
+#registerPage > .logo {
+  width: 100px;
+}
+#registerPage form {
+  width: 100%;
+  max-width: 500px;
+}
+#registerPage form input {
+  background-color: #121212;
+}
+#registerPage form button {
+  background-color: #F6BA08;
+  width: 100%;
+  font-weight: 700;
+}
