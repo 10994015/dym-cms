@@ -33,6 +33,17 @@
                 background-color: transparent;
             }
         }
+        .gotoregister{
+            color:#999;
+            text-align: center;
+            margin-top: 15px;
+            width:100%;
+            display: block;
+            transition: .3s;
+            &:hover{
+                color:#fff;
+            }
+        }
        
     }
 }
@@ -69,5 +80,137 @@
             font-weight: 700;
            
         }
+    }
+}
+body{
+    
+    }
+#home{
+    background-color: #3C475B;
+    width:100%;
+    height: 100%;
+    min-height: calc(100vh - 100px);
+    >.content{
+        padding: 100px 0;
+        display: flex;
+        justify-content: center;
+        >.user-list{
+            padding: 20px 10px ;
+            background-color: #fff;
+            width:400px;
+            height: 500px;
+            overflow-y: scroll;
+            margin:0 30px;
+            >.item{
+                cursor: pointer;
+                margin:2px 0;
+                >p{
+                    font-weight: 800;
+                    &.own{
+                        font-weight: 900;
+                        font-size: 18px;
+                    }
+                    >i{
+                        margin-right: 5px;
+                    }
+                    &:hover{
+                        color:#717171;
+                    }
+                }
+                >.down-line{
+                    margin-left: 35px;
+                    height: 0;
+                    overflow: hidden;
+                    transition: .3s;
+                }
+                
+            }
+        }
+        >.user-info{
+            width:700px;
+            height: 500px;
+            background-color: #fff;
+            margin:0 30px;
+            padding: 30px;
+            >div{
+                margin-bottom: 15px;
+                font-size: 16px;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                >input{
+                    width:80%;
+                    margin-left: 10px;
+                    height: 35px;
+                    border:1px #ccc solid;
+                    outline: none;
+                    color:#888;
+                    font-size: 14px;
+                    cursor: not-allowed;
+                    &.open{
+                        color:#111;
+                        cursor: auto;
+                    }
+                }
+                &.operate{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    padding-right: 50px;
+                    .btn{
+                        display: flex;
+                        >button{
+                            background-color: #313131;
+                            color:#fff;
+                            width:130px;
+                            height: 40px;
+                            transition: .3s;
+                            margin-left: 10px;
+                            &#unlock{
+                                background-color: #878787;
+                                &:hover{
+                                    background-color: #121212;
+                                }
+                            }
+                            &#lock{
+                                display: none;
+                            }
+                            &#cancel{
+                                display: none;
+                                background-color: #878787;
+                                &:hover{
+                                    background-color: #121212;
+                                }
+                            }
+                           
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+header#header{
+    width:100%;
+    background-color: #212121;
+    color:#fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 80px;
+    >a{
+        font-size: 18px;
+        font-weight: 900;
+    }
+}
+footer{
+    width:100%;
+    height: 100px;
+    background-color: #050C26;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#fff;
+    p{
+        font-size: 14px;
     }
 }
