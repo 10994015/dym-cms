@@ -8,6 +8,10 @@
     </header>
     <div class="content">
         <div class="user-list">
+            <div class="searchDiv">
+                <input type="text" class="form-control search" placeholder="搜尋..." wire:model="searchText">
+                <button class="btn btn-dark" wire:click="searchFn">搜尋</button>
+            </div>
             <div class="item">
                 <p class="user-item own" wire:click="viewUserInfo({{Auth::user()->id}})" style="font-weight:900">
                     {{Auth::user()->username}}-{{Auth::user()->name}}({{Auth::user()->phone}})

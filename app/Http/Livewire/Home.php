@@ -8,6 +8,7 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Log;
 class Home extends Component
 {
+    public $users;
     public $account;
     public $name;
     public $phone;
@@ -15,6 +16,7 @@ class Home extends Component
     public $url;
     public $topline;
     public $update_user_id;
+    public $searchText;
     public function mount(){
         $this->update_user_id = Auth::user()->id;
         $this->account = Auth::user()->username;
@@ -48,22 +50,33 @@ class Home extends Component
         }
         $this->dispatchBrowserEvent('viewUserInfo');
     }
+    public function searchFn(){
+        if($this->searchText != ""){
+            return redirect('/?s=' . $this->searchText);
+        }else{
+            return redirect('/');
+        }
+        
+    }
     public function updateUserInfo(){
         $user = User::find($this->update_user_id);
         $user->name = $this->name;
         $user->phone = $this->phone;
         $user->money = $this->money;
         $user->save();
-        
     }
     public function render()
     {
+        $s = '';
+        if(isset(request()->s)){
+            $s = request()->s;
+        }
         if(Auth::user()->username === "admin"){
-            $users = User::where([['utype', 'ADM'], ['username', '<>', 'admin']])->orwhere([['utype', 'USR'], ['username', '<>', 'admin']])->get();
+            $this->users = User::where([['utype', 'ADM'], ['username', '<>', 'admin'],['username', 'like', "%$s%"]])->orwhere([['utype', 'USR'], ['username', '<>', "%$s%"], ['username', 'like', '%'.$s.'%']])->get();
         }else{
-            $users = User::where('toponline', Auth::id())->get();
+            $this->users = User::where([['toponline', Auth::id()], ['username', 'like', "%$s%"]])->get();
         }
         $this->dispatchBrowserEvent('changeQRcode', ['url'=>$this->url]);
-        return view('livewire.home', ['users'=>$users])->layout('layouts.base');
+        return view('livewire.home', ['users'=>$this->users])->layout('layouts.base');
     }
 }

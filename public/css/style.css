@@ -101,6 +101,22 @@
   overflow-y: scroll;
   margin: 0 30px;
 }
+#home > .content > .user-list > .searchDiv {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+#home > .content > .user-list > .searchDiv > .search {
+  height: 38px;
+  border: 1px #ccc solid;
+  width: 250px;
+  margin-right: 10px;
+}
+#home > .content > .user-list > .searchDiv > button {
+  width: 80px;
+  min-width: 80px;
+  height: 38px;
+}
 #home > .content > .user-list > .item {
   cursor: pointer;
   margin: 2px 0;

@@ -101,6 +101,23 @@ body{
             height: 500px;
             overflow-y: scroll;
             margin:0 30px;
+            >.searchDiv{
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+                >.search{
+                    height: 38px;
+                    border:1px #ccc solid;
+                    width:250px;
+                    margin-right: 10px;
+                }
+                >button{
+                    width:80px;
+                    min-width: 80px;
+                    height: 38px;
+                }
+                
+            }
             >.item{
                 cursor: pointer;
                 margin:2px 0;
