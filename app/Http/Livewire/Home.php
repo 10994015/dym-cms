@@ -39,7 +39,7 @@ class Home extends Component
         $this->phone = $user->phone;
         $this->money = $user->money;
         if(User::find($id)->utype==="ADM"){
-            $this->url = "http://" . $_SERVER['HTTP_HOST'] ."?rn=" . $user->register_number;
+            $this->url = "http://" . $_SERVER['HTTP_HOST'] ."/register?rn=" . $user->register_number;
         }else{
             $this->url = "無";
         }

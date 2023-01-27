@@ -20,7 +20,7 @@
             @foreach ($users as $user)
             <div class="item">
                 <p class="user-item" wire:click="viewUserInfo({{$user->id}})">
-                    @if (DB::table('users')->where('toponline', $user->id)->count() > 0)
+                    @if (DB::table('users')->where([['toponline', $user->id]])->count() > 0)
                         <i class="fa-solid fa-caret-right"></i>
                     @else
                         &nbsp;&nbsp;&nbsp;
