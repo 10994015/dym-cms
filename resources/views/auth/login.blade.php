@@ -15,7 +15,7 @@
                 <x-jet-validation-errors class="mb-4 text-danger" />
                 <button type="submit" class="btn btn-light bg-light mt-3 loginBtn">LOGIN</button>
             </form>
-            <a href="/register" class="gotoregister">沒有帳號嗎?點擊註冊</a>
+            {{-- <a href="/register" class="gotoregister">沒有帳號嗎?點擊註冊</a> --}}
         </div>
     </div>
 </x-guest-layout>

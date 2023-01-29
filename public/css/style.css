@@ -49,12 +49,12 @@
 
 #registerPage {
   width: 100%;
-  height: 100vh;
+  min-height: calc(100vh - 167px);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #212121;
+  background-color: #3C475B;
 }
 #registerPage > h2 {
   text-align: center;
@@ -69,14 +69,14 @@
 #registerPage > .logo {
   width: 100px;
 }
-#registerPage form {
+#registerPage form, #registerPage .registerForm {
   width: 100%;
   max-width: 500px;
 }
-#registerPage form input {
-  background-color: #121212;
+#registerPage form input, #registerPage .registerForm input {
+  background-color: #111;
 }
-#registerPage form button {
+#registerPage form button, #registerPage .registerForm button {
   background-color: #F6BA08;
   width: 100%;
   font-weight: 700;
@@ -88,10 +88,43 @@
   height: 100%;
   min-height: calc(100vh - 100px);
 }
-#home > .content {
-  padding: 100px 0;
+#home > .nav {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+#home > .nav > div {
+  display: flex;
+  justify-content: flex-start;
+}
+#home > .nav button, #home > .nav a {
+  background-color: #fff;
+  color: #000;
+  width: 150px;
+  height: 40px;
+  margin: 0 20px 0 10px;
+  transition: 0.3s;
+  font-weight: 800;
+  display: block;
+  text-align: center;
+  line-height: 40px;
+}
+#home > .nav button:hover, #home > .nav a:hover {
+  background-color: #999;
+  color: #fff;
+}
+#home > .nav button.focus, #home > .nav a.focus {
+  background-color: #000;
+  color: #fff;
+}
+#home > .content {
+  padding: 20px 0;
+  display: flex;
+  justify-content: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 #home > .content > .user-list {
   padding: 20px 10px;
@@ -99,7 +132,7 @@
   width: 400px;
   height: 500px;
   overflow-y: scroll;
-  margin: 0 30px;
+  margin: 0 20px 0 10px;
 }
 #home > .content > .user-list > .searchDiv {
   display: flex;
@@ -226,4 +259,75 @@ footer {
 }
 footer p {
   font-size: 14px;
+}
+
+#home-componet {
+  width: 100%;
+  min-height: calc(100vh - 167px);
+  display: flex;
+}
+#home-componet > .slidebar {
+  width: 200px;
+  min-height: calc(100vh - 167px);
+  background-color: #333;
+}
+#home-componet > .slidebar > ul {
+  width: 100%;
+  margin-top: 100px;
+}
+#home-componet > .slidebar > ul > a {
+  display: block;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  color: #fff;
+}
+#home-componet > .slidebar > ul > a:hover {
+  background-color: #111;
+}
+#home-componet > .main-content {
+  padding: 25px;
+  width: 100%;
+}
+#home-componet > .main-content > .nav {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 50px;
+}
+#home-componet > .main-content > .nav > .form-group {
+  margin-left: 30px;
+  width: 200px;
+}
+#home-componet > .main-content > .nav > .form-group > select {
+  width: 80px;
+}
+#home-componet > .main-content > .nav > .form-group > input.searchInput {
+  width: 250px;
+  border: 1px #aaa solid;
+  border-radius: 8px;
+}
+#home-componet > .main-content table {
+  margin-top: 50px;
+}
+#home-componet > .main-content table button {
+  background-color: #198754;
+  font-size: 14px;
+}
+#home-componet > .main-content table .account-btn {
+  color: #0D6EFD;
+  cursor: pointer;
+}
+#home-componet > .main-content table .account-btn:hover {
+  border-bottom: 1px #0D6EFD solid;
+}
+#home-componet > .main-content table .closeStatusBtn {
+  background-color: #5CB85C;
+  color: #fff;
+}
+#home-componet > .main-content table .openStatusBtn {
+  background-color: #F0AD4E;
+  color: #fff;
 }

@@ -13,7 +13,13 @@
     @livewireScripts
 </head>
 <body>
-
+    <header id="header">
+        <a href="/">DYM後臺管理系統</a>
+        <form action="{{route('logout')}}" method="post">
+            @csrf
+            <button type="submit">登出</button>
+        </form>
+    </header>
     <main>
         {{$slot}}
     </main>

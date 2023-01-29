@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Livewire\CreateProxy;
 use App\Http\Livewire\Home;
+use App\Http\Livewire\HomeComponet;
+use App\Http\Livewire\MemberComponet;
+use App\Http\Livewire\Proxy;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +18,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', Home::class)->middleware(['auth']);;
+Route::get('/', HomeComponet::class)->middleware(['auth']);
+Route::get('/member', MemberComponet::class)->middleware(['auth']);
+// Route::get('/', Home::class)->middleware(['auth']);
+// Route::get('/proxy', Proxy::class)->middleware(['auth']);
+Route::get('/createProxy', CreateProxy::class)->middleware(['auth']);
+Route::post('/createProxySet', [AuthController::class, 'register'])->middleware(['auth']);
 
 Route::middleware([
     'auth:sanctum',

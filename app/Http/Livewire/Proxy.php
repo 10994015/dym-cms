@@ -4,9 +4,10 @@ namespace App\Http\Livewire;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Livewire\Component;
 use Illuminate\Support\Facades\Log;
-class Home extends Component
+use Livewire\Component;
+
+class Proxy extends Component
 {
     public $users;
     public $account;
@@ -32,7 +33,7 @@ class Home extends Component
     }
     public function viewUserInfo($id){
         $this->update_user_id = $id;
-        log::info($this->id);
+        Log::info($this->id);
         $user = User::find($id);
         $this->account = $user->username;
         $this->name = $user->name;
@@ -52,7 +53,7 @@ class Home extends Component
     }
     public function searchFn(){
         if($this->searchText != ""){
-            return redirect('/?s=' . $this->searchText);
+            return redirect('proxy/?s=' . $this->searchText);
         }else{
             return redirect('/');
         }
@@ -78,9 +79,9 @@ class Home extends Component
             $s = request()->s;
         }
         if(Auth::user()->username === "admin"){
-            $this->users = User::where([['utype', 'USR'], ['username', '<>', 'admin'],['username', 'like', "%$s%"]])->get();
+            $this->users = User::where([['utype', 'ADM'], ['username', '<>', 'admin'],['username', 'like', "%$s%"]])->get();
         }else{
-            $this->users = User::where([['toponline', Auth::id()],['utype', 'USR'],  ['username', 'like', "%$s%"]])->get();
+            $this->users = User::where([['toponline', Auth::id()], ['utype', 'ADM'], ['username', 'like', "%$s%"]])->get();            
         }
         $this->dispatchBrowserEvent('changeQRcode', ['url'=>$this->url]);
         return view('livewire.home', ['users'=>$this->users])->layout('layouts.base');

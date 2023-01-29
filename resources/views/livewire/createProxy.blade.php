@@ -1,4 +1,4 @@
-{{-- <x-guest-layout>
+<x-guest-layout>
     @php
         $r_number = NULL;
         if(isset(request()->rn)){
@@ -34,5 +34,4 @@
             <button type="submit" class="btn btn-light bg-light mt-3 registerBtn">REGISTER</button>
         </form>
     </div>
-</x-guest-layout> --}}
-404
+</x-guest-layout>

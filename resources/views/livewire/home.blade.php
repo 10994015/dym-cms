@@ -6,6 +6,15 @@
             <button type="submit">登出</button>
         </form>
     </header>
+    <div class="nav">
+        <div>
+            <button id="memberManage" wire:click="memberManageFn()" class=" @if(request()->server()['REQUEST_URI']=="/") focus @endif ">會員管理</button>
+            <button id="proxyManage" wire:click="proxyManageFn()" class="@if(request()->server()['REQUEST_URI']=="/proxy") focus @endif">代理管理</button>
+        </div>
+        <div>
+            <a href="/createProxy?rn={{Auth::user()->register_number}}">新增代理</a>
+        </div>
+    </div>
     <div class="content">
         <div class="user-list">
             <div class="searchDiv">
@@ -25,6 +34,7 @@
                     @else
                         &nbsp;&nbsp;&nbsp;
                     @endif
+                    {{-- 【{{DB::table('users')->where('id', $user->toponline)->first()->name}}】 --}}
                     {{$user->username}}-{{$user->name}}({{$user->phone}})
                 </p>
                 @foreach (DB::table('users')->where('toponline', $user->id)->get() as $down)
@@ -32,11 +42,8 @@
                     <p wire:click="viewUserInfo({{$down->id}})">{{$down->username}}-{{$down->name}}({{$down->phone}})</p>
                 </div>
                 @endforeach
-               
-                
             </div>
             @endforeach
-          
         </div>
         <div class="user-info">
             <div>帳號: <input type="text" class="" disabled wire:model="account"></div>

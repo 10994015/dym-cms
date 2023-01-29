@@ -30,7 +30,9 @@ class User extends Authenticatable
         'phone',
         'utype',
         'register_number',
-        'toponline'
+        'toponline',
+        'last_login_time',
+        'last_login_ip',
     ];
 
     /**
