@@ -6,6 +6,7 @@ use App\Http\Livewire\Home;
 use App\Http\Livewire\HomeComponet;
 use App\Http\Livewire\MemberComponet;
 use App\Http\Livewire\Proxy;
+use App\Http\Livewire\SetMember;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,7 @@ Route::get('/member', MemberComponet::class)->middleware(['auth']);
 // Route::get('/proxy', Proxy::class)->middleware(['auth']);
 Route::get('/createProxy', CreateProxy::class)->middleware(['auth']);
 Route::post('/createProxySet', [AuthController::class, 'register'])->middleware(['auth']);
+Route::get('/setMember/{id}', SetMember::class)->middleware(['auth']);
 
 Route::middleware([
     'auth:sanctum',

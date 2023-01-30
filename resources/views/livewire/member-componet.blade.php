@@ -10,15 +10,15 @@
         <div class="nav">
             <div class="form-group ">
                 <label for="">每頁顯示</label>
-                <select name="" id="" class="form-control">
+                <select name="" id="" class="form-control" wire:model="pageNumber">
                     <option value="15">15</option>
-                    <option value="25">15</option>
-                    <option value="50">15</option>
+                    <option value="25">25</option>
+                    <option value="50">25</option>
                 </select>
             </div>
             <div class="form-group ml-5">
                 <label for="">搜尋</label>
-                <input type="text" class="form-control searchInput" placeholder="搜尋..." >
+                <input type="text" class="form-control searchInput" placeholder="搜尋..." wire:model="searchText">
             </div>
         </div>
           <table class="table">
@@ -48,7 +48,7 @@
                     <td scope="col">{{$down['id']}}</td>
                     <td scope="col">DYM</td>
                     <td scope="col">{{ DB::table('users')->where('id', $down['toponline'])->first()->username }}</td>
-                    <td scope="col"><span class="account-btn" id="account-btn">{{$down['username']}}</span></td>
+                    <td scope="col"><span class="account-btn" >{{$down['username']}}</span></td>
                     <td scope="col">{{$down['name']}}</td>
                     <td scope="col">{{$down['money']}}</td>
                     <td scope="col">{{$down['total_money']}}</td>
@@ -56,15 +56,17 @@
                     <td scope="col">{{$down['phone']}}</td>
                     <td scope="col">{{$down['last_login_time']}}</td>
                     <td scope="col">{{$down['last_login_ip']}}</td>
-                    <td scope="col">-</td>
-                    <td scope="col"> @if($down['status'] == 1) <button class="btn" id="closeStatusBtn">啟用</button> @else <button class="btn" id="openStatusBtn">關閉</button> @endif</td>
+                    <td scope="col">@if($down['recommender'] == NULL) - @else {{$down['recommender']}} @endif</td>
+                    <td scope="col"> @if($down['status'] == 1) <button class="btn text-light closeStatusBtn"  value="{{$down->id}}">啟用</button> @else <button class="btn text-light openStatusBtn" value="{{$down->id}}">關閉</button> @endif</td>
                     <td scope="col">{{$down['created_at']}}</td>
-                    <td scope="col"><button type="button" class="btn btn-success">設定</button></td>
+                    <td scope="col"><a href="/setMember/{{$down->id}}" type="button" class="btn btn-success">設定</a></td>
                     <td scope="col"></td>
                   </tr>
                 @endforeach
               
             </tbody>
           </table>
+
+          {{ $downs->links() }}
     </div>
 </div>

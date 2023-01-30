@@ -9,18 +9,22 @@
         <h1>管理者列表</h1>
         @if(request()->session()->has('status')) <b class="text-success" style="margin:20px 0;"> {{request()->session()->get('status')}} </b> @endif
         <div class="nav">
-            <div class="form-group ">
+            {{-- <div class="form-group ">
                 <label for="">每頁顯示</label>
                 <select name="" id="" class="form-control">
                     <option value="15">15</option>
-                    <option value="25">15</option>
-                    <option value="50">15</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
                 </select>
+            </div> --}}
+            {{-- <div class="form-group " >
+                <label for="">搜尋代理</label>
+                <input type="text" class="form-control searchInput" placeholder="搜尋代理..." >
             </div>
-            <div class="form-group ml-5">
-                <label for="">搜尋</label>
-                <input type="text" class="form-control searchInput" placeholder="搜尋..." >
-            </div>
+            <div class="form-group " >
+              <label for="">搜尋帳號</label>
+              <input type="text" class="form-control searchInput" placeholder="搜尋帳號..." >
+          </div> --}}
         </div>
         <table class="table">
             <thead>
