@@ -1,14 +1,9 @@
-<div id="home-componet">
-    <div class="slidebar">
-        <ul>
-            <a href="/">代理管理</a>
-            <a href="/member">會員管理</a>
-        </ul>
-    </div>
+<div id="home-componet" class="app">
+  @include('livewire.components.slidebar')
     <div class="main-content">
         <h1>管理者列表</h1>
         <div class="nav">
-            <div class="form-group ">
+            <div class="form-group">
                 <label for="">每頁顯示</label>
                 <select name="" id="" class="form-control" wire:model="pageNumber">
                     <option value="15">15</option>
@@ -19,6 +14,11 @@
             <div class="form-group ml-5">
                 <label for="">搜尋</label>
                 <input type="text" class="form-control searchInput" placeholder="搜尋..." wire:model="searchText">
+            </div>
+
+            <div class="from-group" style="margin-left:50px">
+              <label for=""></label>
+              <a href="/createMember"  class="btn btn-success block">新增會員</a>
             </div>
         </div>
           <table class="table">
@@ -39,7 +39,7 @@
                 <th scope="col">狀態</th>
                 <th scope="col">註冊日期</th>
                 <th scope="col">設定</th>
-                <th scope="col">點數操作</th>
+                {{-- <th scope="col">點數操作</th> --}}
               </tr>
             </thead>
             <tbody>
@@ -60,7 +60,7 @@
                     <td scope="col"> @if($down['status'] == 1) <button class="btn text-light closeStatusBtn"  value="{{$down->id}}">啟用</button> @else <button class="btn text-light openStatusBtn" value="{{$down->id}}">關閉</button> @endif</td>
                     <td scope="col">{{$down['created_at']}}</td>
                     <td scope="col"><a href="/setMember/{{$down->id}}" type="button" class="btn btn-success">設定</a></td>
-                    <td scope="col"></td>
+                    {{-- <td scope="col"></td> --}}
                   </tr>
                 @endforeach
               

@@ -32,8 +32,11 @@ class MemberComponet extends Component
     }
     public function render()
     {
-
-        $downs = User::where([['toponline', Auth::user()->id], ['utype', 'USR'], ['username', 'like', "%$this->searchText%"]])->paginate($this->pageNumber);
+        if(Auth::user()->highest_auth === 1){
+            $downs = User::where([['utype', 'USR'], ['username', 'like', "%$this->searchText%"]])->paginate($this->pageNumber);
+        }else{
+            $downs = User::where([['toponline', Auth::user()->id], ['utype', 'USR'], ['username', 'like', "%$this->searchText%"]])->paginate($this->pageNumber);
+        }
 
         return view('livewire.member-componet', ['downs'=>$downs])->layout('layouts.base');
     }

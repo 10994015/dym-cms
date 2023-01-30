@@ -1,10 +1,5 @@
 <div id="home-componet" wire:ignore>
-    <div class="slidebar">
-        <ul>
-            <a href="/">代理管理</a>
-            <a href="/member">會員管理</a>
-        </ul>
-    </div>
+    @include('livewire.components.slidebar')
     <div class="main-content">
         <h1>管理者列表</h1>
         @if(request()->session()->has('status')) <b class="text-success" style="margin:20px 0;"> {{request()->session()->get('status')}} </b> @endif

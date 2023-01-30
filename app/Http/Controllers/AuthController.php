@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\Rules\Password;
 use Validator;
 class AuthController extends Controller
 {
@@ -45,5 +46,21 @@ class AuthController extends Controller
         request()->session()->flash('status', '新增代理成功!');
         return redirect('/')->withInput();
         // return back()->withInput()->back();
+    }
+
+    public function changePassword(Request $req){
+        $data = $req->validate([
+            'password'=>[
+                'required',
+                'confirmed',
+                'min:8'
+            ]
+        ]);
+        log::info($req->member_id);
+        $user = User::find($req->member_id);
+        $user->password = bcrypt($req->password);
+        $user->save();
+
+        return redirect("/setMember/$req->member_id")->withInput();
     }
 }

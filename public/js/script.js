@@ -3,74 +3,6 @@ var __webpack_exports__ = {};
 /*!********************************!*\
   !*** ./resources/js/script.js ***!
   \********************************/
-// const userItem = document.getElementsByClassName('user-item');
-// const url = document.getElementById('url');
-// const unlock = document.getElementById('unlock');
-// const lock = document.getElementById('lock');
-// const cancel = document.getElementById('cancel');
-// const info = document.getElementsByClassName('info');
-// const viewDownline = e=>{
-//     if(e.target.parentNode.querySelector('.down-line') != undefined){
-//         if(e.target.parentNode.querySelector('.down-line').style.height == "auto"){
-//             e.target.parentNode.querySelector('.down-line').style.height = "0";
-//             e.target.querySelector('i').classList.remove('fa-caret-down');
-//         }else{
-//             e.target.parentNode.querySelector('.down-line').style.height = "auto";
-//             e.target.querySelector('i').classList.add('fa-caret-down');
-//         }
-//     }
-// }
-
-// for(let i=0;i<userItem.length;i++){
-//     userItem[i].addEventListener('click', viewDownline);
-// }
-// const changeQRcode =  ()=>{
-//     $('#qrcode').html('');
-//     if(url.value != "無"){
-//         $('#qrcode').qrcode({
-//             width: 120,
-//             height: 120,
-//             text: url.value
-//         });
-//     }
-// }
-// changeQRcode();
-// window.addEventListener('viewUserInfo', e=>{
-//     changeQRcode();
-// })
-// unlock.addEventListener('click', ()=>{
-//     unlock.style.display = "none"
-//     lock.style.display = "block"
-//     cancel.style.display = "block"
-//     for(let i=0;i<info.length;i++){
-//         info[i].disabled = false;
-//         info[i].classList.add('open');
-//     }
-// })
-// lock.addEventListener('click', ()=>{
-//     lock.style.display = "none"
-//     unlock.style.display = "block"
-//     cancel.style.display = "none"
-//     for(let i=0;i<info.length;i++){
-//         info[i].disabled = true;
-//         info[i].classList.remove('open');
-//     }
-//     Swal.fire(
-//         '更改成功！',
-//         '',
-//         'success'
-//       )
-// })
-// cancel.addEventListener('click', ()=>{
-//     lock.style.display = "none"
-//     unlock.style.display = "block"
-//     cancel.style.display = "none"
-//     for(let i=0;i<info.length;i++){
-//         info[i].disabled = true;
-//         info[i].classList.remove('open');
-//     }
-// })
-// window.Livewire.emit('calcMoney', winMoney);
 var downlineList = document.getElementById('downlineList');
 var accountBtn = document.getElementsByClassName('account-btn');
 var viewDownline = function viewDownline(e) {
@@ -129,7 +61,6 @@ for (var _i8 = 0; _i8 < accountBtn.length; _i8++) {
 }
 var html = "";
 window.addEventListener('viewDownlineFn', function (e) {
-  console.log(e.detail.data);
   var data = e.detail.data;
   html += "<table class=\"table\">\n    <thead>\n      <tr>\n        <th scope=\"col\">#</th>\n        <th scope=\"col\">\u5206\u7AD9</th>\n        <th scope=\"col\">\u7D1A\u5225</th>\n        <th scope=\"col\">\u5E33\u865F</th>\n        <th scope=\"col\">\u540D\u7A31</th>\n        <th scope=\"col\">\u4E0B\u7DDA</th>\n        <th scope=\"col\">\u6703\u54E1\u4EBA\u6578</th>\n        <th scope=\"col\">\u72C0\u614B</th>\n        <th scope=\"col\">\u6700\u5F8C\u767B\u5165\u65E5\u671F</th>\n        <th scope=\"col\">\u6703\u54E1\u5206\u7D05\u8A2D\u5B9A</th>\n        <th scope=\"col\">\u8A3B\u518A\u65E5\u671F</th>\n        <th scope=\"col\">\u65B0\u589E\u4E0B\u7DDA</th>\n        <th scope=\"col\">\u8A2D\u5B9A</th>\n      </tr>\n    </thead>\n    <tbody>";
   data.forEach(function (e) {

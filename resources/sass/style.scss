@@ -265,31 +265,40 @@ footer{
     }
 }
 
+.slidebar{
+    width:200px;
+    min-height: calc(100vh - 167px);
+    background-color: #333;
+    >ul{
+        width:100%;
+        margin-top: 100px;
+        >a{
+            display: block;
+            width:100%;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            color:#fff;
+            &:hover{
+                background-color: #111;
+            }
+        }
+    }
+}
 
+.app{
+    width:100%;
+    min-height: calc(100vh - 167px);
+    display: flex;
+    >.main-content{
+        width: 100%;
+        padding: 25px;
+    }
+}
 #home-componet{
     width:100%;
     min-height: calc(100vh - 167px);
     display: flex;
-    >.slidebar{
-        width:200px;
-        min-height: calc(100vh - 167px);
-        background-color: #333;
-        >ul{
-            width:100%;
-            margin-top: 100px;
-            >a{
-                display: block;
-                width:100%;
-                height: 60px;
-                line-height: 60px;
-                text-align: center;
-                color:#fff;
-                &:hover{
-                    background-color: #111;
-                }
-            }
-        }
-    }
     >.main-content{
         padding: 25px;
         width: 100%;
@@ -336,6 +345,81 @@ footer{
             .openStatusBtn{
                 background-color: #F0AD4E;
                 color:#fff;
+            }
+        }
+    }
+}
+
+#setMember{
+    width:100%;
+    min-height: calc(100vh - 167px);
+    display: flex;
+    >.main-content{
+        width: 100%;
+        padding: 25px;
+        >table{
+            width:100%;
+            max-width: 600px;
+            margin-top: 50px;
+            tr{
+                width:100%;
+                th{
+                    width:35%;
+                    color:#111;
+                    font-weight: 500;
+                    font-size: 15px;
+                }
+                td{
+                    width: 65%;
+                }
+            }
+            input[type="text"]{
+                width:178px;
+                height: 26px;
+                font-size: 14px;
+                padding: 0 4px;
+                border:1px #aaa solid;
+                border-radius: 4px;
+            }
+            select{
+                width: 100px;
+                height: 26px;
+                font-size: 14px;
+                padding: 0 5px;
+            }
+            label{
+                font-size: 14px;
+            }
+            textarea{
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+#changeMemberPassword{
+    table{
+        width: 100%;
+        margin-top: 50px;
+        th{
+            width:15%;
+            color:#111;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        td{
+            width:85%;
+            font-size: 14px;
+            input[type="text"], input[type="password"]{
+                width:200px;
+                height: 26px;
+                font-size: 14px;
+                padding: 0 4px;
+                border:1px #aaa solid;
+                border-radius: 4px;
+            }
+            button.btn, a.btn{
+                background-color: #0D6EFD;
             }
         }
     }
