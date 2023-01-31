@@ -63,4 +63,31 @@ class AuthController extends Controller
 
         return redirect("/setMember/$req->member_id")->withInput();
     }
+
+
+    public function createMember(Request $req){
+        $data = $req->validate([
+            'name' => 'required|string',
+            'username'=> 'required|string|unique:users',
+            'phone'=> 'required|string|size:10|unique:users',
+            'password'=>[
+                'required',
+                'confirmed',
+                'min:8',
+                'max:20'
+            ]
+        ]);
+        
+        $user = User::create([
+            'name' => $data['name'],
+            'username' => $data['username'],
+            'phone' => $data['phone'],
+            'password' => bcrypt($data['password']),
+            'toponline' => Auth::id(),
+            'utype'=>'USR',
+            'phone_verification'=> 1,
+        ]);
+
+        return redirect("/member")->withInput();
+    }
 }

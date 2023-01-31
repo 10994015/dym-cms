@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Livewire\ChangeMemberPassword;
+use App\Http\Livewire\CreateMember;
 use App\Http\Livewire\CreateProxy;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\HomeComponet;
@@ -29,10 +30,12 @@ Route::get('/member', MemberComponet::class)->middleware(['auth']);
 Route::get('/createProxy', CreateProxy::class)->middleware(['auth']);
 Route::get('/setMember/{id}', SetMember::class)->middleware(['auth']);
 Route::get('/changeMemberPassword/{id}', ChangeMemberPassword::class)->middleware(['auth']);
+Route::get('/createMember', CreateMember::class)->middleware(['auth']);
 
 //post
 Route::post('/createProxySet', [AuthController::class, 'register'])->middleware(['auth']);
 Route::post('/chk_change_password', [AuthController::class, 'changePassword'])->middleware(['auth']);
+Route::post('/chk_create_member', [AuthController::class, 'createMember'])->middleware(['auth']);
 
 Route::middleware([
     'auth:sanctum',

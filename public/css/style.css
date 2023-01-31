@@ -390,21 +390,21 @@ footer p {
   font-size: 14px;
 }
 
-#changeMemberPassword table {
+#changeMemberPassword table, #createMember table {
   width: 100%;
   margin-top: 50px;
 }
-#changeMemberPassword table th {
+#changeMemberPassword table th, #createMember table th {
   width: 15%;
   color: #111;
   font-weight: 500;
   font-size: 14px;
 }
-#changeMemberPassword table td {
+#changeMemberPassword table td, #createMember table td {
   width: 85%;
   font-size: 14px;
 }
-#changeMemberPassword table td input[type=text], #changeMemberPassword table td input[type=password] {
+#changeMemberPassword table td input[type=text], #changeMemberPassword table td input[type=password], #createMember table td input[type=text], #createMember table td input[type=password] {
   width: 200px;
   height: 26px;
   font-size: 14px;
@@ -412,6 +412,6 @@ footer p {
   border: 1px #aaa solid;
   border-radius: 4px;
 }
-#changeMemberPassword table td button.btn, #changeMemberPassword table td a.btn {
+#changeMemberPassword table td button.btn, #changeMemberPassword table td a.btn, #createMember table td button.btn, #createMember table td a.btn {
   background-color: #0D6EFD;
 }
