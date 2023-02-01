@@ -55,7 +55,7 @@
                 <td scope="col">{{$me['dividends']}}</td>
                 <td scope="col">{{$me['register_date']}}</td>
                 <td scope="col"><a href="/createProxy" class="btn btn-success">新增下線</a></td>
-                <td scope="col"><button type="button" class="btn btn-success">設定</button></td>
+                <td scope="col"><a href="/setProxy/{{$me['id']}}" class="btn btn-success">設定</a></td>
               </tr>
             </tbody>
           </table>

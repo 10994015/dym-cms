@@ -9,6 +9,7 @@ use App\Http\Livewire\HomeComponet;
 use App\Http\Livewire\MemberComponet;
 use App\Http\Livewire\Proxy;
 use App\Http\Livewire\SetMember;
+use App\Http\Livewire\SetProxy;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,7 @@ Route::get('/createProxy', CreateProxy::class)->middleware(['auth']);
 Route::get('/setMember/{id}', SetMember::class)->middleware(['auth']);
 Route::get('/changeMemberPassword/{id}', ChangeMemberPassword::class)->middleware(['auth']);
 Route::get('/createMember', CreateMember::class)->middleware(['auth']);
+Route::get('/setProxy/{id}', SetProxy::class)->middleware(['auth']);
 
 //post
 Route::post('/createProxySet', [AuthController::class, 'register'])->middleware(['auth']);

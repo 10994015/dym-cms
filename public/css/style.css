@@ -390,6 +390,56 @@ footer p {
   font-size: 14px;
 }
 
+#setProxy {
+  width: 100%;
+  min-height: calc(100vh - 167px);
+  display: flex;
+}
+#setProxy > .main-content {
+  width: 100%;
+  padding: 25px;
+}
+#setProxy > .main-content > table {
+  width: 100%;
+  margin-top: 50px;
+  max-width: 1200px;
+}
+#setProxy > .main-content > table tr {
+  width: 100%;
+}
+#setProxy > .main-content > table tr th {
+  width: 25%;
+  color: #111;
+  font-weight: 500;
+  font-size: 15px;
+}
+#setProxy > .main-content > table tr td {
+  width: 75%;
+}
+#setProxy > .main-content > table input[type=text] {
+  width: 178px;
+  height: 26px;
+  font-size: 14px;
+  padding: 0 4px;
+  border: 1px #aaa solid;
+  border-radius: 4px;
+}
+#setProxy > .main-content > table input[type=text].url {
+  width: 500px;
+}
+#setProxy > .main-content > table select {
+  width: 100px;
+  height: 26px;
+  font-size: 14px;
+  padding: 0 5px;
+}
+#setProxy > .main-content > table label {
+  font-size: 14px;
+}
+#setProxy > .main-content > table textarea {
+  font-size: 14px;
+}
+
 #changeMemberPassword table, #createMember table {
   width: 100%;
   margin-top: 50px;

@@ -110,7 +110,7 @@ window.addEventListener('viewDownlineFn', e=>{
         <td scope="col">${e.dividends}</td>
         <td scope="col">${e.register_date}</td>
         <td scope="col"><a href="/createProxy" class="btn btn-success">新增下線</a></td>
-        <td scope="col"><button type="button" class="btn btn-success">設定</button></td>
+        <td scope="col"><a href="/setProxy/${e.id}" class="btn btn-success">設定</a></td>
       </tr>`;
     });
 

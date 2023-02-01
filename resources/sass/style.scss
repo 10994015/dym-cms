@@ -396,6 +396,55 @@ footer{
         }
     }
 }
+#setProxy{
+    width:100%;
+    min-height: calc(100vh - 167px);
+    display: flex;
+    >.main-content{
+        width: 100%;
+        padding: 25px;
+        >table{
+            width:100%;
+            margin-top: 50px;
+            max-width:1200px;
+            tr{
+                width:100%;
+                th{
+                    width:25%;
+                    color:#111;
+                    font-weight: 500;
+                    font-size: 15px;
+                }
+                td{
+                    width: 75%;
+                }
+            }
+            input[type="text"]{
+                width:178px;
+                height: 26px;
+                font-size: 14px;
+                padding: 0 4px;
+                border:1px #aaa solid;
+                border-radius: 4px;
+                &.url{
+                    width:500px;
+                }
+            }
+            select{
+                width: 100px;
+                height: 26px;
+                font-size: 14px;
+                padding: 0 5px;
+            }
+            label{
+                font-size: 14px;
+            }
+            textarea{
+                font-size: 14px;
+            }
+        }
+    }
+}
 
 #changeMemberPassword, #createMember{
     table{
