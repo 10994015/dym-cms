@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
@@ -16,7 +17,14 @@ class SetProxy extends Component
     public $topline;
     public $register_number;
     public $topline_name;
+    protected $listeners = ['deleteProxy' => 'deleteProxy'];
     public function mount($id){
+        if (User::find($id)->utype !== "ADM") redirect('/notfound'); 
+        if(Auth::user()->highest_auth != 1){
+            if(Auth::id() != $id){
+                if(User::find($id)->toponline != Auth::id()) return redirect('/notfound');
+            }
+        }
         $this->proxy_id = $id;
         $this->substation = "DYM";
 
@@ -36,6 +44,13 @@ class SetProxy extends Component
         $user->name = $this->name;
         $user->save();
         $this->dispatchBrowserEvent('successFn');
+    }
+    public function deleteProxy(){
+        User::where('id', $this->proxy_id)->delete();
+        User::where('toponline', $this->proxy_id)->update([
+            'toponline' => User::where('highest_auth', 1)->first()->id,
+        ]);
+        $this->dispatchBrowserEvent('deleteSuccessFn');
     }
     public function render()
     {

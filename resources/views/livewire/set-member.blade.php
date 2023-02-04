@@ -54,6 +54,12 @@
                 </td>
               </tr>
               <tr>
+                <th>託售資料</th>
+                <td>
+                    <a href="" class="btn btn-danger">新增</a>
+                </td>
+              </tr>
+              <tr>
                 <th>推薦人</th>
                 <td>
                     <input type="text" class="form-control" wire:model="recommender" />

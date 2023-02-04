@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
@@ -13,12 +14,16 @@ class CreateProxy extends Component
     public $phone;
     public $password;
     public $r_number;
-    public function createProxy(){
-        
+    public function mount($id){
+        if (User::find($id)->utype !== "ADM") redirect('/notfound'); 
+        if(Auth::user()->highest_auth != 1){
+            if(Auth::id() != $id){
+                if(User::find($id)->toponline != Auth::id()) return redirect('/notfound');
+            }
+        }
     }
     public function render()
     {
-        Log::info("dsf");
         return view('livewire.create-proxy')->layout('layouts.base');
     }
 }

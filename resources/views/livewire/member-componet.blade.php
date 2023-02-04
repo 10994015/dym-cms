@@ -8,7 +8,7 @@
                 <select name="" id="" class="form-control" wire:model="pageNumber">
                     <option value="15">15</option>
                     <option value="25">25</option>
-                    <option value="50">25</option>
+                    <option value="50">50</option>
                 </select>
             </div>
             <div class="form-group ml-5">
@@ -48,7 +48,7 @@
                     <td scope="col">{{$down['id']}}</td>
                     <td scope="col">DYM</td>
                     <td scope="col">{{ DB::table('users')->where('id', $down['toponline'])->first()->username }}</td>
-                    <td scope="col"><span class="account-btn" >{{$down['username']}}</span></td>
+                    <td scope="col"><a href="/loginRecord/{{$down->id}}" class="account-btn bg-transparent" >{{$down['username']}}</a></td>
                     <td scope="col">{{$down['name']}}</td>
                     <td scope="col">{{$down['money']}}</td>
                     <td scope="col">{{$down['total_money']}}</td>

@@ -11,18 +11,16 @@ use Validator;
 class AuthController extends Controller
 {
     public function register(Request $req){
-        // $validator = Validator::make($req->all(), [
-        //     'account' => 'required',
-        //     'phone' => 'number|unique:users',
-        //     'name' => 'required|string',
-        //     'password' => 'required|string|confirmed|min:6',
-        //     'register_number'=> 'string',
-        // ]);
-        log::info($req);
-        $user_id = NULL;
-        if($req['register_number'] != NULL){
-            $user_id = User::where('register_number', $req['register_number'])->first()->id;
-        }
+        $validator =$req->validate([
+            'name' => 'required|string',
+            'username'=> 'required|string|unique:users',
+            'password'=>[
+                'required',
+                'confirmed',
+                'min:8',
+                'max:20'
+            ]
+        ]);
         function generateRandomString($length = 30) {
             $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
             $charactersLength = strlen($characters);
@@ -35,13 +33,11 @@ class AuthController extends Controller
         $user = new User();
 
         $user->username = $req->username;
-        $user->phone = $req->phone;
         $user->name = $req->name;
         $user->password = bcrypt($req->password);
         $user->register_number = generateRandomString(30);
-        $user->toponline = $user_id;
         $user->utype = "ADM";
-        $user->toponline = Auth::user()->id;
+        $user->toponline = $req->proxy_id;
         $user->save();
         request()->session()->flash('status', '新增代理成功!');
         return redirect('/')->withInput();
@@ -77,16 +73,24 @@ class AuthController extends Controller
                 'max:20'
             ]
         ]);
-        
-        $user = User::create([
-            'name' => $data['name'],
-            'username' => $data['username'],
-            'phone' => $data['phone'],
-            'password' => bcrypt($data['password']),
-            'toponline' => Auth::id(),
-            'utype'=>'USR',
-            'phone_verification'=> 1,
-        ]);
+        // $user = User::create([
+        //     'name' => $data['name'],
+        //     'username' => $data['username'],
+        //     'phone' => $data['phone'],
+        //     'password' => bcrypt($data['password']),
+        //     'toponline' => Auth::id(),
+        //     'utype'=>'USR',
+        //     'phone_verification'=> 1,
+        // ]);
+        $user = new User();
+        $user->name = $data['name'];
+        $user->username = $data['username'];
+        $user->phone = $data['phone'];
+        $user->password = bcrypt($data['password']);
+        $user->toponline = Auth::id();
+        $user->utype = 'USR';
+        $user->phone_verification = 1;
+        $user->save();
 
         return redirect("/member")->withInput();
     }

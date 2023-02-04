@@ -9,6 +9,7 @@ use Livewire\Component;
 
 class HomeComponet extends Component
 {
+    public $searchText;
     protected $listeners = ['viewDownline' => 'viewDownline', 'openStatus'=>'openStatus', 'closeStatus'=>'closeStatus'];
     
 
@@ -25,24 +26,17 @@ class HomeComponet extends Component
     public function viewDownline($id){
         Log::info($id);
         $data = [];
+        if(User::find($id)->highest_auth === 1){
+            $users = User::where([['utype', 'ADM'],['id', '<>', $id]])->get();
+            $users_total = User::where([['utype', 'ADM'], ['id', '<>', $id]])->count();
+        }else{
+            $users = User::where([['toponline', $id], ['utype', 'ADM']])->get();
+            $users_total = User::where([['toponline', $id], ['utype', 'ADM']])->count();
+        }
         
-        $users = User::where([['toponline', $id], ['utype', 'ADM']])->get();
-        $users_total = User::where([['toponline', $id], ['utype', 'ADM']])->count();
         if ($users_total == 0){
             return;
         }
-        // "id"=>"",
-        // "sub"=>"DYM",
-        // "level"=>"",
-        // "username"=>"",
-        // "name"=>"",
-        // "downline"=>"",
-        // "member_num"=>"",
-        // "status"=>"",
-        // "last_login_date"=>"",
-        // "dividends"=>"",
-        // "register_date"=>"",
-
         foreach($users as $key=>$user){
             array_push($data, []);
             $data[$key]['id'] = $user->id;
@@ -58,8 +52,48 @@ class HomeComponet extends Component
             $data[$key]['register_date'] =  $user->created_at->format("Y-m-d H:i:s");
             log::info($user->created_at);
         }
-
         $this->dispatchBrowserEvent('viewDownlineFn', ['data'=>$data]);
+    }
+    public function searchFn(){
+        $data = [];
+        if(Auth::user()->highest_auth == 1){
+            $searchUsers = User::where([['utype', 'ADM'], ['username', 'like', '%'.$this->searchText.'%']])->get();
+            $searchUsersCount = User::where([['utype', 'ADM'], ['username', 'like', '%'.$this->searchText.'%']])->count();
+        }else{
+            $searchUsers = User::where([['toponline', Auth::user()->id], ['utype', 'ADM'], ['username', 'like', '%'.$this->searchText.'%']])->get();
+            $searchUsersCount = User::where([['toponline', Auth::user()->id], ['utype', 'ADM'], ['username', 'like', '%'.$this->searchText.'%']])->count();
+        }
+        if ($searchUsersCount == 0){
+            return;
+        }
+        // "id"=>"",
+        // "sub"=>"DYM",
+        // "level"=>"",
+        // "username"=>"",
+        // "name"=>"",
+        // "downline"=>"",
+        // "member_num"=>"",
+        // "status"=>"",
+        // "last_login_date"=>"",
+        // "dividends"=>"",
+        // "register_date"=>"",
+        foreach($searchUsers as $key=>$user){
+            array_push($data, []);
+            $data[$key]['id'] = $user->id;
+            $data[$key]['sub'] = "DYM";
+            $data[$key]['level'] = "代理";
+            $data[$key]['username'] = $user->username;
+            $data[$key]['name'] = $user->name;
+            $data[$key]['downline'] = User::where([['toponline', $user->id], ['utype', 'ADM']])->count();              
+            $data[$key]['member_num'] =User::where([['toponline',  $user->id], ['utype', 'USR']])->count();  
+            $data[$key]['status'] = $user->status;
+            $data[$key]['last_login_date'] = $user->last_login_time;
+            $data[$key]['dividends'] = "無權限";
+            $data[$key]['register_date'] =  $user->created_at->format("Y-m-d H:i:s");
+            log::info($user->created_at);
+        }
+        log::info($data);
+        $this->dispatchBrowserEvent('searchUsersFn', ['data'=>$data]);
     }
     public function render()
     {
@@ -93,7 +127,7 @@ class HomeComponet extends Component
         $me['dividends'] = "無權限";
         $me['register_date'] = Auth::user()->created_at;
 
-
+      
         return view('livewire.home-componet', ['me'=>$me])->layout('layouts.base');
     }
 }

@@ -28,10 +28,12 @@
                 <th></th>
                 <td><a href="/changeProxyPassword/{{$proxy_id}}" class="btn btn-primary">密碼修改</a></td>
               </tr>
+              @if(Auth::user()->highest_auth === 1)
               <tr>
                 <th></th>
-                <td><button type="button" class="btn btn-danger bg-danger float-right" >刪除代理</button></td>
+                <td><button type="button" class="btn btn-danger bg-danger float-right" id="deleteProxyBtn" >刪除代理</button></td>
               </tr>
+              @endif
               <tr>
                 <td colspan="2">
                     <a href="/" class="btn btn-primary float-right">返回</a>
@@ -54,5 +56,17 @@
         window.addEventListener("successFn", ()=>{
             alert("編輯成功!!")
         })
+        window.addEventListener("deleteSuccessFn", ()=>{
+            alert("刪除成功!!");
+            window.location.href = '/';
+        })
+        const deleteProxyBtn = document.getElementById('deleteProxyBtn');
+        deleteProxyBtn.addEventListener('click', ()=>{
+          if(confirm('確定要刪除嗎?刪除後就無法復原')){
+            if(confirm('再次確認')){
+              window.Livewire.emit('deleteProxy');
+            }
+          }
+        });
     </script>
 </div>

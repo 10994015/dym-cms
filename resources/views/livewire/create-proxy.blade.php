@@ -1,37 +1,48 @@
-<x-guest-layout>
-    @php
-        $r_number = NULL;
-        if(isset(request()->rn)){
-            $r_number = request()->rn;
-        }
-    @endphp
-    <div class="container-fluid" id="registerPage">
-        <h2 class="mb-3">REGISTER</h2>
-        <form method="post" action="/createProxySet" class="registerForm">
-            @csrf
-            <div class="mb-3">
-                <label for="username" class="form-label text-light" >帳號</label>
-                <input type="text"  name="username" placeholder="請輸入帳號..." class="form-control text-light" id="username" >
+<div class="app" id="createProxy">
+    @include('livewire.components.slidebar')
+    <div class="main-content">
+        <h1>新增會員</h1>
+        <table class="table table-striped table-bordered">
+            <form action="/createProxySet" method="post">
+                @csrf
+                <tbody>
+                <tr>
+                    <th>帳號</th>
+                    <td><input type="text"  name="username" placeholder="請輸入帳號..." class="form-control" value="{{old('username')}}"  id="username" ></td>
+                </tr>
+                <tr>
+                    <th>名稱</th>
+                    <td><input type="text" name="name" placeholder="請輸入名稱..." class="form-control" id="name" value="{{old('name')}}" ></td>
+                </tr>
+                <tr>
+                    <th>會員密碼</th>
+                    <td><input type="password" name="password" class="form-control"></td>
+                </tr>
+                <tr>
+                    <th>確認密碼</th>
+                    <td><input type="password" name="password_confirmation" class="form-control"></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>
+                        <input type="hidden" name="proxy_id" value="{{request()->id}}">
+                        <button type="button" id="pre-btn" class="btn btn-primary float-right ml-3" onclick="window.history.back()">返回</button>
+                        <button type="submit" class="btn btn-primary float-right">確認</button>
+                    </td>
+                </tr>
+                </tbody>
+            </form>
+          </table>
+
+          @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
-            <div class="mb-3">
-                <label for="name" class="form-label text-light" >姓名</label>
-                <input type="text" name="name" placeholder="請輸入姓名..." class="form-control text-light" id="name" >
-            </div>
-            {{-- <div class="mb-3">
-                <label for="phone" class="form-label text-light" >手機號碼</label>
-                <input type="text" name="phone" placeholder="請輸入手機號碼..." class="form-control text-light" id="phone" >
-            </div> --}}
-            <div class="mb-3">
-                <label for="password" class="form-label text-light">密碼</label>
-                <input type="password"  name="password" placeholder="請輸入密碼..." class="form-control text-light" id="password">
-            </div>
-            <div class="mb-3">
-                <label for="password_confirmation" class="form-label text-light">再次確認密碼</label>
-                <input type="password"  name="password_confirmation" placeholder="再次確認密碼..." class="form-control text-light" id="password_confirmation">
-            </div>
-            <x-jet-validation-errors class="mb-4 text-danger" />
-            <input type="hidden" value="{{$r_number}}"  name="register_number">
-            <button type="submit" class="btn btn-light bg-light mt-3 registerBtn" wire:click="createProxy">CREATE</button>
-        </form>
+        @endif
+ 
     </div>
-</x-guest-layout>
+</div>

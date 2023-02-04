@@ -32,7 +32,7 @@ class MemberComponet extends Component
     }
     public function render()
     {
-        if(Auth::user()->highest_auth === 1){
+        if(Auth::user()->highest_auth){
             $downs = User::where([['utype', 'USR'], ['username', 'like', "%$this->searchText%"]])->paginate($this->pageNumber);
         }else{
             $downs = User::where([['toponline', Auth::user()->id], ['utype', 'USR'], ['username', 'like', "%$this->searchText%"]])->paginate($this->pageNumber);

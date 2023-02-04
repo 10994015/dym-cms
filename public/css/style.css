@@ -292,84 +292,87 @@ footer p {
   padding: 25px;
 }
 
-#home-componet {
+#home-componet, #poing-manage {
   width: 100%;
   min-height: calc(100vh - 167px);
   display: flex;
 }
-#home-componet > .main-content {
+#home-componet > .main-content, #poing-manage > .main-content {
   padding: 25px;
   width: 100%;
 }
-#home-componet > .main-content > .nav {
+#home-componet > .main-content > .nav, #poing-manage > .main-content > .nav {
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-top: 50px;
 }
-#home-componet > .main-content > .nav > .form-group {
+#home-componet > .main-content > .nav > .form-group, #poing-manage > .main-content > .nav > .form-group {
   margin-left: 30px;
-  width: 250px;
 }
-#home-componet > .main-content > .nav > .form-group > select {
+#home-componet > .main-content > .nav > .form-group button, #poing-manage > .main-content > .nav > .form-group button {
+  width: 75px;
+  height: 42px;
+}
+#home-componet > .main-content > .nav > .form-group > select, #poing-manage > .main-content > .nav > .form-group > select {
   width: 80px;
 }
-#home-componet > .main-content > .nav > .form-group > input.searchInput {
-  width: 100%;
+#home-componet > .main-content > .nav > .form-group > input.searchInput, #poing-manage > .main-content > .nav > .form-group > input.searchInput {
+  width: 250px;
   border: 1px #aaa solid;
   border-radius: 8px;
 }
-#home-componet > .main-content table {
+#home-componet > .main-content table, #poing-manage > .main-content table {
   margin-top: 50px;
 }
-#home-componet > .main-content table button, #home-componet > .main-content table a {
+#home-componet > .main-content table button, #home-componet > .main-content table a, #poing-manage > .main-content table button, #poing-manage > .main-content table a {
   background-color: #198754;
   font-size: 14px;
 }
-#home-componet > .main-content table .account-btn {
+#home-componet > .main-content table .account-btn, #poing-manage > .main-content table .account-btn {
   color: #0D6EFD;
   cursor: pointer;
 }
-#home-componet > .main-content table .account-btn:hover {
+#home-componet > .main-content table .account-btn:hover, #poing-manage > .main-content table .account-btn:hover {
   border-bottom: 1px #0D6EFD solid;
 }
-#home-componet > .main-content table .closeStatusBtn {
+#home-componet > .main-content table .closeStatusBtn, #poing-manage > .main-content table .closeStatusBtn {
   background-color: #5CB85C;
   color: #fff;
 }
-#home-componet > .main-content table .openStatusBtn {
+#home-componet > .main-content table .openStatusBtn, #poing-manage > .main-content table .openStatusBtn {
   background-color: #F0AD4E;
   color: #fff;
 }
 
-#setMember {
+#setMember, #setUserPoint {
   width: 100%;
   min-height: calc(100vh - 167px);
   display: flex;
 }
-#setMember > .main-content {
+#setMember > .main-content, #setUserPoint > .main-content {
   width: 100%;
   padding: 25px;
 }
-#setMember > .main-content > table {
+#setMember > .main-content > table, #setUserPoint > .main-content > table {
   width: 100%;
   max-width: 600px;
   margin-top: 50px;
 }
-#setMember > .main-content > table tr {
+#setMember > .main-content > table tr, #setUserPoint > .main-content > table tr {
   width: 100%;
 }
-#setMember > .main-content > table tr th {
+#setMember > .main-content > table tr th, #setUserPoint > .main-content > table tr th {
   width: 35%;
   color: #111;
   font-weight: 500;
   font-size: 15px;
 }
-#setMember > .main-content > table tr td {
+#setMember > .main-content > table tr td, #setUserPoint > .main-content > table tr td {
   width: 65%;
 }
-#setMember > .main-content > table input[type=text] {
+#setMember > .main-content > table input[type=text], #setMember > .main-content > table input[type=number], #setUserPoint > .main-content > table input[type=text], #setUserPoint > .main-content > table input[type=number] {
   width: 178px;
   height: 26px;
   font-size: 14px;
@@ -377,16 +380,16 @@ footer p {
   border: 1px #aaa solid;
   border-radius: 4px;
 }
-#setMember > .main-content > table select {
+#setMember > .main-content > table select, #setUserPoint > .main-content > table select {
   width: 100px;
   height: 26px;
   font-size: 14px;
   padding: 0 5px;
 }
-#setMember > .main-content > table label {
+#setMember > .main-content > table label, #setUserPoint > .main-content > table label {
   font-size: 14px;
 }
-#setMember > .main-content > table textarea {
+#setMember > .main-content > table textarea, #setUserPoint > .main-content > table textarea {
   font-size: 14px;
 }
 
@@ -440,21 +443,21 @@ footer p {
   font-size: 14px;
 }
 
-#changeMemberPassword table, #createMember table {
+#changeMemberPassword table, #createMember table, #createProxy table {
   width: 100%;
   margin-top: 50px;
 }
-#changeMemberPassword table th, #createMember table th {
+#changeMemberPassword table th, #createMember table th, #createProxy table th {
   width: 15%;
   color: #111;
   font-weight: 500;
   font-size: 14px;
 }
-#changeMemberPassword table td, #createMember table td {
+#changeMemberPassword table td, #createMember table td, #createProxy table td {
   width: 85%;
   font-size: 14px;
 }
-#changeMemberPassword table td input[type=text], #changeMemberPassword table td input[type=password], #createMember table td input[type=text], #createMember table td input[type=password] {
+#changeMemberPassword table td input[type=text], #changeMemberPassword table td input[type=password], #createMember table td input[type=text], #createMember table td input[type=password], #createProxy table td input[type=text], #createProxy table td input[type=password] {
   width: 200px;
   height: 26px;
   font-size: 14px;
@@ -462,6 +465,18 @@ footer p {
   border: 1px #aaa solid;
   border-radius: 4px;
 }
-#changeMemberPassword table td button.btn, #changeMemberPassword table td a.btn, #createMember table td button.btn, #createMember table td a.btn {
+#changeMemberPassword table td button.btn, #changeMemberPassword table td a.btn, #createMember table td button.btn, #createMember table td a.btn, #createProxy table td button.btn, #createProxy table td a.btn {
   background-color: #0D6EFD;
+}
+
+#login-record .nav, #ip-record .nav {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 50px;
+}
+#login-record .table, #ip-record .table {
+  width: 100%;
+  max-width: 800px;
 }
