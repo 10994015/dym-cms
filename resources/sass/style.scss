@@ -279,6 +279,7 @@ footer{
             line-height: 60px;
             text-align: center;
             color:#fff;
+            font-size: 14px;
             &:hover{
                 background-color: #111;
             }
@@ -293,6 +294,10 @@ footer{
     >.main-content{
         width: 100%;
         padding: 25px;
+        font-size: 14px;
+        input, button, select{
+            font-size: 14px;
+        }
     }
 }
 #home-componet, #poing-manage{
@@ -308,6 +313,9 @@ footer{
             justify-content: flex-start;
             align-items: center;
             margin-top: 50px;
+            input{
+                height: 37px;
+            }
             >.form-group{
                 margin-left: 30px;
                 button{
@@ -488,5 +496,32 @@ footer{
     .table{
         width:100%;
         max-width: 800px;
+    }
+}
+
+#game-manage, #store-record, #report-manage{
+    .nav{
+        width:100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 50px;
+        padding: 0 30px;
+        input[type="date"]{
+            width:200px;
+            height: 37px;
+            border:1px #aaa solid;
+            border-radius: 8px;
+        }
+        button{
+            width:150px;
+            height: 45px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+    }
+    .table{
+        width:100%;
     }
 }

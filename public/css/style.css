@@ -277,6 +277,7 @@ footer p {
   line-height: 60px;
   text-align: center;
   color: #fff;
+  font-size: 14px;
 }
 .slidebar > ul > a:hover {
   background-color: #111;
@@ -290,6 +291,10 @@ footer p {
 .app > .main-content {
   width: 100%;
   padding: 25px;
+  font-size: 14px;
+}
+.app > .main-content input, .app > .main-content button, .app > .main-content select {
+  font-size: 14px;
 }
 
 #home-componet, #poing-manage {
@@ -307,6 +312,9 @@ footer p {
   justify-content: flex-start;
   align-items: center;
   margin-top: 50px;
+}
+#home-componet > .main-content > .nav input, #poing-manage > .main-content > .nav input {
+  height: 37px;
 }
 #home-componet > .main-content > .nav > .form-group, #poing-manage > .main-content > .nav > .form-group {
   margin-left: 30px;
@@ -479,4 +487,29 @@ footer p {
 #login-record .table, #ip-record .table {
   width: 100%;
   max-width: 800px;
+}
+
+#game-manage .nav, #store-record .nav, #report-manage .nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  padding: 0 30px;
+}
+#game-manage .nav input[type=date], #store-record .nav input[type=date], #report-manage .nav input[type=date] {
+  width: 200px;
+  height: 37px;
+  border: 1px #aaa solid;
+  border-radius: 8px;
+}
+#game-manage .nav button, #store-record .nav button, #report-manage .nav button {
+  width: 150px;
+  height: 45px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+}
+#game-manage .table, #store-record .table, #report-manage .table {
+  width: 100%;
 }

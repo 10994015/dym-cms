@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Livewire\ChangeMemberPassword;
 use App\Http\Livewire\CreateMember;
 use App\Http\Livewire\CreateProxy;
+use App\Http\Livewire\GameManage;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\HomeComponet;
 use App\Http\Livewire\IpRecord;
@@ -12,6 +13,7 @@ use App\Http\Livewire\MemberComponet;
 use App\Http\Livewire\NotFound;
 use App\Http\Livewire\PointManage;
 use App\Http\Livewire\Proxy;
+use App\Http\Livewire\ReportManage;
 use App\Http\Livewire\SetMember;
 use App\Http\Livewire\SetProxy;
 use App\Http\Livewire\SetUserPoint;
@@ -44,6 +46,8 @@ Route::get('/ipRecord/{ip}', IpRecord::class)->middleware(['auth']);
 Route::get('/pointManage', PointManage::class)->middleware(['auth']);
 Route::get('/setUserPoint/{id}', SetUserPoint::class)->middleware(['auth']);
 Route::get('/storeRecord/{id}', StoreRecord::class)->middleware(['auth']);
+Route::get('/gameManage', GameManage::class)->middleware(['auth']);
+Route::get('/reportManage', ReportManage::class)->middleware(['auth']);
 
 
 Route::get('/notfound', NotFound::class)->middleware(['auth']);

@@ -3,5 +3,7 @@
         <a href="/">代理管理</a>
         <a href="/member">會員管理</a>
         <a href="/pointManage">上下分管理</a>
+        <a href="/gameManage">投注紀錄</a>
+        <a href="/reportManage">營運報表</a>
     </ul>
 </div>

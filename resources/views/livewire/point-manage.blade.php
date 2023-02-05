@@ -27,7 +27,6 @@
                   <th scope="col">點數</th>
                   <th scope="col">累計儲值</th>
                   <th scope="col">遊戲內點數</th>
-                  <th scope="col">遊戲統計</th>
                   <th scope="col">儲值紀錄</th>
                   <th scope="col">管理</th>
                 </tr>
@@ -38,12 +37,11 @@
                      <td>{{$user->id}}</td>
                      <td>DYM</td>
                      {{-- <td>{{ DB::table('users')->where('id', $user->toponline)->first()->username }}</td> --}}
-                     <td>{{$user->username}}</td>
+                     <td><span class="text-primary">{{$user->username}}</span></td>
                      <td>{{$user->name}}</td>
-                     <td>{{$user->money}}</td>
-                     <td>{{$user->total_money}}</td>
+                     <td> <span class="fw-bold @if($user->money>0) text-success @else text-black-50 @endif">{{$user->money}}</span></td>
+                     <td><span class="fw-bold @if($user->total_money>0) text-success @else text-black-50 @endif">{{$user->total_money}}</span></td>
                      <td>-</td>
-                     <td><a href="/gameRecord/{{$user->id}}" class="btn btn-primary">遊戲統計</a></td>
                      <td><a href="/storeRecord/{{$user->id}}" class="btn btn-primary">儲值紀錄</a></td>
                      <td><a href="/setUserPoint/{{$user->id}}" class="btn btn-success">管理</a></td>
                   </tr>
