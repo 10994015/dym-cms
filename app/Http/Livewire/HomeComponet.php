@@ -66,17 +66,6 @@ class HomeComponet extends Component
         if ($searchUsersCount == 0){
             return;
         }
-        // "id"=>"",
-        // "sub"=>"DYM",
-        // "level"=>"",
-        // "username"=>"",
-        // "name"=>"",
-        // "downline"=>"",
-        // "member_num"=>"",
-        // "status"=>"",
-        // "last_login_date"=>"",
-        // "dividends"=>"",
-        // "register_date"=>"",
         foreach($searchUsers as $key=>$user){
             array_push($data, []);
             $data[$key]['id'] = $user->id;

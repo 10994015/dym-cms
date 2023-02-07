@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Livewire\ChangeMemberPassword;
 use App\Http\Livewire\CreateMember;
 use App\Http\Livewire\CreateProxy;
+use App\Http\Livewire\Dashborad;
 use App\Http\Livewire\GameManage;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\HomeComponet;
@@ -32,7 +33,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 //get
-Route::get('/', HomeComponet::class)->middleware(['auth']);
+Route::get('/', Dashborad::class)->middleware(['auth']);
+Route::get('/proxy', HomeComponet::class)->middleware(['auth']);
 Route::get('/member', MemberComponet::class)->middleware(['auth']);
 // Route::get('/', Home::class)->middleware(['auth']);
 // Route::get('/proxy', Proxy::class)->middleware(['auth']);

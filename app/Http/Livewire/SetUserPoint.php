@@ -36,7 +36,9 @@ class SetUserPoint extends Component
         $user = User::find($this->member_id);
         if($this->store == 1){
             $user->money = $user->money + $this->point;
-            $user->total_money = $user->total_money + $this->point;
+            if($this->store_type==1 || $this->store_type == 2){
+                $user->total_money = $user->total_money + $this->point;
+            }
             $user->save();
         }elseif($this->store == -1){
             $user->money = $user->money - $this->point;

@@ -3,20 +3,56 @@
     <div class="main-content">
         <h1>遊戲統計</h1>
         <div class="nav mb-3">
-            <div class="search">
+            <div class="search mb-2">
                 <label for="">
-                    <p class="mb-2 fs-6">時間區間</p>
+                    <p class="mb-2 ">時間區間</p>
                     <input type="date" class="form-control" wire:model="startTime" />
                 </label>
-                <label for="" class="mx-2"><p class="mb-2 fs-6">&nbsp;</p>-</label>
+                <label for="" class="mx-2"><p class="mb-2">&nbsp;</p>-</label>
                 <label for="">
-                    <p class="mb-2 fs-6">&nbsp;</p>
+                    <p class="mb-2 ">&nbsp;</p>
                     <input type="date" class="form-control" wire:model="endTime" />
                 </label>
             </div>
-            <button class="btn btn-success" id="downloadExcel">下載報表</button>
+            <div class="mb-3">
+                <label for="">
+                    <p class="mb-2">投注金額</p>
+                    <input type="number" class="form-control" wire:model="startMoney" />
+                </label>
+                <label for="" class="mx-2"><p class="mb-2 fs-6">&nbsp;</p>-</label>
+                <label for="">
+                    <p class="mb-2">&nbsp;</p>
+                    <input type="number" class="form-control" wire:model="endMoney" />
+                </label>
+            </div>
+            <div class="d-flex align-items-center mb-3">
+                <label for="">
+                    <input type="text" class="form-control" placeholder="期號" wire:model="betNumber" />
+                </label>
+                <select wire:model="game_type" class="ml-2">
+                    <option value="">全部遊戲</option>
+                    <option value="23">飛機競速</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="">
+                    <input type="text" class="form-control account-input" placeholder="帳號" wire:model="account" />
+                </label>
+            </div>
+            <div>
+                <button class="btn btn-primary">搜尋</button>
+            </div>
         </div>
-        <table class="table">
+        <button class="btn btn-success float-right mb-3" id="downloadExcel">下載報表</button>
+        <label class="mb-3">
+            <p>每頁顯示</p>
+            <select wire:model="pageNumber">
+                <option value="">50</option>
+                <option value="">100</option>
+                <option value="">200</option>
+            </select>
+        </label>
+        <table class="table table-bordered table-striped">
             <thead>
               <tr>
                 <th scope="col">平台</th>
@@ -67,6 +103,8 @@
                 
             </tbody>
           </table>
+
+          {{$betList->links()}}
     </div>
 
     <script>

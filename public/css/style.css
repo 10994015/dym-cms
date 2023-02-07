@@ -237,7 +237,7 @@
 
 header#header {
   width: 100%;
-  background-color: #212121;
+  background-color: #222;
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -492,18 +492,43 @@ footer p {
 #game-manage .nav, #store-record .nav, #report-manage .nav {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   margin-top: 50px;
   padding: 0 30px;
 }
-#game-manage .nav input[type=date], #store-record .nav input[type=date], #report-manage .nav input[type=date] {
+#game-manage .nav input[type=date], #game-manage .nav input[type=number], #store-record .nav input[type=date], #store-record .nav input[type=number], #report-manage .nav input[type=date], #report-manage .nav input[type=number] {
   width: 200px;
-  height: 37px;
+  height: 32px;
   border: 1px #aaa solid;
   border-radius: 8px;
 }
-#game-manage .nav button, #store-record .nav button, #report-manage .nav button {
+#game-manage .nav input[type=text], #store-record .nav input[type=text], #report-manage .nav input[type=text] {
+  width: 430px;
+  height: 32px;
+  border: 1px #aaa solid;
+  border-radius: 8px;
+}
+#game-manage .nav input[type=text].account-input, #store-record .nav input[type=text].account-input, #report-manage .nav input[type=text].account-input {
+  width: 870px;
+}
+#game-manage .nav select, #store-record .nav select, #report-manage .nav select {
+  padding: 0 12px;
+  width: 430px;
+  height: 32px;
+  border: 1px #aaa solid;
+  border-radius: 8px;
+}
+#game-manage p, #store-record p, #report-manage p {
+  font-size: 14px;
+}
+#game-manage select, #store-record select, #report-manage select {
+  padding: 0 12px;
+  width: 80px;
+  height: 32px;
+  border: 1px #aaa solid;
+  border-radius: 8px;
+}
+#game-manage button#downloadExcel, #store-record button#downloadExcel, #report-manage button#downloadExcel {
   width: 150px;
   height: 45px;
   border-radius: 25px;
@@ -512,4 +537,26 @@ footer p {
 }
 #game-manage .table, #store-record .table, #report-manage .table {
   width: 100%;
+}
+
+#dashboard nav {
+  width: 100%;
+  max-width: 800px;
+}
+#dashboard nav > .box {
+  width: 50%;
+  height: 95px;
+  background-color: #337AB7;
+  color: #fff;
+}
+#dashboard nav > .box > i {
+  font-size: 34px;
+}
+#dashboard nav > .box > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#dashboard nav > .box > div h3 {
+  font-size: 34px;
 }

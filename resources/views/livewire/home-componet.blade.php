@@ -1,8 +1,7 @@
-<div id="home-componet" wire:ignore>
+<div id="home-componet" class="app" wire:ignore>
     @include('livewire.components.slidebar')
     <div class="main-content">
         <h1>管理者列表</h1>
-        {{Auth::user()->username}}
         @if(request()->session()->has('status')) <b class="text-success" style="margin:20px 0;"> {{request()->session()->get('status')}} </b> @endif
         <div class="nav">
             {{-- <div class="form-group ">
