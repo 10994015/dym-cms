@@ -19,6 +19,7 @@ use App\Http\Livewire\SetMember;
 use App\Http\Livewire\SetProxy;
 use App\Http\Livewire\SetUserPoint;
 use App\Http\Livewire\StoreRecord;
+use App\Http\Livewire\Subaccount;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,6 +51,8 @@ Route::get('/setUserPoint/{id}', SetUserPoint::class)->middleware(['auth']);
 Route::get('/storeRecord/{id}', StoreRecord::class)->middleware(['auth']);
 Route::get('/gameManage', GameManage::class)->middleware(['auth']);
 Route::get('/reportManage', ReportManage::class)->middleware(['auth']);
+
+Route::get('/subaccount', Subaccount::class)->middleware(['auth']);
 
 
 Route::get('/notfound', NotFound::class)->middleware(['auth']);
