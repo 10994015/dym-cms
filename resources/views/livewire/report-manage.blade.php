@@ -95,6 +95,7 @@
                 
             </tbody>
           </table>
+          {{$betList->links()}}
     </div>
 
     <script>

@@ -4,6 +4,11 @@
         <h1>管理者列表</h1>
         @if(request()->session()->has('status')) <b class="text-success" style="margin:20px 0;"> {{request()->session()->get('status')}} </b> @endif
         <div class="nav">
+          @if(Auth::user()->highest_auth === 1)
+          <div class="float-left">
+            <a href="/subaccount" class="btn btn-success ">子帳號管理</a>
+          </div>
+          @endif
             {{-- <div class="form-group ">
                 <label for="">每頁顯示</label>
                 <select name="" id="" class="form-control">

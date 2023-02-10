@@ -12,7 +12,10 @@
                 </select>
             </div>
             <div class="form-group">
-                <a href="/createSubaccount" class="btn btn-success">新增子帳號</a>
+                <a href="/createSubProxy/{{request()->id}}" class="btn btn-success">新增下線</a>
+            </div>
+            <div class="form-group">
+                <a href="/createSubMember" class="btn btn-success">新增會員</a>
             </div>
         </div>
         <table class="table">

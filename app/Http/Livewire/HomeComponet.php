@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Subaccount;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -12,6 +13,14 @@ class HomeComponet extends Component
     public $searchText;
     protected $listeners = ['viewDownline' => 'viewDownline', 'openStatus'=>'openStatus', 'closeStatus'=>'closeStatus'];
     
+    public function mount(){
+        if(Auth::user()->issub === 1){
+            $sub = Subaccount::where('user_id', Auth::id())->first();
+            if($sub->proxy !== 1){
+                return redirect('/');
+            }
+        }
+    }
 
     public function openStatus($id){
         $user = User::find($id);
@@ -26,11 +35,11 @@ class HomeComponet extends Component
     public function viewDownline($id){
         Log::info($id);
         $data = [];
-        if(User::find($id)->highest_auth === 1){
-            $users = User::where([['utype', 'ADM'],['id', '<>', $id]])->get();
+        if(User::find($id)->highest_auth === 1 || User::find($id)->issub === 1){
+            $users = User::where([['utype', 'ADM'],['id', '<>', $id], ['highest_auth', '<>', '1'], ['issub', '<>', '1']])->get();
             $users_total = User::where([['utype', 'ADM'], ['id', '<>', $id]])->count();
         }else{
-            $users = User::where([['toponline', $id], ['utype', 'ADM']])->get();
+            $users = User::where([['toponline', $id], ['utype', 'ADM'], ['issub', '<>', '1']])->get();
             $users_total = User::where([['toponline', $id], ['utype', 'ADM']])->count();
         }
         
@@ -57,11 +66,11 @@ class HomeComponet extends Component
     public function searchFn(){
         $data = [];
         if(Auth::user()->highest_auth == 1){
-            $searchUsers = User::where([['utype', 'ADM'], ['username', 'like', '%'.$this->searchText.'%']])->get();
-            $searchUsersCount = User::where([['utype', 'ADM'], ['username', 'like', '%'.$this->searchText.'%']])->count();
+            $searchUsers = User::where([['utype', 'ADM'], ['username', 'like', '%'.$this->searchText.'%'],  ['issub', '<>', '1']])->get();
+            $searchUsersCount = User::where([['utype', 'ADM'], ['username', 'like', '%'.$this->searchText.'%'],  ['issub', '<>', '1']])->count();
         }else{
-            $searchUsers = User::where([['toponline', Auth::user()->id], ['utype', 'ADM'], ['username', 'like', '%'.$this->searchText.'%']])->get();
-            $searchUsersCount = User::where([['toponline', Auth::user()->id], ['utype', 'ADM'], ['username', 'like', '%'.$this->searchText.'%']])->count();
+            $searchUsers = User::where([['toponline', Auth::user()->id], ['utype', 'ADM'], ['username', 'like', '%'.$this->searchText.'%'], ['issub', '<>', '1']])->get();
+            $searchUsersCount = User::where([['toponline', Auth::user()->id], ['utype', 'ADM'], ['username', 'like', '%'.$this->searchText.'%'],  ['issub', '<>', '1']])->count();
         }
         if ($searchUsersCount == 0){
             return;

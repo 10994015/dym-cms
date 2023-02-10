@@ -1,17 +1,21 @@
-<div class="app" id="changeMemberPassword">
+<div class="app" id="createProxy">
     @include('livewire.components.slidebar')
     <div class="main-content">
-        <h1>密碼修改</h1>
+        <h1>新增代理</h1>
         <table class="table table-striped table-bordered">
-            <form action="/chk_change_password" method="post">
+            <form action="/createSubProxySet" method="post">
                 @csrf
                 <tbody>
                 <tr>
                     <th>帳號</th>
-                    <td><input type="text" name="username" class="form-control" disabled wire:model="username" /><input type="hidden" value="{{$member_id}}" name="member_id" /></td>
+                    <td><input type="text"  name="username" placeholder="請輸入帳號..." class="form-control" value="{{old('username')}}"  id="username" ></td>
                 </tr>
                 <tr>
-                    <th>會員密碼</th>
+                    <th>名稱</th>
+                    <td><input type="text" name="name" placeholder="請輸入名稱..." class="form-control" id="name" value="{{old('name')}}" ></td>
+                </tr>
+                <tr>
+                    <th>代理密碼</th>
                     <td><input type="password" name="password" class="form-control"></td>
                 </tr>
                 <tr>
@@ -21,7 +25,8 @@
                 <tr>
                     <th></th>
                     <td>
-                        <button type="button" onclick="window.history.back()" id="pre-btn" class="btn btn-primary float-right ml-3">返回</button>
+                        <input type="hidden" name="proxy_id" value="{{request()->id}}">
+                        <button type="button" id="pre-btn" class="btn btn-primary float-right ml-3" onclick="window.history.back()">返回</button>
                         <button type="submit" class="btn btn-primary float-right">確認</button>
                     </td>
                 </tr>

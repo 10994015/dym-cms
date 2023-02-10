@@ -28,15 +28,15 @@
                 <th></th>
                 <td><a href="/changeProxyPassword/{{$proxy_id}}" class="btn btn-primary">密碼修改</a></td>
               </tr>
-              @if(Auth::user()->highest_auth === 1)
+              {{-- @if(Auth::user()->highest_auth === 1)
               <tr>
                 <th></th>
                 <td><button type="button" class="btn btn-danger bg-danger float-right" id="deleteProxyBtn" >刪除代理</button></td>
               </tr>
-              @endif
+              @endif --}}
               <tr>
                 <td colspan="2">
-                    <a href="/" class="btn btn-primary float-right">返回</a>
+                    <button onclick="window.history.back()" class="btn btn-primary float-right">返回</button>
                     <button class="btn btn-primary float-right mr-3" wire:click="changeProxyInfo">確認</button>
                 </td>
               </tr>

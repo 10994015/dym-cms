@@ -19,6 +19,14 @@ class SetProxy extends Component
     public $topline_name;
     protected $listeners = ['deleteProxy' => 'deleteProxy'];
     public function mount($id){
+
+        if(Auth::user()->issub === 1){
+            $sub = Subaccount::where('user_id', Auth::id())->first();
+            if($sub->proxy !== 1){
+                return redirect('/');
+            }
+        }
+
         if (User::find($id)->utype !== "ADM") redirect('/notfound'); 
         if(Auth::user()->highest_auth != 1){
             if(Auth::id() != $id){

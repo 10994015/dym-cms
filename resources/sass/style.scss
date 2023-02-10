@@ -300,7 +300,7 @@ footer{
         }
     }
 }
-#home-componet, #poing-manage{
+#home-componet, #poing-manage, #subaccount{
     width:100%;
     min-height: calc(100vh - 167px);
     display: flex;
@@ -457,7 +457,7 @@ footer{
     }
 }
 
-#changeMemberPassword, #createMember, #createProxy{
+#changeMemberPassword, #createMember, #createProxy, #createSubaccount{
     table{
         width: 100%;
         margin-top: 50px;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Subaccount;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -15,6 +16,14 @@ class CreateProxy extends Component
     public $password;
     public $r_number;
     public function mount($id){
+        if(Auth::user()->issub === 1){
+            $sub = Subaccount::where('user_id', Auth::id())->first();
+            if($sub->proxy !== 1){
+                return redirect('/');
+            }
+        }
+
+
         if (User::find($id)->utype !== "ADM") redirect('/notfound'); 
         if(Auth::user()->highest_auth != 1){
             if(Auth::id() != $id){
