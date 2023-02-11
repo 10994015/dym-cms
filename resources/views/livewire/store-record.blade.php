@@ -3,7 +3,7 @@
     <div class="main-content">
         <h1>儲值紀錄</h1>
         <div class="nav mb-3">
-            <button onclick="window.history.back()" class="btn btn-success">回前頁</button>
+            <button onclick="window.history.back()" class="btn btn-success" style="width:80px">回前頁</button>
         </div>
         <table class="table">
             <thead>

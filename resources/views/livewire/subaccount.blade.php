@@ -23,12 +23,10 @@
                 <th scope="col">級別</th>
                 <th scope="col">帳號</th>
                 <th scope="col">名稱</th>
-                <th scope="col">下線</th>
-                <th scope="col">會員人數</th>
                 <th scope="col">狀態</th>
                 <th scope="col">最後登入日期</th>
                 <th scope="col">建立日期</th>
-                <th scope="col">查看下線/會員</th>
+                <th scope="col">新增下線</th>
                 <th scope="col">設定</th>
               </tr>
             </thead>
@@ -41,12 +39,10 @@
                     <td scope="col"><span class="account-btn">{{$user['username']}}</span></td>
                     {{-- <td scope="col"><span class="account-btn" wire:click='viewDownline({{$me['id']}})'>{{$me['username']}}</span></td> --}}
                     <td scope="col">{{$user['name']}}</td>
-                    <td scope="col">{{$user['downline']}}</td>
-                    <td scope="col">{{$user['member_num']}}</td>
                     <td scope="col">   @if($user['status'] == 1) <button class="btn closeStatusBtn" value="{{$user['id']}}">啟用</button> @else <button class="btn openStatusBtn" value="{{$user['id']}}">關閉</button> @endif </td>
                     <td scope="col">{{$user['last_login_time']}}</td>
                     <td scope="col">{{$user['created_at']}}</td>
-                    <td scope="col"><a href="/viewSubMember/{{$user['id']}}" class="btn btn-success">查看下線/會員</a></td>
+                    <td scope="col"><a href="/createSubProxy/{{$user['id']}}" class="btn btn-success">新增下線</a></td>
                     <td scope="col"><a href="/setSubaccount/{{$user['id']}}" class="btn btn-success">設定</a></td>
                   </tr>
                 @endforeach

@@ -115,7 +115,7 @@ class HomeComponet extends Component
         ];
         // Log::info(Auth::user());
         $me['id'] = Auth::user()->id;
-        $me['level'] = Auth::user()->utype==="ADM" ? "代理" : "會員";
+        $me['level'] = Auth::user()->highest_auth ? "總代理" : "代理";
         $me['username'] = Auth::user()->username;
         $me['name'] = Auth::user()->name;
         $me['downline'] = $downlineNum;

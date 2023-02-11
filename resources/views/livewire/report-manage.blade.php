@@ -39,9 +39,9 @@
                     <input type="text" class="form-control account-input" placeholder="帳號" wire:model="account" />
                 </label>
             </div>
-            <div>
+            {{-- <div>
                 <button class="btn btn-primary">搜尋</button>
-            </div>
+            </div> --}}
         </div>
         <button class="btn btn-success float-right mb-3" id="downloadExcel">下載報表</button>
         <label class="mb-3">

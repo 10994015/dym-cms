@@ -4,11 +4,11 @@
         <h1>管理者列表</h1>
         @if(request()->session()->has('status')) <b class="text-success" style="margin:20px 0;"> {{request()->session()->get('status')}} </b> @endif
         <div class="nav">
-          @if(Auth::user()->highest_auth === 1)
+          {{-- @if(Auth::user()->highest_auth === 1)
           <div class="float-left">
             <a href="/subaccount" class="btn btn-success ">子帳號管理</a>
           </div>
-          @endif
+          @endif --}}
             {{-- <div class="form-group ">
                 <label for="">每頁顯示</label>
                 <select name="" id="" class="form-control">
@@ -39,7 +39,7 @@
               <th scope="col">會員人數</th>
               <th scope="col">狀態</th>
               <th scope="col">最後登入日期</th>
-              <th scope="col">會員分紅設定</th>
+              {{-- <th scope="col">會員分紅設定</th> --}}
               <th scope="col">註冊日期</th>
               <th scope="col">新增下線</th>
               <th scope="col">設定</th>
@@ -55,9 +55,9 @@
               <td scope="col">{{$me['name']}}</td>
               <td scope="col">{{$me['downline']}}</td>
               <td scope="col">{{$me['member_num']}}</td>
-              <td scope="col">   @if($me['status'] == 1) <button class="btn closeStatusBtn" value="{{$me['id']}}">啟用</button> @else <button class="btn openStatusBtn" value="{{$me['id']}}">關閉</button> @endif </td>
+              <td scope="col">   @if($me['status'] == 1) <button class="btn closeStatusBtn" disabled value="{{$me['id']}}">啟用</button> @else <button class="btn openStatusBtn" value="{{$me['id']}}">關閉</button> @endif </td>
               <td scope="col">{{$me['last_login_date']}}</td>
-              <td scope="col">{{$me['dividends']}}</td>
+              {{-- <td scope="col">{{$me['dividends']}}</td> --}}
               <td scope="col">{{$me['register_date']}}</td>
               <td scope="col"><a href="/createProxy/{{$me['id']}}" class="btn btn-success">新增下線</a></td>
               <td scope="col"><a href="/setProxy/{{$me['id']}}" class="btn btn-success">設定</a></td>

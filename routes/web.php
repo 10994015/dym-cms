@@ -20,6 +20,7 @@ use App\Http\Livewire\Proxy;
 use App\Http\Livewire\ReportManage;
 use App\Http\Livewire\SetMember;
 use App\Http\Livewire\SetProxy;
+use App\Http\Livewire\SetSubaccount;
 use App\Http\Livewire\SetUserPoint;
 use App\Http\Livewire\StoreRecord;
 use App\Http\Livewire\Subaccount;
@@ -59,8 +60,9 @@ Route::get('/reportManage', ReportManage::class)->middleware(['auth']);
 
 Route::get('/subaccount', Subaccount::class)->middleware(['auth']);
 Route::get('/createSubaccount', CreateSubaccount::class)->middleware(['auth']);
-Route::get('/viewSubMember/{id}', ViewSubMember::class)->middleware(['auth']);
+// Route::get('/viewSubMember/{id}', ViewSubMember::class)->middleware(['auth']);
 Route::get('/createSubProxy/{id}', CreateSubProxy::class)->middleware(['auth']);
+Route::get('/setSubaccount/{id}', SetSubaccount::class)->middleware(['auth']);
 
 
 Route::get('/notfound', NotFound::class)->middleware(['auth']);

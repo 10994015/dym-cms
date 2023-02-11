@@ -401,33 +401,33 @@ footer p {
   font-size: 14px;
 }
 
-#setProxy {
+#setProxy, #setSubaccount {
   width: 100%;
   min-height: calc(100vh - 167px);
   display: flex;
 }
-#setProxy > .main-content {
+#setProxy > .main-content, #setSubaccount > .main-content {
   width: 100%;
   padding: 25px;
 }
-#setProxy > .main-content > table {
+#setProxy > .main-content > table, #setSubaccount > .main-content > table {
   width: 100%;
   margin-top: 50px;
   max-width: 1200px;
 }
-#setProxy > .main-content > table tr {
+#setProxy > .main-content > table tr, #setSubaccount > .main-content > table tr {
   width: 100%;
 }
-#setProxy > .main-content > table tr th {
+#setProxy > .main-content > table tr th, #setSubaccount > .main-content > table tr th {
   width: 25%;
   color: #111;
   font-weight: 500;
   font-size: 15px;
 }
-#setProxy > .main-content > table tr td {
+#setProxy > .main-content > table tr td, #setSubaccount > .main-content > table tr td {
   width: 75%;
 }
-#setProxy > .main-content > table input[type=text] {
+#setProxy > .main-content > table input[type=text], #setSubaccount > .main-content > table input[type=text] {
   width: 178px;
   height: 26px;
   font-size: 14px;
@@ -435,19 +435,19 @@ footer p {
   border: 1px #aaa solid;
   border-radius: 4px;
 }
-#setProxy > .main-content > table input[type=text].url {
+#setProxy > .main-content > table input[type=text].url, #setSubaccount > .main-content > table input[type=text].url {
   width: 500px;
 }
-#setProxy > .main-content > table select {
+#setProxy > .main-content > table select, #setSubaccount > .main-content > table select {
   width: 100px;
   height: 26px;
   font-size: 14px;
   padding: 0 5px;
 }
-#setProxy > .main-content > table label {
+#setProxy > .main-content > table label, #setSubaccount > .main-content > table label {
   font-size: 14px;
 }
-#setProxy > .main-content > table textarea {
+#setProxy > .main-content > table textarea, #setSubaccount > .main-content > table textarea {
   font-size: 14px;
 }
 

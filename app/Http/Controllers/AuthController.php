@@ -57,6 +57,7 @@ class AuthController extends Controller
         $user->password = bcrypt($req->password);
         $user->save();
 
+
         return redirect("/setMember/$req->member_id")->withInput();
     }
     public function changeProxyPassword(Request $req){
@@ -71,7 +72,12 @@ class AuthController extends Controller
         $user->password = bcrypt($req->password);
         $user->save();
 
-        return redirect("/setProxy/$req->proxy_id")->withInput();
+        if($user->issub === 1){
+            return redirect("/setSubaccount/$req->proxy_id")->withInput();
+        }else{
+            return redirect("/setProxy/$req->proxy_id")->withInput();
+        }
+
     }
 
     public function createMember(Request $req){
