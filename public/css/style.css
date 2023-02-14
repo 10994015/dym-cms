@@ -282,6 +282,32 @@ footer p {
 .slidebar > ul > a:hover {
   background-color: #111;
 }
+.slidebar > ul > a #point-down-icon {
+  transition: 0.3s;
+  transform: rotate(0deg);
+  font-size: 12px;
+}
+.slidebar > ul .child-link {
+  height: 90px;
+  line-height: 45px;
+  overflow: hidden;
+  width: 100%;
+  transition: 0.3s;
+  height: 0;
+}
+.slidebar > ul .child-link > a {
+  display: block;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  padding-left: 20px;
+}
+.slidebar > ul .child-link > a:hover {
+  background-color: #111;
+}
 
 .app {
   width: 100%;

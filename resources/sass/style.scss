@@ -283,6 +283,33 @@ footer{
             &:hover{
                 background-color: #111;
             }
+            #point-down-icon{
+                transition: .3s;
+                transform: rotate(0deg);
+                font-size: 12px;
+            }
+        }
+        .child-link{
+            height: 90px;
+            line-height: 45px;
+            transition: .3s;
+            overflow: hidden;
+            width:100%;
+            transition: .3s;
+            height: 0;
+            >a{
+                display: block;
+                width:100%;
+                height: 45px;
+                line-height: 45px;
+                text-align: center;
+                color:#fff;
+                font-size: 14px;
+                padding-left: 20px;
+                &:hover{
+                    background-color: #111;
+                }
+            }
         }
     }
 }
