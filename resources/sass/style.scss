@@ -305,7 +305,7 @@ footer{
                 text-align: center;
                 color:#fff;
                 font-size: 14px;
-                padding-left: 20px;
+                padding-left: 10px;
                 &:hover{
                     background-color: #111;
                 }
@@ -327,7 +327,7 @@ footer{
         }
     }
 }
-#home-componet, #poing-manage, #subaccount{
+#home-componet, #point-manage, #next-point-manage, #subaccount{
     width:100%;
     min-height: calc(100vh - 167px);
     display: flex;
@@ -388,7 +388,7 @@ footer{
     }
 }
 
-#setMember, #setUserPoint{
+#setMember, #setUserPoint, #nextUserPoint{
     width:100%;
     min-height: calc(100vh - 167px);
     display: flex;
@@ -497,13 +497,16 @@ footer{
         td{
             width:85%;
             font-size: 14px;
-            input[type="text"], input[type="password"]{
+            input[type="text"], input[type="password"], select{
                 width:200px;
                 height: 26px;
                 font-size: 14px;
                 padding: 0 4px;
                 border:1px #aaa solid;
                 border-radius: 4px;
+            }
+            select{
+                height: 32px;
             }
             button.btn, a.btn{
                 background-color: #0D6EFD;

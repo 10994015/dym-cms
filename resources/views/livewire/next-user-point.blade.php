@@ -1,7 +1,7 @@
-<div id="setUserPoint" class="app" wire:ignore>
+<div id="nextUserPoint" class="app" wire:ignore>
     @include('livewire.components.slidebar')
     <div class="main-content">
-        <h1>上下分管理</h1>
+        <h1>下分管理</h1>
         <table class="table table-striped table-bordered">
             <tbody>
               <tr>
@@ -20,8 +20,8 @@
                 <th>選擇上下分</th>
                 <td>
                     <select class="form-control" wire:model="store">
-                        <option value="1">上分</option>
-                        {{-- <option value="-1">下分</option> --}}
+                        {{-- <option value="1">上分</option> --}}
+                        <option value="-1">下分</option>
                     </select>
                 </td>
               </tr>
@@ -29,9 +29,9 @@
                 <th></th>
                 <td>
                     <select class="form-control" wire:model="store_type">
-                        <option value="1">車商上分</option>
-                        <option value="2">手動上分</option>
-                        <option value="3">活動上分</option>
+                        <option value="4">違規下分</option>
+                        <option value="5">出款下分</option>
+                        <option value="6">活動下分</option>
                     </select>
                 </td>
               </tr>

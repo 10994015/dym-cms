@@ -21,6 +21,16 @@ class AuthController extends Controller
                 'min:8',
                 'max:20'
             ]
+        ],[
+            'name.required'=>'請輸入姓名！',
+            'name.string'=>'姓名為字串格式！',
+            'username.required'=>'請輸入帳號！',
+            'username.string'=>'帳號為字串格式！',
+            'username.unique'=>'此帳號已有人使用！',
+            'password.required'=>'請輸入密碼！',
+            'password.confirmed'=>'確認密碼與密碼不相符！',
+            'password.min'=>'密碼最少為8碼',
+            'password.max'=>'密碼最多為20碼',
         ]);
        
         $user = new User();
@@ -52,6 +62,11 @@ class AuthController extends Controller
                 'confirmed',
                 'min:8'
             ]
+        ],[
+            'password.required'=>'請輸入密碼！',
+            'password.confirmed'=>'確認密碼與密碼不相符！',
+            'password.min'=>'密碼最少為8碼',
+            'password.max'=>'密碼最多為20碼',
         ]);
         $user = User::find($req->member_id);
         $user->password = bcrypt($req->password);
@@ -67,6 +82,11 @@ class AuthController extends Controller
                 'confirmed',
                 'min:8'
             ]
+        ],[
+            'password.required'=>'請輸入密碼！',
+            'password.confirmed'=>'確認密碼與密碼不相符！',
+            'password.min'=>'密碼最少為8碼',
+            'password.max'=>'密碼最多為20碼',
         ]);
         $user = User::find($req->proxy_id);
         $user->password = bcrypt($req->password);
@@ -81,9 +101,12 @@ class AuthController extends Controller
     }
 
     public function createMember(Request $req){
+        // $topline_username = $req->proxy ?? Auth::user()->username;
+        // $topline = User::where('username', $topline_username)->first()->id;
+        // log::info($topline);
         $data = $req->validate([
-            'name' => 'required|string',
             'username'=> 'required|string|unique:users',
+            'name' => 'required|string',
             'phone'=> 'required|string|size:10|unique:users',
             'password'=>[
                 'required',
@@ -91,6 +114,20 @@ class AuthController extends Controller
                 'min:8',
                 'max:20'
             ]
+        ],[
+            'name.required'=>'請輸入姓名！',
+            'name.string'=>'姓名為字串格式！',
+            'username.required'=>'請輸入帳號！',
+            'username.string'=>'帳號為字串格式！',
+            'username.unique'=>'此帳號已有人使用！',
+            'phone.required'=>'請輸入手機！',
+            'phone.string'=>'手機為字串格式！',
+            'phone.size'=>'手機須為10碼',
+            'phone.unique'=>'此手機號碼已有人使用！',
+            'password.required'=>'請輸入密碼！',
+            'password.confirmed'=>'確認密碼與密碼不相符！',
+            'password.min'=>'密碼最少為8碼',
+            'password.max'=>'密碼最多為20碼',
         ]);
         // $user = User::create([
         //     'name' => $data['name'],
@@ -101,12 +138,14 @@ class AuthController extends Controller
         //     'utype'=>'USR',
         //     'phone_verification'=> 1,
         // ]);
+        // $req->proxy ?? 1;
+        
         $user = new User();
         $user->name = $data['name'];
         $user->username = $data['username'];
         $user->phone = $data['phone'];
         $user->password = bcrypt($data['password']);
-        $user->toponline = Auth::id();
+        $user->toponline = $req->proxy;
         $user->utype = 'USR';
         $user->phone_verification = 1;
         $user->save();
@@ -129,6 +168,16 @@ class AuthController extends Controller
                 'min:8',
                 'max:20'
             ]
+        ],[
+            'name.required'=>'請輸入姓名！',
+            'name.string'=>'姓名為字串格式！',
+            'username.required'=>'請輸入帳號！',
+            'username.string'=>'帳號為字串格式！',
+            'username.unique'=>'此帳號已有人使用！',
+            'password.required'=>'請輸入密碼！',
+            'password.confirmed'=>'確認密碼與密碼不相符！',
+            'password.min'=>'密碼最少為8碼',
+            'password.max'=>'密碼最多為20碼',
         ]);
 
         $user = new User();
@@ -167,6 +216,16 @@ class AuthController extends Controller
                 'min:8',
                 'max:20'
             ]
+        ],[
+            'name.required'=>'請輸入姓名！',
+            'name.string'=>'姓名為字串格式！',
+            'username.required'=>'請輸入帳號！',
+            'username.string'=>'帳號為字串格式！',
+            'username.unique'=>'此帳號已有人使用！',
+            'password.required'=>'請輸入密碼！',
+            'password.confirmed'=>'確認密碼與密碼不相符！',
+            'password.min'=>'密碼最少為8碼',
+            'password.max'=>'密碼最多為20碼',
         ]);
        
         $user = new User();

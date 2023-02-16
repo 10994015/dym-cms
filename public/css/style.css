@@ -303,7 +303,7 @@ footer p {
   text-align: center;
   color: #fff;
   font-size: 14px;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 .slidebar > ul .child-link > a:hover {
   background-color: #111;
@@ -323,90 +323,90 @@ footer p {
   font-size: 14px;
 }
 
-#home-componet, #poing-manage, #subaccount {
+#home-componet, #point-manage, #next-point-manage, #subaccount {
   width: 100%;
   min-height: calc(100vh - 167px);
   display: flex;
 }
-#home-componet > .main-content, #poing-manage > .main-content, #subaccount > .main-content {
+#home-componet > .main-content, #point-manage > .main-content, #next-point-manage > .main-content, #subaccount > .main-content {
   padding: 25px;
   width: 100%;
 }
-#home-componet > .main-content > .nav, #poing-manage > .main-content > .nav, #subaccount > .main-content > .nav {
+#home-componet > .main-content > .nav, #point-manage > .main-content > .nav, #next-point-manage > .main-content > .nav, #subaccount > .main-content > .nav {
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-top: 50px;
 }
-#home-componet > .main-content > .nav input, #poing-manage > .main-content > .nav input, #subaccount > .main-content > .nav input {
+#home-componet > .main-content > .nav input, #point-manage > .main-content > .nav input, #next-point-manage > .main-content > .nav input, #subaccount > .main-content > .nav input {
   height: 37px;
 }
-#home-componet > .main-content > .nav > .form-group, #poing-manage > .main-content > .nav > .form-group, #subaccount > .main-content > .nav > .form-group {
+#home-componet > .main-content > .nav > .form-group, #point-manage > .main-content > .nav > .form-group, #next-point-manage > .main-content > .nav > .form-group, #subaccount > .main-content > .nav > .form-group {
   margin-left: 30px;
 }
-#home-componet > .main-content > .nav > .form-group button, #poing-manage > .main-content > .nav > .form-group button, #subaccount > .main-content > .nav > .form-group button {
+#home-componet > .main-content > .nav > .form-group button, #point-manage > .main-content > .nav > .form-group button, #next-point-manage > .main-content > .nav > .form-group button, #subaccount > .main-content > .nav > .form-group button {
   width: 75px;
   height: 42px;
 }
-#home-componet > .main-content > .nav > .form-group > select, #poing-manage > .main-content > .nav > .form-group > select, #subaccount > .main-content > .nav > .form-group > select {
+#home-componet > .main-content > .nav > .form-group > select, #point-manage > .main-content > .nav > .form-group > select, #next-point-manage > .main-content > .nav > .form-group > select, #subaccount > .main-content > .nav > .form-group > select {
   width: 80px;
 }
-#home-componet > .main-content > .nav > .form-group > input.searchInput, #poing-manage > .main-content > .nav > .form-group > input.searchInput, #subaccount > .main-content > .nav > .form-group > input.searchInput {
+#home-componet > .main-content > .nav > .form-group > input.searchInput, #point-manage > .main-content > .nav > .form-group > input.searchInput, #next-point-manage > .main-content > .nav > .form-group > input.searchInput, #subaccount > .main-content > .nav > .form-group > input.searchInput {
   width: 250px;
   border: 1px #aaa solid;
   border-radius: 8px;
 }
-#home-componet > .main-content table, #poing-manage > .main-content table, #subaccount > .main-content table {
+#home-componet > .main-content table, #point-manage > .main-content table, #next-point-manage > .main-content table, #subaccount > .main-content table {
   margin-top: 50px;
 }
-#home-componet > .main-content table button, #home-componet > .main-content table a, #poing-manage > .main-content table button, #poing-manage > .main-content table a, #subaccount > .main-content table button, #subaccount > .main-content table a {
+#home-componet > .main-content table button, #home-componet > .main-content table a, #point-manage > .main-content table button, #point-manage > .main-content table a, #next-point-manage > .main-content table button, #next-point-manage > .main-content table a, #subaccount > .main-content table button, #subaccount > .main-content table a {
   background-color: #198754;
   font-size: 14px;
 }
-#home-componet > .main-content table .account-btn, #poing-manage > .main-content table .account-btn, #subaccount > .main-content table .account-btn {
+#home-componet > .main-content table .account-btn, #point-manage > .main-content table .account-btn, #next-point-manage > .main-content table .account-btn, #subaccount > .main-content table .account-btn {
   color: #0D6EFD;
   cursor: pointer;
 }
-#home-componet > .main-content table .account-btn:hover, #poing-manage > .main-content table .account-btn:hover, #subaccount > .main-content table .account-btn:hover {
+#home-componet > .main-content table .account-btn:hover, #point-manage > .main-content table .account-btn:hover, #next-point-manage > .main-content table .account-btn:hover, #subaccount > .main-content table .account-btn:hover {
   border-bottom: 1px #0D6EFD solid;
 }
-#home-componet > .main-content table .closeStatusBtn, #poing-manage > .main-content table .closeStatusBtn, #subaccount > .main-content table .closeStatusBtn {
+#home-componet > .main-content table .closeStatusBtn, #point-manage > .main-content table .closeStatusBtn, #next-point-manage > .main-content table .closeStatusBtn, #subaccount > .main-content table .closeStatusBtn {
   background-color: #5CB85C;
   color: #fff;
 }
-#home-componet > .main-content table .openStatusBtn, #poing-manage > .main-content table .openStatusBtn, #subaccount > .main-content table .openStatusBtn {
+#home-componet > .main-content table .openStatusBtn, #point-manage > .main-content table .openStatusBtn, #next-point-manage > .main-content table .openStatusBtn, #subaccount > .main-content table .openStatusBtn {
   background-color: #F0AD4E;
   color: #fff;
 }
 
-#setMember, #setUserPoint {
+#setMember, #setUserPoint, #nextUserPoint {
   width: 100%;
   min-height: calc(100vh - 167px);
   display: flex;
 }
-#setMember > .main-content, #setUserPoint > .main-content {
+#setMember > .main-content, #setUserPoint > .main-content, #nextUserPoint > .main-content {
   width: 100%;
   padding: 25px;
 }
-#setMember > .main-content > table, #setUserPoint > .main-content > table {
+#setMember > .main-content > table, #setUserPoint > .main-content > table, #nextUserPoint > .main-content > table {
   width: 100%;
   max-width: 600px;
   margin-top: 50px;
 }
-#setMember > .main-content > table tr, #setUserPoint > .main-content > table tr {
+#setMember > .main-content > table tr, #setUserPoint > .main-content > table tr, #nextUserPoint > .main-content > table tr {
   width: 100%;
 }
-#setMember > .main-content > table tr th, #setUserPoint > .main-content > table tr th {
+#setMember > .main-content > table tr th, #setUserPoint > .main-content > table tr th, #nextUserPoint > .main-content > table tr th {
   width: 35%;
   color: #111;
   font-weight: 500;
   font-size: 15px;
 }
-#setMember > .main-content > table tr td, #setUserPoint > .main-content > table tr td {
+#setMember > .main-content > table tr td, #setUserPoint > .main-content > table tr td, #nextUserPoint > .main-content > table tr td {
   width: 65%;
 }
-#setMember > .main-content > table input[type=text], #setMember > .main-content > table input[type=number], #setUserPoint > .main-content > table input[type=text], #setUserPoint > .main-content > table input[type=number] {
+#setMember > .main-content > table input[type=text], #setMember > .main-content > table input[type=number], #setUserPoint > .main-content > table input[type=text], #setUserPoint > .main-content > table input[type=number], #nextUserPoint > .main-content > table input[type=text], #nextUserPoint > .main-content > table input[type=number] {
   width: 178px;
   height: 26px;
   font-size: 14px;
@@ -414,16 +414,16 @@ footer p {
   border: 1px #aaa solid;
   border-radius: 4px;
 }
-#setMember > .main-content > table select, #setUserPoint > .main-content > table select {
+#setMember > .main-content > table select, #setUserPoint > .main-content > table select, #nextUserPoint > .main-content > table select {
   width: 100px;
   height: 26px;
   font-size: 14px;
   padding: 0 5px;
 }
-#setMember > .main-content > table label, #setUserPoint > .main-content > table label {
+#setMember > .main-content > table label, #setUserPoint > .main-content > table label, #nextUserPoint > .main-content > table label {
   font-size: 14px;
 }
-#setMember > .main-content > table textarea, #setUserPoint > .main-content > table textarea {
+#setMember > .main-content > table textarea, #setUserPoint > .main-content > table textarea, #nextUserPoint > .main-content > table textarea {
   font-size: 14px;
 }
 
@@ -491,13 +491,16 @@ footer p {
   width: 85%;
   font-size: 14px;
 }
-#changeMemberPassword table td input[type=text], #changeMemberPassword table td input[type=password], #createMember table td input[type=text], #createMember table td input[type=password], #createProxy table td input[type=text], #createProxy table td input[type=password], #createSubaccount table td input[type=text], #createSubaccount table td input[type=password] {
+#changeMemberPassword table td input[type=text], #changeMemberPassword table td input[type=password], #changeMemberPassword table td select, #createMember table td input[type=text], #createMember table td input[type=password], #createMember table td select, #createProxy table td input[type=text], #createProxy table td input[type=password], #createProxy table td select, #createSubaccount table td input[type=text], #createSubaccount table td input[type=password], #createSubaccount table td select {
   width: 200px;
   height: 26px;
   font-size: 14px;
   padding: 0 4px;
   border: 1px #aaa solid;
   border-radius: 4px;
+}
+#changeMemberPassword table td select, #createMember table td select, #createProxy table td select, #createSubaccount table td select {
+  height: 32px;
 }
 #changeMemberPassword table td button.btn, #changeMemberPassword table td a.btn, #createMember table td button.btn, #createMember table td a.btn, #createProxy table td button.btn, #createProxy table td a.btn, #createSubaccount table td button.btn, #createSubaccount table td a.btn {
   background-color: #0D6EFD;

@@ -3,11 +3,13 @@
 namespace App\Http\Livewire;
 
 use App\Models\Subaccount;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class CreateMember extends Component
 {
+    public $toplines = [];
     public function mount(){
         if(Auth::user()->issub === 1){
             $sub = Subaccount::where('user_id', Auth::id())->first();
@@ -15,6 +17,14 @@ class CreateMember extends Component
                 return redirect('/');
             }
         }
+        if(Auth::user()->highest_auth === 1){
+            $toplines = User::where([['utype', 'ADM'], ['id', '<>', Auth::id()]])->get();
+            $this->toplines = $toplines;
+        }else{
+            $toplines = User::where([['utype', 'ADM'], ['toponline', Auth::id()]])->get();
+            $this->toplines = $toplines;
+        }
+        
     }
     public function render()
     {

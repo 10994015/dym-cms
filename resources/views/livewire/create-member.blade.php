@@ -16,7 +16,24 @@
                 </tr>
                 <tr>
                     <th>手機</th>
-                    <td><input type="text"  name="phone" placeholder="請輸入手機.." class="form-control" id="phone" value="{{old('phone')}}" ></td>
+                    <td><input type="text"  name="phone" placeholder="請輸入手機..." class="form-control" id="phone" value="{{old('phone')}}" ></td>
+                </tr>
+                <tr>
+                    <th>代理</th>
+                    <td>
+                        <select name="proxy" id="proxy" class="form-control">
+                            <option value="{{Auth::id()}}" selected>{{Auth::user()->username}}</option>
+                            @foreach ($toplines as $topline)
+                            <option value="{{$topline->id}}">{{$topline->username}}</option>
+                            @endforeach
+                        </select>
+                        {{-- <input type="text"  name="proxy" list="toplineList" placeholder="請輸入代理帳號..." class="form-control" id="proxy" value="{{old('proxy')}}" > --}}
+                    </td>
+                    <datalist id="toplineList">
+                        @foreach ($toplines as $topline)
+                        <option value="{{$topline->username}}"></option>
+                        @endforeach
+                    </datalist>
                 </tr>
                 <tr>
                     <th>會員密碼</th>
