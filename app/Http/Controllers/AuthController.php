@@ -43,7 +43,7 @@ class AuthController extends Controller
         $user->toponline = $req->proxy_id;
         $user->save();
         request()->session()->flash('status', '新增代理成功!');
-        return redirect('/')->withInput();
+        return redirect('/proxy')->withInput();
         // return back()->withInput()->back();
     }
     public function generateRandomString($length = 30) {
