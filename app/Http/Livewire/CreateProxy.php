@@ -23,6 +23,10 @@ class CreateProxy extends Component
             }
         }
 
+        if(!Auth::user()->is_create_member){
+            return redirect('/notfound');
+        }
+
 
         if (User::find($id)->utype !== "ADM") redirect('/notfound'); 
         if(Auth::user()->highest_auth != 1){

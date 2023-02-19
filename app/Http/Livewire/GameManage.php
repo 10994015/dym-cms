@@ -26,6 +26,7 @@ class GameManage extends Component
     public $total_bet_money;
     public $total_win_money;
     public $pageNumber;
+    protected $listeners = ['openStatus'=>'openStatus', 'closeStatus'=>'closeStatus'];
     public function mount(){
 
         if(Auth::user()->issub === 1){
@@ -41,6 +42,17 @@ class GameManage extends Component
         $this->startTime = date('Y-m-d');
         $this->endTime = date('Y-m-d', strtotime("+1 day"));
     }
+
+    public function openStatus($id){
+        $user = User::find($id);
+        $user->status = 1;
+        $user->save();
+    }
+    public function closeStatus($id){
+        $user = User::find($id);
+        $user->status = 0;
+        $user->save();
+    }
     public function render()
     {
         if(Auth::user()->highest_auth === 1 || Auth::user()->issub){
@@ -49,6 +61,7 @@ class GameManage extends Component
             ->where([['betlist.bet_number', 'like', '%'.$this->betNumber.'%'], ['users.username', 'like', '%'. $this->account .'%'], ['betlist.game_type', 'like', '%'.$this->game_type.'%']])
             ->whereBetween('betlist.money', [$this->startMoney,   $this->endMoney])
             ->whereBetween('betlist.created_at', [$this->startTime,   $this->endTime])
+            ->orderBy('id', 'DESC')
             ->paginate($this->pageNumber);
         }else{
             $betList = BetList::join('users', 'betlist.user_id','=', 'users.id')
@@ -56,15 +69,9 @@ class GameManage extends Component
             ->where([['topline', Auth::id()], ['betlist.bet_number', 'like', '%'.$this->betNumber.'%'], ['users.username', 'like', '%'. $this->account .'%'], ['betlist.game_type', 'like', '%'.$this->game_type.'%']])
             ->whereBetween('betlist.money', [$this->startMoney,   $this->endMoney])
             ->whereBetween('betlist.created_at', [$this->startTime,   $this->endTime])
+            ->orderBy('id', 'DESC')
             ->paginate($this->pageNumber);
         }
-
-
-        // if(Auth::user()->highest_auth !== 1){
-        //     $betList = $betList->filter(function ($e) {
-        //         return User::find($e->user_id)->toponline === Auth::id();
-        //     });
-        // }
         return view('livewire.game-manage', ['betList'=>$betList])->layout('layouts.base');
     }
 }

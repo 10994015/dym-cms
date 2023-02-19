@@ -23,6 +23,14 @@
                     <td><input type="password" name="password_confirmation" class="form-control"></td>
                 </tr>
                 <tr>
+                    <th>可否新增會員</th>
+                    <td>
+                        <label for="is_create_member">
+                            <input type="checkbox" name="is_create_member" id="is_create_member" class="form-control mr-2">是
+                        </label>
+                    </td>
+                </tr>
+                <tr>
                     <th></th>
                     <td>
                         <input type="hidden" name="proxy_id" value="{{request()->id}}">

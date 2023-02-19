@@ -567,6 +567,14 @@ footer p {
 #game-manage .table, #store-record .table, #report-manage .table {
   width: 100%;
 }
+#game-manage .table .closeStatusBtn, #store-record .table .closeStatusBtn, #report-manage .table .closeStatusBtn {
+  background-color: #5CB85C;
+  color: #fff;
+}
+#game-manage .table .openStatusBtn, #store-record .table .openStatusBtn, #report-manage .table .openStatusBtn {
+  background-color: #F0AD4E;
+  color: #fff;
+}
 
 #dashboard nav {
   width: 100%;

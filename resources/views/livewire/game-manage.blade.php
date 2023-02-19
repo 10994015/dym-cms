@@ -64,7 +64,8 @@
                 <th scope="col">會員帳號</th>
                 <th scope="col">會員姓名</th>
                 <th scope="col">投注量</th>
-                <th scope="col">輸贏金額</th>
+                <th scope="col">狀態</th>
+                {{-- <th scope="col">輸贏金額</th> --}}
               </tr>
             </thead>
             <tbody>
@@ -97,7 +98,14 @@
                     <td style="color:#0052bd">{{$bet->user->username}}</td>
                     <td>{{$bet->user->name}}</td>
                     <td>{{$bet->money}}</td>
-                    <td> @if(($bet->result-$bet->money >= 0 )) <span class="text-success"> {{$bet->result-$bet->money}}</span> @else <span class="text-danger">  {{$bet->result-$bet->money}}</span> @endif  </td>
+                    <td>
+                        @if(DB::table('users')->where('id', $bet->user_id)->first()->status)
+                        <button class="btn  closeStatusBtn" value="{{$bet->user_id}}">啟用</button>
+                        @else
+                        <button class="btn  openStatusBtn" value="{{$bet->user_id}}">關閉</button>
+                        @endif
+                    </td>
+                    {{-- <td> @if(($bet->result-$bet->money >= 0 )) <span class="text-success"> {{$bet->result-$bet->money}}</span> @else <span class="text-danger">  {{$bet->result-$bet->money}}</span> @endif  </td> --}}
                 </tr>
                 @endforeach
                 
@@ -114,5 +122,9 @@
             var table2excel = new Table2Excel();
             table2excel.export(document.querySelectorAll("table"));
         })
+
+        const toggleStatus = ()=>{
+            alert('確定要切換嗎?')
+        };
     </script>
 </div>

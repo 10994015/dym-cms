@@ -11,6 +11,7 @@ use Livewire\Component;
 class HomeComponet extends Component
 {
     public $searchText;
+    public $isCreateMember;
     protected $listeners = ['viewDownline' => 'viewDownline', 'openStatus'=>'openStatus', 'closeStatus'=>'closeStatus'];
     
     public function mount(){
@@ -20,6 +21,7 @@ class HomeComponet extends Component
                 return redirect('/');
             }
         }
+        $this->isCreateMember = Auth::user()->is_create_member;
     }
 
     public function openStatus($id){
@@ -61,7 +63,7 @@ class HomeComponet extends Component
             $data[$key]['register_date'] =  $user->created_at->format("Y-m-d H:i:s");
             log::info($user->created_at);
         }
-        $this->dispatchBrowserEvent('viewDownlineFn', ['data'=>$data]);
+        $this->dispatchBrowserEvent('viewDownlineFn', ['data'=>$data, 'isCreateMember'=>$this->isCreateMember]);
     }
     public function searchFn(){
         $data = [];
@@ -91,7 +93,7 @@ class HomeComponet extends Component
             log::info($user->created_at);
         }
         log::info($data);
-        $this->dispatchBrowserEvent('searchUsersFn', ['data'=>$data]);
+        $this->dispatchBrowserEvent('searchUsersFn', ['data'=>$data, 'isCreateMember'=>$this->isCreateMember]);
     }
     public function render()
     {

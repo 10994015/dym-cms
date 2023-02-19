@@ -12,6 +12,9 @@ use Validator;
 class AuthController extends Controller
 {
     public function register(Request $req){
+        if(!Auth::user()->is_create_member){
+            return redirect('/notfound');
+        }
         $validator =$req->validate([
             'name' => 'required|string',
             'username'=> 'required|string|unique:users',

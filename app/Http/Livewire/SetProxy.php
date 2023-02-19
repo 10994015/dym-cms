@@ -17,9 +17,10 @@ class SetProxy extends Component
     public $topline;
     public $register_number;
     public $topline_name;
+    public $isCreateMember;
     protected $listeners = ['deleteProxy' => 'deleteProxy'];
     public function mount($id){
-
+        
         if(Auth::user()->issub === 1){
             $sub = Subaccount::where('user_id', Auth::id())->first();
             if($sub->proxy !== 1){
@@ -45,6 +46,7 @@ class SetProxy extends Component
         $this->url = 'http://127.0.0.1:8005' . '/register?rn=' . $this->register_number;
 
         $this->topline_name = $this->topline!=NULL ? DB::table('users')->where('id', $this->topline)->first()->username : "";
+        $this->isCreateMember = $user->is_create_member;
     }
     public function changeProxyInfo(){
         $user = User::find($this->proxy_id);

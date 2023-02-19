@@ -77,44 +77,85 @@ let html = "";
 let shtml = "";
 window.addEventListener('viewDownlineFn', e=>{
     let data = e.detail.data;
-    html += `<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">分站</th>
-        <th scope="col">級別</th>
-        <th scope="col">帳號</th>
-        <th scope="col">名稱</th>
-        <th scope="col">下線</th>
-        <th scope="col">會員人數</th>
-        <th scope="col">狀態</th>
-        <th scope="col">最後登入日期</th>
-        <th scope="col">會員分紅設定</th>
-        <th scope="col">註冊日期</th>
-        <th scope="col">新增下線</th>
-        <th scope="col">設定</th>
-      </tr>
-    </thead>
-    <tbody>`;
-    data.forEach(e => {
-      let statusBtn = (e.status === 1) ? `<button class="btn closeStatusBtn" value="${e.id}">啟用</button>` : `<button class="btn openStatusBtn" value="${e.id}">關閉</button>`;
-        html += `<tr>
-        <td scope="col">#</td>
-        <td scope="col">${e.sub}</td>
-        <td scope="col">${e.level}</td>
-        <td scope="col"><span class="account-btn" id="${e.id}">${e.username}</span></td>
-        <td scope="col">${e.name}</td>
-        <td scope="col">${e.downline}</td>
-        <td scope="col">${e.member_num}</td>
-        <td scope="col"> ${statusBtn} </td>
-        <td scope="col">${e.last_login_date}</td>
-        <td scope="col">${e.dividends}</td>
-        <td scope="col">${e.register_date}</td>
-        <td scope="col"><a href="/createProxy/${e.id}" class="btn btn-success">新增下線</a></td>
-        <td scope="col"><a href="/setProxy/${e.id}" class="btn btn-success">設定</a></td>
-      </tr>`;
-    });
+    let isCreateMember = e.detail.isCreateMember;
+    if(isCreateMember){
+      html += `<table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">分站</th>
+          <th scope="col">級別</th>
+          <th scope="col">帳號</th>
+          <th scope="col">名稱</th>
+          <th scope="col">下線</th>
+          <th scope="col">會員人數</th>
+          <th scope="col">狀態</th>
+          <th scope="col">最後登入日期</th>
+          <th scope="col">會員分紅設定</th>
+          <th scope="col">註冊日期</th>
+          <th scope="col">新增下線</th>
+          <th scope="col">設定</th>
+        </tr>
+      </thead>
+      <tbody>`;
 
+      data.forEach(e => {
+        let statusBtn = (e.status === 1) ? `<button class="btn closeStatusBtn" value="${e.id}">啟用</button>` : `<button class="btn openStatusBtn" value="${e.id}">關閉</button>`;
+          html += `<tr>
+          <td scope="col">#</td>
+          <td scope="col">${e.sub}</td>
+          <td scope="col">${e.level}</td>
+          <td scope="col"><span class="account-btn" id="${e.id}">${e.username}</span></td>
+          <td scope="col">${e.name}</td>
+          <td scope="col">${e.downline}</td>
+          <td scope="col">${e.member_num}</td>
+          <td scope="col"> ${statusBtn} </td>
+          <td scope="col">${e.last_login_date}</td>
+          <td scope="col">${e.dividends}</td>
+          <td scope="col">${e.register_date}</td>
+          <td scope="col"><a href="/createProxy/${e.id}" class="btn btn-success">新增下線</a></td>
+          <td scope="col"><a href="/setProxy/${e.id}" class="btn btn-success">設定</a></td>
+        </tr>`;
+      });
+    }else{
+      html += `<table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">分站</th>
+          <th scope="col">級別</th>
+          <th scope="col">帳號</th>
+          <th scope="col">名稱</th>
+          <th scope="col">下線</th>
+          <th scope="col">會員人數</th>
+          <th scope="col">狀態</th>
+          <th scope="col">最後登入日期</th>
+          <th scope="col">會員分紅設定</th>
+          <th scope="col">註冊日期</th>
+          <th scope="col">設定</th>
+        </tr>
+      </thead>
+      <tbody>`;
+
+      data.forEach(e => {
+        let statusBtn = (e.status === 1) ? `<button class="btn closeStatusBtn" value="${e.id}">啟用</button>` : `<button class="btn openStatusBtn" value="${e.id}">關閉</button>`;
+          html += `<tr>
+          <td scope="col">#</td>
+          <td scope="col">${e.sub}</td>
+          <td scope="col">${e.level}</td>
+          <td scope="col"><span class="account-btn" id="${e.id}">${e.username}</span></td>
+          <td scope="col">${e.name}</td>
+          <td scope="col">${e.downline}</td>
+          <td scope="col">${e.member_num}</td>
+          <td scope="col"> ${statusBtn} </td>
+          <td scope="col">${e.last_login_date}</td>
+          <td scope="col">${e.dividends}</td>
+          <td scope="col">${e.register_date}</td>
+          <td scope="col"><a href="/setProxy/${e.id}" class="btn btn-success">設定</a></td>
+        </tr>`;
+      });
+    }
+    
     html += ` </tbody>
     </table>`;
 
@@ -133,6 +174,8 @@ window.addEventListener('viewDownlineFn', e=>{
 const searchList = document.getElementById('searchList');
 window.addEventListener('searchUsersFn', e=>{
   let data = e.detail.data;
+  let isCreateMember = e.detail.isCreateMember;
+  if(isCreateMember){
     shtml += `<table class="table">
     <thead>
       <tr>
@@ -170,6 +213,44 @@ window.addEventListener('searchUsersFn', e=>{
         <td scope="col"><a href="/setProxy/${e.id}" class="btn btn-success">設定</a></td>
       </tr>`;
     });
+  }else{
+    shtml += `<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">分站</th>
+        <th scope="col">級別</th>
+        <th scope="col">帳號</th>
+        <th scope="col">名稱</th>
+        <th scope="col">下線</th>
+        <th scope="col">會員人數</th>
+        <th scope="col">狀態</th>
+        <th scope="col">最後登入日期</th>
+        <th scope="col">會員分紅設定</th>
+        <th scope="col">註冊日期</th>
+        <th scope="col">設定</th>
+      </tr>
+    </thead>
+    <tbody>`;
+    data.forEach(e => {
+      let statusBtn = (e.status === 1) ? `<button class="btn closeStatusBtn" value="${e.id}">啟用</button>` : `<button class="btn openStatusBtn" value="${e.id}">關閉</button>`;
+      shtml += `<tr>
+        <td scope="col">#</td>
+        <td scope="col">${e.sub}</td>
+        <td scope="col">${e.level}</td>
+        <td scope="col"><span class="account-btn" id="${e.id}">${e.username}</span></td>
+        <td scope="col">${e.name}</td>
+        <td scope="col">${e.downline}</td>
+        <td scope="col">${e.member_num}</td>
+        <td scope="col"> ${statusBtn} </td>
+        <td scope="col">${e.last_login_date}</td>
+        <td scope="col">${e.dividends}</td>
+        <td scope="col">${e.register_date}</td>
+        <td scope="col"><a href="/setProxy/${e.id}" class="btn btn-success">設定</a></td>
+      </tr>`;
+    });
+  }
+    
 
     shtml += ` </tbody>
     </table>`;

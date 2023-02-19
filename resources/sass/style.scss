@@ -580,7 +580,17 @@ footer{
     }
     .table{
         width:100%;
+        .closeStatusBtn{
+            background-color: #5CB85C;
+            color:#fff;
+        }
+        .openStatusBtn{
+            background-color: #F0AD4E;
+            color:#fff;
+        }
     }
+
+    
 }
 
 #dashboard{

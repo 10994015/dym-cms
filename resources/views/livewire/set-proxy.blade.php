@@ -25,6 +25,14 @@
                 <td><input type="text" class="form-control"  wire:model="name"  /></td>
               </tr>
               <tr>
+                <th>可否新增會員</th>
+                <td>
+                  <label for="isCreateMember">
+                    <input type="checkbox" id="isCreateMember" class="form-control mr-2"  wire:model="isCreateMember" />是
+                  </label>
+                </td>
+              </tr>
+              <tr>
                 <th></th>
                 <td><a href="/changeProxyPassword/{{$proxy_id}}" class="btn btn-primary">密碼修改</a></td>
               </tr>
@@ -60,13 +68,13 @@
             alert("刪除成功!!");
             window.location.href = '/';
         })
-        const deleteProxyBtn = document.getElementById('deleteProxyBtn');
-        deleteProxyBtn.addEventListener('click', ()=>{
-          if(confirm('確定要刪除嗎?刪除後就無法復原')){
-            if(confirm('再次確認')){
-              window.Livewire.emit('deleteProxy');
-            }
-          }
-        });
+        // const deleteProxyBtn = document.getElementById('deleteProxyBtn');
+        // deleteProxyBtn.addEventListener('click', ()=>{
+        //   if(confirm('確定要刪除嗎?刪除後就無法復原')){
+        //     if(confirm('再次確認')){
+        //       window.Livewire.emit('deleteProxy');
+        //     }
+        //   }
+        // });
     </script>
 </div>
