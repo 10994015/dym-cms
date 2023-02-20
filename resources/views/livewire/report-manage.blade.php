@@ -81,21 +81,21 @@
               </tr>
             </thead>
             <tbody>
-                @foreach ($betList as $bet)
+                @foreach ($reports as $report)
                     <tr>
                         <td>DYM</th>
-                        <td>{{$utype[$bet->user->utype]}}</th>
-                        <td>{{$bet->user->username}}</th>
-                        <td>{{$bet->user->name}}</th>
-                        <td>{{$bet->money}}</td>
-                        <td>{{$bet->money}}</td>
-                        <td><span class="fw-bold @if($bet->result> 0 ) text-success  @else text-danger @endif">{{$bet->result}}</span></td>
+                        <td>{{$utype[$report->user->utype]}}</th>
+                        <td>{{$report->user->username}}</th>
+                        <td>{{$report->user->name}}</th>
+                        <td>{{$report->bet_money}}</td>
+                        <td>{{$report->bet_money}}</td>
+                        <td><span class="fw-bold @if($report->result> 0 ) text-success  @else text-danger @endif">{{$report->result}}</span></td>
                     </tr>
                 @endforeach
                 
             </tbody>
           </table>
-          {{$betList->links()}}
+          {{$reports->links()}}
     </div>
 
     <script>

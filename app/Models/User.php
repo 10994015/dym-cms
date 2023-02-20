@@ -68,4 +68,8 @@ class User extends Authenticatable
     public function betlists(){
         return $this->hasMany(BetList::class);
     }
+
+    public function reports(){
+        return $this->hasMany('App\Models\Report'::class);
+    }
 }

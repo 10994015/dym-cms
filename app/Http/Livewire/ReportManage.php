@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\BetList;
+use App\Models\Report;
 use App\Models\Subaccount;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -42,36 +43,25 @@ class ReportManage extends Component
     {
        
         if(Auth::user()->highest_auth === 1 || Auth::user()->issub){
-            $betList = BetList::join('users', 'betlist.user_id','=', 'users.id')
-            ->select('users.username', 'betlist.*')
-            ->where([['betlist.bet_number', 'like', '%'.$this->betNumber.'%'], ['users.username', 'like', '%'. $this->account .'%'], ['betlist.game_type', 'like', '%'.$this->game_type.'%']])
-            ->whereBetween('betlist.money', [$this->startMoney,   $this->endMoney])
-            ->whereBetween('betlist.created_at', [$this->startTime,   $this->endTime])
+            $reports = Report::join('users', 'reports.user_id','=', 'users.id')
+            ->select('users.username', 'reports.*')
+            ->where([['reports.bet_number', 'like', '%'.$this->betNumber.'%'], ['users.username', 'like', '%'. $this->account .'%'], ['reports.game_type', 'like', '%'.$this->game_type.'%']])
+            ->whereBetween('reports.bet_money', [$this->startMoney,   $this->endMoney])
+            ->whereBetween('reports.created_at', [$this->startTime,   $this->endTime])
+            ->orderBy('id', 'DESC')
             ->paginate($this->pageNumber);
         }else{
-            $betList = BetList::join('users', 'betlist.user_id','=', 'users.id')
-            ->select('users.username', 'betlist.*')
-            ->where([['topline', Auth::id()], ['betlist.bet_number', 'like', '%'.$this->betNumber.'%'], ['users.username', 'like', '%'. $this->account .'%'], ['betlist.game_type', 'like', '%'.$this->game_type.'%']])
-            ->whereBetween('betlist.money', [$this->startMoney,   $this->endMoney])
-            ->whereBetween('betlist.created_at', [$this->startTime,   $this->endTime])
+            $reports = Report::join('users', 'reports.user_id','=', 'users.id')
+            ->select('users.username', 'reports.*')
+            ->where([['topline', Auth::id()], ['reports.bet_number', 'like', '%'.$this->betNumber.'%'], ['users.username', 'like', '%'. $this->account .'%'], ['reports.game_type', 'like', '%'.$this->game_type.'%']])
+            ->whereBetween('reports.bet_money', [$this->startMoney,   $this->endMoney])
+            ->whereBetween('reports.created_at', [$this->startTime,   $this->endTime])
+            ->orderBy('id', 'DESC')
             ->paginate($this->pageNumber);
         }
-        $this->total_bet_money = $betList->sum('money');
-        $this->total_win_money = $betList->sum('result');
+        $this->total_bet_money = $reports->sum('bet_money');
+        $this->total_win_money = $reports->sum('result');
 
-        // if(Auth::user()->highest_auth === 1){
-        //     $betList = BetList::whereBetween('created_at', [$this->startTime,   $this->endTime])->paginate($this->pageNumber);
-        //     $this->count_bet = BetList::whereBetween('created_at', [$this->startTime,   $this->endTime])->count();
-           
-        // }else{
-        //     $collection = BetList::whereBetween('created_at', [$this->startTime,   $this->endTime])->paginate($this->pageNumber);
-        //     $betList = $collection->filter(function ($e) {
-        //         return User::find($e->user_id)->toponline === Auth::id();
-        //     });
-        //     $this->count_bet = count($betList);
-        //     $this->total_bet_money = $betList->sum('money');
-        //     $this->total_win_money = $betList->sum('result');
-        // }
-        return view('livewire.report-manage', ['betList'=>$betList])->layout('layouts.base');
+        return view('livewire.report-manage', ['reports'=>$reports])->layout('layouts.base');
     }
 }

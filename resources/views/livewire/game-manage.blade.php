@@ -78,6 +78,22 @@
                     <td>{{$bet->created_at}}</td>
                     <td>
                         <p>
+                            DYM No:{{$bet->bet_number}} {{$data[0]}} <br />
+                            @if(count($data[1][2]) > 0)
+                            {{$data[1][0]}} 賠率:{{$data[1][1]}}<br />
+                            @foreach($data[1][2] as $e)
+                            {{$e[0]}}-{{$e[1]}}-${{$e[2]}}<br />
+                            @endforeach
+                            @endif
+                            @if(count($data[2][2]) > 0)
+                            {{$data[2][0]}} 賠率:{{$data[1][1]}}<br />
+                            @foreach($data[2][2] as $e)
+                            {{$e[0]}}-{{$e[1]}}-${{$e[2]}}<br />
+                            @endforeach
+                            @endif
+                            結果: <span class="text-primary">{{$data[4]}}</span>
+                        </p>
+                        {{-- <p>
                             DYM No:{{$data[3]}} {{$data[0]}} <br />
                             @if(count($data[1][2]) > 0 )
                                 {{$data[1][0]}} 賠率: <span class="text-danger">{{$data[1][1]}}</span> <br />
@@ -92,7 +108,7 @@
                                 @endforeach
                             @endif
                             結果: <span class="text-primary">{{$data[4]}}</span>
-                        </p>
+                        </p> --}}
                     </td>
                     <td style="color:#0052bd">{{$bet->bet_number}}</td>
                     <td style="color:#0052bd">{{$bet->user->username}}</td>
