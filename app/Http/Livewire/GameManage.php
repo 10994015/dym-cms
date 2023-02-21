@@ -40,7 +40,7 @@ class GameManage extends Component
         $this->startMoney = 0;
         $this->endMoney = 10000000;
         $this->startTime = date('Y-m-d');
-        $this->endTime = date('Y-m-d', strtotime("+1 day"));
+        $this->endTime = date('Y-m-d', strtotime("+2 day"));
     }
 
     public function openStatus($id){

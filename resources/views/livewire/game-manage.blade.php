@@ -64,8 +64,8 @@
                 <th scope="col">會員帳號</th>
                 <th scope="col">會員姓名</th>
                 <th scope="col">投注量</th>
-                <th scope="col">預測</th>
-                <th scope="col">結果</th>
+                <th scope="col">當日預測</th>
+                <th scope="col">風控結果</th>
                 <th scope="col">狀態</th>
                 {{-- <th scope="col">輸贏金額</th> --}}
               </tr>
@@ -117,8 +117,8 @@
                     <td>{{$bet->user->name}}</td>
                     <td>{{$bet->money}}</td>
                     <td class="fw-bold @if($bet->result - $bet->money > 0) text-success @else text-danger @endif">{{$bet->result - $bet->money}}</td>
-                    <td class="fw-bold @if($bet->final!=NULL) @if($bet->final - $bet->money > 0) text-success @else text-danger @endif @endif ">
-                        @if($bet->final == NULL)
+                    <td class="fw-bold @if($bet->final!==NULL) @if($bet->final - $bet->money > 0) text-success @else text-danger @endif @endif ">
+                        @if($bet->final === NULL)
                         尚未開獎
                         @else
                         {{$bet->final - $bet->money}}
