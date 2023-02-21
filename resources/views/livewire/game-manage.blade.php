@@ -64,6 +64,8 @@
                 <th scope="col">會員帳號</th>
                 <th scope="col">會員姓名</th>
                 <th scope="col">投注量</th>
+                <th scope="col">預測</th>
+                <th scope="col">結果</th>
                 <th scope="col">狀態</th>
                 {{-- <th scope="col">輸贏金額</th> --}}
               </tr>
@@ -114,11 +116,19 @@
                     <td style="color:#0052bd">{{$bet->user->username}}</td>
                     <td>{{$bet->user->name}}</td>
                     <td>{{$bet->money}}</td>
+                    <td class="fw-bold @if($bet->result - $bet->money > 0) text-success @else text-danger @endif">{{$bet->result - $bet->money}}</td>
+                    <td class="fw-bold @if($bet->final!=NULL) @if($bet->final - $bet->money > 0) text-success @else text-danger @endif @endif ">
+                        @if($bet->final == NULL)
+                        尚未開獎
+                        @else
+                        {{$bet->final - $bet->money}}
+                        @endif
+                    </td>
                     <td>
                         @if(DB::table('users')->where('id', $bet->user_id)->first()->status)
-                        <button class="btn  closeStatusBtn" value="{{$bet->user_id}}">啟用</button>
+                            <button class="btn closeStatusBtn" value="{{$bet->user_id}}">啟用</button>
                         @else
-                        <button class="btn  openStatusBtn" value="{{$bet->user_id}}">關閉</button>
+                            <button class="btn openStatusBtn" value="{{$bet->user_id}}">關閉</button>
                         @endif
                     </td>
                     {{-- <td> @if(($bet->result-$bet->money >= 0 )) <span class="text-success"> {{$bet->result-$bet->money}}</span> @else <span class="text-danger">  {{$bet->result-$bet->money}}</span> @endif  </td> --}}
