@@ -93,7 +93,7 @@
                             {{$e[0]}}-{{$e[1]}}-${{$e[2]}}<br />
                             @endforeach
                             @endif
-                            結果: <span class="text-primary">{{$data[4]}}</span>
+                            結果: <span class="text-primary">{{ DB::table('answer')->where('number', $bet->bet_number)->first()->ranking }}</span>
                         </p>
                         {{-- <p>
                             DYM No:{{$data[3]}} {{$data[0]}} <br />
