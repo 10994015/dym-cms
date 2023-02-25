@@ -1,4 +1,4 @@
-<div id="dashboard" class="app" wire:ignore>
+<div id="dashboard" class="app" >
     @include('livewire.components.slidebar')
     <div class="main-content">
         <h1>註冊總攬</h1>
@@ -19,7 +19,41 @@
             </div>
         </nav>
         <canvas id="myChart" width="400" height="100" class="mt-5"></canvas>
+        @if(Auth::user()->highest_auth == 1)
+        <div class="outMoneyList">
+            <table class="table table-bordered table-hover mt-5">
+                <thead class="table-warning">
+                  <tr>
+                    <th scope="col">交易平台</th>
+                    <th scope="col">訂單編號</th>
+                    <th scope="col">幣別</th>
+                    <th scope="col">轉出資金</th>
+                    <th scope="col">操作時間</th>
+                    <th scope="col">狀態</th>
+                    <th scope="col">詳細</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @php $status = ['-2'=>'取消','-1'=>'交易失敗', '0'=>'待審核', '1'=>'交易成功']; @endphp
+                    @foreach ($withdraw as $item)
+                    <tr>
+                        <th>{{$item->platform}}</th>
+                        <th>{{$item->order_number}}</th>
+                        <td>-</td>
+                        <td>{{$item->money}}</td>
+                        <td>{{$item->created_at}}</td>
+                        <td>{{$status[$item->status]}}</td>
+                        <td><a href="/withdrawInfo/{{$item->id}}" class="btn btn-danger">詳細</a></td>
+                      </tr>
+                    @endforeach
+                  
+                </tbody>
+              </table>
+              {{$withdraw->links()}}
+        </div>
+        @endif
     </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         const ctx = document.getElementById('myChart');

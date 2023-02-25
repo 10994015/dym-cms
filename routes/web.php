@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Livewire\ChangeMemberPassword;
 use App\Http\Livewire\ChangeProxyPassword;
+use App\Http\Livewire\Consignment;
 use App\Http\Livewire\CreateMember;
 use App\Http\Livewire\CreateProxy;
 use App\Http\Livewire\CreateSubaccount;
@@ -27,6 +28,7 @@ use App\Http\Livewire\SetUserPoint;
 use App\Http\Livewire\StoreRecord;
 use App\Http\Livewire\Subaccount;
 use App\Http\Livewire\ViewSubMember;
+use App\Http\Livewire\WithdrawInfo;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,6 +63,8 @@ Route::get('/nextUserPoint/{id}', NextUserPoint::class)->middleware(['auth']);
 Route::get('/storeRecord/{id}', StoreRecord::class)->middleware(['auth']);
 Route::get('/gameManage', GameManage::class)->middleware(['auth']);
 Route::get('/reportManage', ReportManage::class)->middleware(['auth']);
+Route::get('/consignment/{id}', Consignment::class)->middleware(['auth']);
+Route::get('/withdrawInfo/{id}', WithdrawInfo::class)->middleware(['auth']);
 
 Route::get('/subaccount', Subaccount::class)->middleware(['auth']);
 Route::get('/createSubaccount', CreateSubaccount::class)->middleware(['auth']);

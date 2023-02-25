@@ -3,12 +3,14 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use App\Models\Withdraw;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
-
+use Livewire\WithPagination;
 class Dashborad extends Component
 {
+    use WithPagination;
     public $dateArr = [];
     public $register_number = [];
     public $today;
@@ -29,6 +31,7 @@ class Dashborad extends Component
     }
     public function render()
     {
-        return view('livewire.dashborad', ['dateArr'=>$this->dateArr, 'register_number'=>$this->register_number])->layout('layouts.base');
+        $withdraw = Withdraw::paginate(10);
+        return view('livewire.dashborad', ['dateArr'=>$this->dateArr, 'register_number'=>$this->register_number, 'withdraw'=>$withdraw])->layout('layouts.base');
     }
 }

@@ -380,33 +380,33 @@ footer p {
   color: #fff;
 }
 
-#setMember, #setUserPoint, #nextUserPoint {
+#setMember, #setUserPoint, #nextUserPoint, #consignment, #withdrawInfo {
   width: 100%;
   min-height: calc(100vh - 167px);
   display: flex;
 }
-#setMember > .main-content, #setUserPoint > .main-content, #nextUserPoint > .main-content {
+#setMember > .main-content, #setUserPoint > .main-content, #nextUserPoint > .main-content, #consignment > .main-content, #withdrawInfo > .main-content {
   width: 100%;
   padding: 25px;
 }
-#setMember > .main-content > table, #setUserPoint > .main-content > table, #nextUserPoint > .main-content > table {
+#setMember > .main-content > table, #setUserPoint > .main-content > table, #nextUserPoint > .main-content > table, #consignment > .main-content > table, #withdrawInfo > .main-content > table {
   width: 100%;
   max-width: 600px;
   margin-top: 50px;
 }
-#setMember > .main-content > table tr, #setUserPoint > .main-content > table tr, #nextUserPoint > .main-content > table tr {
+#setMember > .main-content > table tr, #setUserPoint > .main-content > table tr, #nextUserPoint > .main-content > table tr, #consignment > .main-content > table tr, #withdrawInfo > .main-content > table tr {
   width: 100%;
 }
-#setMember > .main-content > table tr th, #setUserPoint > .main-content > table tr th, #nextUserPoint > .main-content > table tr th {
+#setMember > .main-content > table tr th, #setUserPoint > .main-content > table tr th, #nextUserPoint > .main-content > table tr th, #consignment > .main-content > table tr th, #withdrawInfo > .main-content > table tr th {
   width: 35%;
   color: #111;
   font-weight: 500;
   font-size: 15px;
 }
-#setMember > .main-content > table tr td, #setUserPoint > .main-content > table tr td, #nextUserPoint > .main-content > table tr td {
+#setMember > .main-content > table tr td, #setUserPoint > .main-content > table tr td, #nextUserPoint > .main-content > table tr td, #consignment > .main-content > table tr td, #withdrawInfo > .main-content > table tr td {
   width: 65%;
 }
-#setMember > .main-content > table input[type=text], #setMember > .main-content > table input[type=number], #setUserPoint > .main-content > table input[type=text], #setUserPoint > .main-content > table input[type=number], #nextUserPoint > .main-content > table input[type=text], #nextUserPoint > .main-content > table input[type=number] {
+#setMember > .main-content > table input[type=text], #setMember > .main-content > table input[type=number], #setUserPoint > .main-content > table input[type=text], #setUserPoint > .main-content > table input[type=number], #nextUserPoint > .main-content > table input[type=text], #nextUserPoint > .main-content > table input[type=number], #consignment > .main-content > table input[type=text], #consignment > .main-content > table input[type=number], #withdrawInfo > .main-content > table input[type=text], #withdrawInfo > .main-content > table input[type=number] {
   width: 178px;
   height: 26px;
   font-size: 14px;
@@ -414,16 +414,16 @@ footer p {
   border: 1px #aaa solid;
   border-radius: 4px;
 }
-#setMember > .main-content > table select, #setUserPoint > .main-content > table select, #nextUserPoint > .main-content > table select {
+#setMember > .main-content > table select, #setUserPoint > .main-content > table select, #nextUserPoint > .main-content > table select, #consignment > .main-content > table select, #withdrawInfo > .main-content > table select {
   width: 100px;
   height: 26px;
   font-size: 14px;
   padding: 0 5px;
 }
-#setMember > .main-content > table label, #setUserPoint > .main-content > table label, #nextUserPoint > .main-content > table label {
+#setMember > .main-content > table label, #setUserPoint > .main-content > table label, #nextUserPoint > .main-content > table label, #consignment > .main-content > table label, #withdrawInfo > .main-content > table label {
   font-size: 14px;
 }
-#setMember > .main-content > table textarea, #setUserPoint > .main-content > table textarea, #nextUserPoint > .main-content > table textarea {
+#setMember > .main-content > table textarea, #setUserPoint > .main-content > table textarea, #nextUserPoint > .main-content > table textarea, #consignment > .main-content > table textarea, #withdrawInfo > .main-content > table textarea {
   font-size: 14px;
 }
 

@@ -56,7 +56,7 @@
               <tr>
                 <th>託售資料</th>
                 <td>
-                    <a href="" class="btn btn-danger">新增</a>
+                    <a href="/consignment/{{$member_id}}" class="btn btn-danger">查看</a>
                 </td>
               </tr>
               <tr>
@@ -67,7 +67,7 @@
               </tr>
               <tr>
                 <td colspan="2">
-                    <a href="/member" class="btn btn-primary float-right">返回</a>
+                    <a href="javascript:;" onclick="window.history.back()" class="btn btn-primary float-right">返回</a>
                     <button class="btn btn-primary float-right mr-3" wire:click="changeMemberInfo">確認</button>
                 </td>
               </tr>
