@@ -78,6 +78,7 @@
                 <th scope="col">下注金額</th>
                 <th scope="col">總碼量</th>
                 <th scope="col">總輸贏</th>
+                <th scope="col">交易時間</th>
               </tr>
             </thead>
             <tbody>
@@ -90,6 +91,7 @@
                         <td>{{$report->bet_money}}</td>
                         <td>{{$report->bet_money}}</td>
                         <td><span class="fw-bold @if($report->result> 0 ) text-success  @else text-danger @endif">{{$report->result}}</span></td>
+                        <td>{{$report->created_at}}</td>
                     </tr>
                 @endforeach
                 

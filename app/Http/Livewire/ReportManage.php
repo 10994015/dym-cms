@@ -37,7 +37,7 @@ class ReportManage extends Component
         $this->startMoney = 0;
         $this->endMoney = 10000000;
         $this->startTime = date('Y-m-d');
-        $this->endTime = date('Y-m-d', strtotime("+1 day"));
+        $this->endTime = date('Y-m-d', strtotime("+2 day"));
     }
     public function render()
     {
@@ -60,7 +60,7 @@ class ReportManage extends Component
             ->paginate($this->pageNumber);
         }
         $this->total_bet_money = $reports->sum('bet_money');
-        $this->total_win_money = $reports->sum('result');
+        $this->total_win_money = $reports->sum('result') - $reports->sum('bet_money');
 
         return view('livewire.report-manage', ['reports'=>$reports])->layout('layouts.base');
     }

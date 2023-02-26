@@ -25,7 +25,6 @@ class SetUserPoint extends Component
                 return redirect('/');
             }
         }
-
         if (User::find($id)->utype !== "USR") redirect('/notfound'); 
         if(Auth::user()->highest_auth != 1){
             if(User::find($id)->toponline != Auth::id()) return redirect('/notfound');
