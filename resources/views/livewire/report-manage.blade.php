@@ -83,7 +83,7 @@
             <tbody>
                 @foreach ($reports as $report)
                     <tr>
-                        <td>DYM</th>
+                        <td>SVT</th>
                         <td>{{$utype[$report->user->utype]}}</th>
                         <td>{{$report->user->username}}</th>
                         <td>{{$report->user->name}}</th>

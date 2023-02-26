@@ -74,13 +74,13 @@
                 @foreach ($betList as $bet)
                     @php $data = json_decode($bet->bet_info) @endphp
                 <tr>
-                    <td>DYM</td>
+                    <td>SVT</td>
                     <td>{{$data[0]}}</td>
                     <td>{{$bet->bet_number}}{{$bet->id}}</td>
                     <td>{{$bet->created_at}}</td>
                     <td>
                         <p>
-                            DYM No:{{$bet->bet_number}} {{$data[0]}} <br />
+                            SVT No:{{$bet->bet_number}} {{$data[0]}} <br />
                             @if(count($data[1][2]) > 0)
                             {{$data[1][0]}} 賠率:{{$data[1][1]}}<br />
                             @foreach($data[1][2] as $e)
@@ -95,22 +95,6 @@
                             @endif
                             結果: <span class="text-primary">{{ DB::table('answer')->where('number', $bet->bet_number)->first()->ranking }}</span>
                         </p>
-                        {{-- <p>
-                            DYM No:{{$data[3]}} {{$data[0]}} <br />
-                            @if(count($data[1][2]) > 0 )
-                                {{$data[1][0]}} 賠率: <span class="text-danger">{{$data[1][1]}}</span> <br />
-                                @foreach($data[1][2] as $e)
-                                    {{$e}} <br />
-                                @endforeach
-                            @endif
-                            @if(count($data[2][2]) > 0 )
-                                {{$data[2][0]}} 賠率:{{$data[2][1]}} <br />
-                                @foreach($data[2][2] as $e)
-                                    {{$e}} <br />
-                                @endforeach
-                            @endif
-                            結果: <span class="text-primary">{{$data[4]}}</span>
-                        </p> --}}
                     </td>
                     <td style="color:#0052bd">{{$bet->bet_number}}</td>
                     <td style="color:#0052bd">{{$bet->user->username}}</td>

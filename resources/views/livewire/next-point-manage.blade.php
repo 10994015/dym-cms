@@ -34,7 +34,7 @@
                   @foreach ($users as $user)
                   <tr>
                      <td>{{$user->id}}</td>
-                     <td>DYM</td>
+                     <td>SVT</td>
                      <td>{{ DB::table('users')->where('id', $user->toponline)->first()->username }}</td>
                      <td><span class="text-primary">{{$user->username}}</span></td>
                      <td>{{$user->name}}</td>

@@ -10,7 +10,7 @@
             <tbody>
               <tr>
                 <th>分站</th>
-                <td><input type="text" class="form-control" disabled value="DYM" /></td>
+                <td><input type="text" class="form-control" disabled value="SVT" /></td>
               </tr>
               <tr>
                 <th>會員帳號</th>

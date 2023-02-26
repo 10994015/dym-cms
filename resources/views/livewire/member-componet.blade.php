@@ -46,7 +46,7 @@
                 @foreach ($downs as $down)
                 <tr>
                     <td scope="col">{{$down['id']}}</td>
-                    <td scope="col">DYM</td>
+                    <td scope="col">SVT</td>
                     <td scope="col">{{ DB::table('users')->where('id', $down['toponline'])->first()->username }}</td>
                     <td scope="col"><a href="/loginRecord/{{$down->id}}" class="account-btn bg-transparent" >{{$down['username']}}</a></td>
                     <td scope="col">{{$down['name']}}</td>

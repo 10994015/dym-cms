@@ -35,7 +35,7 @@ class SetProxy extends Component
             }
         }
         $this->proxy_id = $id;
-        $this->substation = "DYM";
+        $this->substation = "SVT";
 
         $user = User::find($id);
 

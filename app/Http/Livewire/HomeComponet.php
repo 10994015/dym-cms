@@ -51,7 +51,7 @@ class HomeComponet extends Component
         foreach($users as $key=>$user){
             array_push($data, []);
             $data[$key]['id'] = $user->id;
-            $data[$key]['sub'] = "DYM";
+            $data[$key]['sub'] = "SVT";
             $data[$key]['level'] = "代理";
             $data[$key]['username'] = $user->username;
             $data[$key]['name'] = $user->name;
@@ -80,7 +80,7 @@ class HomeComponet extends Component
         foreach($searchUsers as $key=>$user){
             array_push($data, []);
             $data[$key]['id'] = $user->id;
-            $data[$key]['sub'] = "DYM";
+            $data[$key]['sub'] = "SVT";
             $data[$key]['level'] = "代理";
             $data[$key]['username'] = $user->username;
             $data[$key]['name'] = $user->name;
@@ -104,7 +104,7 @@ class HomeComponet extends Component
 
         $me = [
             "id"=>"",
-            "sub"=>"DYM",
+            "sub"=>"SVT",
             "level"=>"",
             "username"=>"",
             "name"=>"",

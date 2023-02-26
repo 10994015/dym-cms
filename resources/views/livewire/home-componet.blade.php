@@ -50,7 +50,7 @@
           <tbody>
             <tr>
               <td scope="col">#</td>
-              <td scope="col">DYM</td>
+              <td scope="col">SVT</td>
               <td scope="col">{{$me['level']}}</td>
               <td scope="col"><span class="account-btn" id="{{$me['id']}}">{{$me['username']}}</span></td>
               {{-- <td scope="col"><span class="account-btn" wire:click='viewDownline({{$me['id']}})'>{{$me['username']}}</span></td> --}}
