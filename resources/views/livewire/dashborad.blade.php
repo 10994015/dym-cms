@@ -18,7 +18,7 @@
                 </div>
             </div>
         </nav>
-        <canvas id="myChart" width="400" height="100" class="mt-5"></canvas>
+        <canvas id="myChart" height="100" class="mt-5"></canvas>
         @if(Auth::user()->highest_auth == 1)
         <div class="outMoneyList">
             <table class="table table-bordered table-hover mt-5">

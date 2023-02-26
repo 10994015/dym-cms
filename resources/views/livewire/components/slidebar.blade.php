@@ -1,5 +1,6 @@
-<div class="slidebar">
+<div class="slidebar" id='slidebar'>
     @if(Auth::user()->issub === 0)
+    <div class="menu" id="slidbarMenu"><i class="fas fa-bars"></i></div>
     <ul>
         <a href="/">首頁</a>
         <a href="/proxy">代理管理</a>
@@ -28,6 +29,7 @@
         const point = document.getElementById('point');
         const pointDownIcon = document.getElementById('point-down-icon');
         const pointChild = document.getElementById('point-child');
+       
         let pointChildIsOpen = false;
         point.addEventListener('click', ()=>{
             pointChildIsOpen = !pointChildIsOpen;
@@ -37,6 +39,22 @@
             }else{
                 pointChild.style.height = "0px";
                 pointDownIcon.style.transform = "rotate(0deg)";
+            }
+        })
+        const slidbarMenu = document.getElementById('slidbarMenu');
+        const slidebar = document.getElementById('slidebar');
+        let slidebarOpen = true;
+        slidbarMenu.addEventListener('click', ()=>{
+            slidebarOpen = !slidebarOpen;
+            if(slidebarOpen){
+                slidebar.style.width = "200px"
+                slidebar.style.minWidth = "200px"
+                slidbarMenu.style.opacity = '.5'
+            }else{
+                slidebar.style.width = "0"
+                slidebar.style.minWidth = "0"
+                slidbarMenu.style.opacity = '1'
+
             }
         })
     </script>

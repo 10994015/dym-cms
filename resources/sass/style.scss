@@ -82,9 +82,8 @@
         }
     }
 }
-body{
-    
-    }
+main{
+}
 #home{
     background-color: #3C475B;
     width:100%;
@@ -266,9 +265,28 @@ footer{
 }
 
 .slidebar{
-    width:200px;
+    min-width:200px;
     min-height: calc(100vh - 167px);
     background-color: #333;
+    position: relative;
+    transition: .3s;
+    >.menu{
+        position: absolute;
+        top: 55px;
+        right:-40px;
+        width:40px;
+        height: 40px;
+        background-color: #222;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        opacity: .5;
+        transition: .3s;
+        >i{
+            color:#fff;
+        }
+    }
     >ul{
         width:100%;
         margin-top: 100px;
@@ -328,6 +346,7 @@ footer{
     }
 }
 #home-componet, #point-manage, #next-point-manage, #subaccount{
+    max-width: 100%;
     width:100%;
     min-height: calc(100vh - 167px);
     display: flex;
@@ -614,5 +633,8 @@ footer{
                 }
             }
         }
+    }
+    canvas{
+        max-width:100%;
     }
 }
