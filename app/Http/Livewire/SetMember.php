@@ -40,7 +40,7 @@ class SetMember extends Component
         }
 
         $this->member_id = $id;
-        $this->substation = "SVT";
+        $this->substation = "SMT";
 
         $user = User::find($id);
 

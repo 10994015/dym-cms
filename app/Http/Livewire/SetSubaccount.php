@@ -22,7 +22,7 @@ class SetSubaccount extends Component
             return redirect('/notfound');
         }
         $this->sub_id = $id;
-        $this->substation = "SVT";
+        $this->substation = "SMT";
 
         $user = User::find($id);
         if($user->utype !== "ADM" || $user->issub !== 1) return redirect('/notfound');

@@ -1,6 +1,6 @@
 <div id="home" wire:ignore>
     <header id="header">
-        <a href="/">SVT後臺管理系統</a>
+        <a href="/">SMT後臺管理系統</a>
         <form action="{{route('logout')}}" method="post">
             @csrf
             <button type="submit">登出</button>

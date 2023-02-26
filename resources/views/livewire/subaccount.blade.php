@@ -34,7 +34,7 @@
                 @foreach ($users as $user)
                 <tr>
                     <td scope="col">#</td>
-                    <td scope="col">SVT</td>
+                    <td scope="col">SMT</td>
                     <td scope="col">子帳號</td>
                     <td scope="col"><span class="account-btn">{{$user['username']}}</span></td>
                     {{-- <td scope="col"><span class="account-btn" wire:click='viewDownline({{$me['id']}})'>{{$me['username']}}</span></td> --}}

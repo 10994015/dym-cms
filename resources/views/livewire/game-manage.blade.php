@@ -74,13 +74,13 @@
                 @foreach ($betList as $bet)
                     @php $data = json_decode($bet->bet_info) @endphp
                 <tr>
-                    <td>SVT</td>
+                    <td>SMT</td>
                     <td>{{$data[0]}}</td>
                     <td>{{$bet->bet_number}}{{$bet->id}}</td>
                     <td>{{$bet->created_at}}</td>
                     <td>
                         <p>
-                            SVT No:{{$bet->bet_number}} {{$data[0]}} <br />
+                            SMT No:{{$bet->bet_number}} {{$data[0]}} <br />
                             @if(count($data[1][2]) > 0)
                             {{$data[1][0]}} 賠率:{{$data[1][1]}}<br />
                             @foreach($data[1][2] as $e)
