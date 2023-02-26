@@ -65,7 +65,15 @@
               </tr>
               <tr>
                 <th>銀行名稱</th>
-                <td><input type="text" class="form-control" wire:model="bank" /></td>
+                <td>
+                  <select wire:model="bank" class="form-control"  style="width:150px">
+                    <option value=""  selected>請選擇銀行</option>
+                    @foreach ($openBank as $bank)
+                    <option value="{{$bank['id']}}{{$bank['name']}}">{{$bank['id']}} {{$bank['name']}}</option>
+                    @endforeach
+                  </select>
+                  
+                </td>
               </tr>
               <tr>
                 <th>銀行分行</th>
