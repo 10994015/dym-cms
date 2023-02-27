@@ -23,7 +23,7 @@ class Home extends Component
         $this->name = Auth::user()->name;
         $this->phone = Auth::user()->phone;
         $this->money = Auth::user()->money;
-        $this->url = "http://dymgame-env.eba-eay7gtmu.ap-southeast-1.elasticbeanstalk.com/register?rn=" . Auth::user()->register_number;
+        $this->url = "https://stvecommerceita.online/register?rn=" . Auth::user()->register_number;
         if(Auth::user()->toponline == NULL){
             $this->topline = "無";
         }else{
@@ -39,7 +39,7 @@ class Home extends Component
         $this->phone = $user->phone;
         $this->money = $user->money;
         if(User::find($id)->utype==="ADM"){
-            $this->url = "http://dymgame-env.eba-eay7gtmu.ap-southeast-1.elasticbeanstalk.com/register?rn=" . $user->register_number;
+            $this->url = "https://stvecommerceita.online/register?rn=" . $user->register_number;
         }else{
             $this->url = "無";
         }

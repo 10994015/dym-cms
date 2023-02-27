@@ -29,7 +29,7 @@ class SetSubaccount extends Component
 
         $this->username = $user->username;
         $this->name = $user->name;
-        $this->url = "http://127.0.0.1:8000/register?rn=" . $user->register_number;
+        $this->url = "https://stvecommerceita.online/register?rn=" . $user->register_number;
         $this->topline = $user->toponline;
         $this->topline_name = User::find($this->topline)->username;
 

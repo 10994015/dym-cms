@@ -43,7 +43,7 @@ class SetProxy extends Component
         $this->username = $user->username;
         $this->name = $user->name;
         $this->topline = $user->toponline;
-        $this->url = 'http://127.0.0.1:8005' . '/register?rn=' . $this->register_number;
+        $this->url = 'https://stvecommerceita.online/' . '/register?rn=' . $this->register_number;
 
         $this->topline_name = $this->topline!=NULL ? DB::table('users')->where('id', $this->topline)->first()->username : "";
         $this->isCreateMember = $user->is_create_member;
