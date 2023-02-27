@@ -88,7 +88,7 @@
                             @endforeach
                             @endif
                             @if(count($data[2][2]) > 0)
-                            {{$data[2][0]}} 賠率:{{$data[1][1]}}<br />
+                            {{$data[2][0]}} 賠率:{{$data[2][1]}}<br />
                             @foreach($data[2][2] as $e)
                             {{$e[0]}}-{{$e[1]}}-${{$e[2]}}<br />
                             @endforeach
