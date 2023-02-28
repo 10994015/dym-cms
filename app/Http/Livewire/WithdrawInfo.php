@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\BetList;
+use App\Models\Report;
 use App\Models\StorePointRecord;
 use App\Models\User;
 use App\Models\Withdraw;
@@ -65,8 +66,8 @@ class WithdrawInfo extends Component
         $withdraw->comment =    $this->comment;
         $withdraw->proxy_id = Auth::id();
 
-        if($withdraw->status < 0){
-            if(!$withdraw->returned){
+        if(intval($this->status) < 0){
+            if(!$withdraw->returned && !$withdraw->paidout){
                 $withdraw->returned = true;
                 $user = User::find($this->user_id);
                 $user->money = $user->money + $this->money;
@@ -75,8 +76,8 @@ class WithdrawInfo extends Component
                 $user->save();
 
             }
-        }elseif($withdraw->status > 0){
-            if(!$withdraw->paidout){
+        }elseif(intval($this->status) > 0){
+            if(!$withdraw->paidout && !$withdraw->returned){
                 $withdraw->paidout = true;
                 $user = User::find($this->user_id);
                 $user->handle_money = $user->handle_money - $this->money;
