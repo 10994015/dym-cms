@@ -1,4 +1,4 @@
-<div id="withdrawInfo" class="app">
+<div id="withdrawInfo" class="app" wire:ignore>
     @include('livewire.components.slidebar')
     <div class="main-content">
         <h1>詳細交易</h1>
@@ -30,11 +30,19 @@
               <tr>
                 <th>狀態</th>
                 <td>
-                    <select name="" wire:model="status" class="form-control">
+                    <select name="" wire:model="status" class="form-control" @if($this->status != 0)  disabled @endif>
+                      @if($this->status == 0)
                         <option value="-2">取消</option>
                         <option value="-1">交易失敗</option>
                         <option value="0">待審核</option>
                         <option value="1">交易成功</option>
+                      @elseif($this->status==-2)
+                        <option value="-2">取消</option>
+                      @elseif($this->status==-1)
+                      <option value="-1">交易失敗</option>
+                      @elseif($this->status==1)
+                      <option value="1">交易成功</option>
+                      @endif
                     </select>
                 </td>
               </tr>
@@ -71,5 +79,10 @@
     pointChildIsOpen = true;
     pointChild.style.height = "90px";
     pointDownIcon.style.transform = "rotate(180deg)";
+    window.addEventListener("successFn", e=>{
+      alert('更新成功！');
+      window.location.reload();
+    })
+    
 </script>
 @endpush

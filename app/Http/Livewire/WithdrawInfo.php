@@ -88,7 +88,7 @@ class WithdrawInfo extends Component
 
         $withdraw->save();
 
-        session()->flash('success', '更新成功！');
+        $this->dispatchBrowserEvent('successFn');
     }
     public function render()
     {
