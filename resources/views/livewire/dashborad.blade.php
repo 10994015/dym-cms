@@ -26,6 +26,7 @@
                   <tr>
                     <th scope="col">交易平台</th>
                     <th scope="col">訂單編號</th>
+                    <th scope="col">會員帳號</th>
                     <th scope="col">幣別</th>
                     <th scope="col">轉出資金</th>
                     <th scope="col">操作時間</th>
@@ -39,6 +40,7 @@
                     <tr>
                         <th>{{$item->platform}}</th>
                         <th>{{$item->order_number}}</th>
+                        <th>{{$item->username}}</th>
                         <td>-</td>
                         <td>{{$item->money}}</td>
                         <td>{{$item->created_at}}</td>

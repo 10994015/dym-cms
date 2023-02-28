@@ -32,7 +32,7 @@ class Dashborad extends Component
     }
     public function render()
     {
-        $withdraw = Withdraw::paginate(10);
+        $withdraw = Withdraw::orderBy("created_at", "DESC")->paginate(10);
         return view('livewire.dashborad', ['dateArr'=>$this->dateArr, 'register_number'=>$this->register_number, 'withdraw'=>$withdraw])->layout('layouts.base');
     }
 }

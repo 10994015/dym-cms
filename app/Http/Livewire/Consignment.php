@@ -160,7 +160,7 @@ class Consignment extends Component
         $cretifiedBook->save();
         $member->save();
 
-        session()->flash('card-success', '上傳成功！');
+        session()->flash('card-success', '更新成功！');
     }
     public function render()
     {
