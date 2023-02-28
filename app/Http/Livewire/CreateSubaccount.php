@@ -4,7 +4,7 @@ namespace App\Http\Livewire;
 
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-
+use App\Models\Subaccount;
 class CreateSubaccount extends Component
 {
     public function mount(){

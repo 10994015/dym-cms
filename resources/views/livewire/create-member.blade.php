@@ -46,7 +46,7 @@
                 <tr>
                     <th></th>
                     <td>
-                        <button type="button" id="pre-btn" class="btn btn-primary float-right ml-3">返回</button>
+                        <button type="button" id="pre-btn" class="btn btn-primary float-right ml-3" onclick="window.history.back()">返回</button>
                         <button type="submit" class="btn btn-primary float-right">確認</button>
                     </td>
                 </tr>

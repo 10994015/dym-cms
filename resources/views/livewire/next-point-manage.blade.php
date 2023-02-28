@@ -20,7 +20,9 @@
           <div class="form-group mt-4">
             <a href="/nextPointManage" class="btn btn-info ml-3">下分管理</a>
             <a href="/memberOutPoint" class="btn btn-success ml-3">單項會員下分</a>
+            @if(Auth::user()->highest_auth)
             <a href="/paymentReview" class="btn btn-primary ml-3">出款審核</a>
+            @endif
           </div>
             <table class="table table-bordered table-hover">
               <thead>

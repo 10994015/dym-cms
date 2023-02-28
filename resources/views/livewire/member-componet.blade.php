@@ -15,11 +15,12 @@
                 <label for="">搜尋</label>
                 <input type="text" class="form-control searchInput" placeholder="搜尋..." wire:model="searchText">
             </div>
-
+            @if(Auth::user()->is_create_member)
             <div class="from-group" style="margin-left:50px">
               <label for=""></label>
               <a href="/createMember"  class="btn btn-success block">新增會員</a>
             </div>
+            @endif
         </div>
           <table class="table table-bordered table-hover">
             <thead>

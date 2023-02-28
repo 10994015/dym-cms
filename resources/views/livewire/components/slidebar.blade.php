@@ -19,7 +19,13 @@
         <a href="/">儀錶板管理</a>
         @if(DB::table('subaccount')->where('user_id', Auth::id())->first()->proxy === 1) <a href="/proxy">代理管理</a> @endif
         @if(DB::table('subaccount')->where('user_id', Auth::id())->first()->member === 1)<a href="/member">會員管理</a> @endif
-        @if(DB::table('subaccount')->where('user_id', Auth::id())->first()->store === 1)<a href="/pointManage">上下分管理</a> @endif
+        @if(DB::table('subaccount')->where('user_id', Auth::id())->first()->store === 1)
+        <a href="javascript:;" id="point">上下分管理<i class="fa-solid fa-chevron-down ml-2" id="point-down-icon"></i></a>
+        <ul class="child-link" id="point-child">
+            <a href="/pointManage" >上分管理</a>
+            <a href="/nextPointManage">下分管理</a>
+        </ul>
+         @endif
         @if(DB::table('subaccount')->where('user_id', Auth::id())->first()->bet_record === 1)<a href="/gameManage">投注紀錄</a> @endif
         @if(DB::table('subaccount')->where('user_id', Auth::id())->first()->report === 1)<a href="/reportManage">營運報表</a> @endif
     </ul>

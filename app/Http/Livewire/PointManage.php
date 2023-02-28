@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
+
 class PointManage extends Component
 {
     use WithPagination;
@@ -28,9 +29,9 @@ class PointManage extends Component
 
 
         if(Auth::user()->highest_auth || Auth::user()->issub){
-            $users = User::where([['utype', 'USR'], ['username', 'like', '%'.$this->searchText.'%']])->paginate($this->pageNumber);
+            $users = User::where([['utype', 'USR'], ['username', 'like', '%'.$this->searchText.'%']])->orderBy('created_at', 'DESC')->paginate($this->pageNumber);
         }else{
-            $users = User::where([['utype', 'USR'], ['toponline', Auth::user()->id], ['username', 'like', '%'.$this->searchText.'%']])->paginate($this->pageNumber);
+            $users = User::where([['utype', 'USR'], ['toponline', Auth::user()->id], ['username', 'like', '%'.$this->searchText.'%']])->orderBy('created_at', 'DESC')->paginate($this->pageNumber);
         }
 
         return view('livewire.point-manage', ['users'=>$users])->layout('layouts.base');

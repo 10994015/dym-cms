@@ -1,7 +1,7 @@
 <div id="setProxy" class="app" wire:ignore>
     @include('livewire.components.slidebar')
     <div class="main-content">
-        <h1>編輯會員</h1>
+        <h1>編輯代理</h1>
         <table class="table table-striped table-bordered">
             <tbody>
               <tr>
@@ -24,6 +24,7 @@
                 <th>名稱</th>
                 <td><input type="text" class="form-control"  wire:model="name"  /></td>
               </tr>
+              @if(Auth::user()->highest_auth)
               <tr>
                 <th>可否新增會員</th>
                 <td>
@@ -32,10 +33,13 @@
                   </label>
                 </td>
               </tr>
+              @endif
+              @if(Auth::user()->highest_auth)
               <tr>
                 <th></th>
                 <td><a href="/changeProxyPassword/{{$proxy_id}}" class="btn btn-primary">密碼修改</a></td>
               </tr>
+              @endif
               {{-- @if(Auth::user()->highest_auth === 1)
               <tr>
                 <th></th>

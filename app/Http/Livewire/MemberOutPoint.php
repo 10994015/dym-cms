@@ -5,6 +5,8 @@ namespace App\Http\Livewire;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
+use App\Models\Subaccount;
+
 class MemberOutPoint extends Component
 {
     use WithPagination;

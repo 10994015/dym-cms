@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use App\Models\Subaccount;
 
 class SetProxy extends Component
 {
@@ -18,20 +19,24 @@ class SetProxy extends Component
     public $register_number;
     public $topline_name;
     public $isCreateMember;
+    public $sub_permissions = false;
     protected $listeners = ['deleteProxy' => 'deleteProxy'];
     public function mount($id){
         
         if(Auth::user()->issub === 1){
             $sub = Subaccount::where('user_id', Auth::id())->first();
             if($sub->proxy !== 1){
-                return redirect('/');
+                return redirect('/notfound');
             }
+            $this->sub_permissions  = true;
         }
 
-        if (User::find($id)->utype !== "ADM") redirect('/notfound'); 
+        if (User::find($id)->utype !== "ADM") return redirect('/notfound'); 
         if(Auth::user()->highest_auth != 1){
             if(Auth::id() != $id){
-                if(User::find($id)->toponline != Auth::id()) return redirect('/notfound');
+                if(User::find($id)->toponline != Auth::id()){
+                    if(!$this->sub_permissions)  return redirect('/notfound');
+                } 
             }
         }
         $this->proxy_id = $id;
@@ -52,6 +57,7 @@ class SetProxy extends Component
         $user = User::find($this->proxy_id);
 
         $user->name = $this->name;
+        $user->is_create_member = $this->isCreateMember;
         $user->save();
         $this->dispatchBrowserEvent('successFn');
     }

@@ -11,6 +11,10 @@ class CreateMember extends Component
 {
     public $toplines = [];
     public function mount(){
+        if(!Auth::user()->is_create_member){
+            return redirect('/notfound');
+        }
+
         if(Auth::user()->issub === 1){
             $sub = Subaccount::where('user_id', Auth::id())->first();
             if($sub->member !== 1){

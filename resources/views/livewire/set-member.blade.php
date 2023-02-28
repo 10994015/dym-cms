@@ -10,7 +10,7 @@
               </tr>
               <tr>
                 <th>代理</th>
-                <td ><input type="text" class="form-control float-left mt-1 mr-2" list="toplineList" id="topline" disabled wire:model="topline_name" /><button class="btn btn-primary" id="updateTopline">編輯</button></td>
+                <td ><input type="text" class="form-control float-left mt-1 mr-2" list="toplineList" id="topline" disabled wire:model="topline_name" />@if(Auth::user()->highest_auth) <button class="btn btn-primary" id="updateTopline" >編輯</button>  @endif</td>
               </tr>
               <datalist id="toplineList">
                 @foreach ($toplines as $topline)
@@ -74,16 +74,19 @@
             </tbody>
           </table>
     </div>
-
-
+    @if(Auth::user()->highest_auth)
     <script>
-        const updateTopline = document.getElementById('updateTopline');
+       const updateTopline = document.getElementById('updateTopline');
         const topline = document.getElementById('topline');
         updateTopline.addEventListener('click', e=>{
             if(confirm('確定修改??')){
                 topline.disabled = false;
             }
         })
+    </script>
+    @endif
+    <script>
+       
         window.addEventListener("successFn", ()=>{
             alert("編輯成功!!")
         })
