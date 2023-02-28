@@ -66,3 +66,10 @@
           </table>
     </div>
 </div>
+@push('scripts')
+<script>
+    pointChildIsOpen = true;
+    pointChild.style.height = "90px";
+    pointDownIcon.style.transform = "rotate(180deg)";
+</script>
+@endpush
