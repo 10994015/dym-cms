@@ -32,7 +32,7 @@
                 <th scope="col">姓名</th>
                 <th scope="col">點數</th>
                 <th scope="col">累計儲值</th>
-                <th scope="col">遊戲內點數</th>
+                {{-- <th scope="col">遊戲內點數</th> --}}
                 <th scope="col">手機</th>
                 <th scope="col">上次登入時間</th>
                 <th scope="col">登入IP</th>
@@ -53,7 +53,7 @@
                     <td scope="col">{{$down['name']}}</td>
                     <td scope="col">{{$down['money']}}</td>
                     <td scope="col">{{$down['total_money']}}</td>
-                    <td scope="col">{{$down['game_money']}}</td>
+                    {{-- <td scope="col">{{$down['game_money']}}</td> --}}
                     <td scope="col">{{$down['phone']}}</td>
                     <td scope="col">{{$down['last_login_time']}}</td>
                     <td scope="col">{{$down['last_login_ip']}}</td>
