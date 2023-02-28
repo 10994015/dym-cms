@@ -59,8 +59,18 @@ class SetMember extends Component
         $this->toplines = $toplines;
     }
     public function changeMemberInfo(){
-        $toplineAccount = User::where('username', $this->topline_name)->first()->id;
-        $this->topline_id = $toplineAccount === NULL ? 1 : $toplineAccount;
+
+        if(!User::find($this->topline_id)){
+            session()->flash('error' ,'編輯失敗！無此代理帳號！');
+            return;
+        }
+
+        $toplineAccount = User::where('username', $this->topline_name)->first();
+        if(!$toplineAccount){
+            $this->dispatchBrowserEvent('errorFn');
+            return;
+        }
+        $this->topline_id = $toplineAccount->id;
 
         $user = User::find($this->member_id);
 
@@ -71,7 +81,9 @@ class SetMember extends Component
         $user->point_lock = $this->point_lock;
         $user->recommender = $this->recommender;
 
-        $user->toponline = $this->topline_id;
+        if(Auth::user()->highest_auth){
+            $user->toponline = $this->topline_id;
+        }
 
         $user->save();
 

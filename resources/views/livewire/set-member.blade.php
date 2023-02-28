@@ -2,6 +2,7 @@
     @include('livewire.components.slidebar')
     <div class="main-content">
         <h1>編輯會員</h1>
+       
         <table class="table table-striped table-bordered">
             <tbody>
               <tr>
@@ -89,6 +90,9 @@
        
         window.addEventListener("successFn", ()=>{
             alert("編輯成功!!")
+        });
+        window.addEventListener("errorFn", ()=>{
+            alert("編輯失敗!查無此代理帳號")
         })
     </script>
 </div>
