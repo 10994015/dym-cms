@@ -4,7 +4,9 @@ namespace App\Http\Livewire;
 
 use App\Models\StorePointRecord;
 use App\Models\User;
+use App\Models\Withdraw;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class NextUserPoint extends Component
@@ -36,31 +38,33 @@ class NextUserPoint extends Component
         $this->name = $user->name;
         $this->money = $user->money;
         $this->store = -1;
-        $this->store_type = 4;
+        $this->store_type = 1;
         $this->point = 0;
     }
 
     public function storePoint(){
         $user = User::find($this->member_id);
-        if($this->store == 1){
-            $user->money = $user->money + $this->point;
-            if($this->store_type==1 || $this->store_type == 2){
-                $user->total_money = $user->total_money + $this->point;
-            }
-            $user->save();
-        }elseif($this->store == -1){
-            $user->money = $user->money - $this->point;
-            $user->save();
+        if($this->point <= 0){
+            session()->flash('error', '交易失敗！下分金額需大於0');
+            return;
         }
-
-        $store_point_record = new StorePointRecord();
-        $store_point_record->money = $this->point;
-        $store_point_record->store = $this->store;
-        $store_point_record->store_type = $this->store_type;
-        $store_point_record->proxy_id = Auth::user()->id;
-        $store_point_record->member_id = $this->member_id;
-        $store_point_record->save();
-
+        if($this->point > $this->money){
+            session()->flash('error', '交易失敗！會員餘額不足！');
+            return;
+        }
+        $rand = rand(10000, 99999);
+        $order_number = "SA" . $rand . date('YmdHi');
+        $withdraw = new Withdraw();
+        $withdraw->user_id = $user->id;
+        $withdraw->username = $user->username;
+        $withdraw->platform = "SMT";
+        $withdraw->order_number = $order_number;
+        $withdraw->money = $this->point;
+        $withdraw->status = 1;
+        $withdraw->store_type = $this->store_type;
+        $withdraw->proxy_id = Auth::id();
+        $withdraw->paidout = 1;
+        $withdraw->save();
         $this->dispatchBrowserEvent('storeSuccessFn');
     }
     public function render()

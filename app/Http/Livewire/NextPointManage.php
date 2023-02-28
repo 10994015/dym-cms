@@ -3,7 +3,9 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use App\Models\Withdraw;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -25,10 +27,11 @@ class NextPointManage extends Component
     public function render()
     {
         if(Auth::user()->highest_auth || Auth::user()->issub){
-            $users = User::where([['utype', 'USR'], ['username', 'like', '%'.$this->searchText.'%']])->paginate($this->pageNumber);
+            $withdraws = Withdraw::where([['status', 1], ['paidout', 1],['username', 'like', "%$this->searchText%"]])->orderBy('updated_at', 'DESC')->paginate($this->pageNumber);
+            // $users = User::where([['utype', 'USR'], ['username', 'like', '%'.$this->searchText.'%']])->paginate($this->pageNumber);
         }else{
-            $users = User::where([['utype', 'USR'], ['toponline', Auth::user()->id], ['username', 'like', '%'.$this->searchText.'%']])->paginate($this->pageNumber);
+            $withdraws = Withdraw::where([['status', 1], ['paidout', 1],['username', 'like', "%$this->searchText%"]])->orderBy('updated_at', 'DESC')->paginate($this->pageNumber);
         }
-        return view('livewire.next-point-manage', ['users'=>$users])->layout('layouts.base');
+        return view('livewire.next-point-manage', ['withdraws'=>$withdraws])->layout('layouts.base');
     }
 }

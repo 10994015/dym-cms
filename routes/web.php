@@ -15,9 +15,11 @@ use App\Http\Livewire\HomeComponet;
 use App\Http\Livewire\IpRecord;
 use App\Http\Livewire\LoginRecord;
 use App\Http\Livewire\MemberComponet;
+use App\Http\Livewire\MemberOutPoint;
 use App\Http\Livewire\NextPointManage;
 use App\Http\Livewire\NextUserPoint;
 use App\Http\Livewire\NotFound;
+use App\Http\Livewire\PaymentReview;
 use App\Http\Livewire\PointManage;
 use App\Http\Livewire\Proxy;
 use App\Http\Livewire\ReportManage;
@@ -71,6 +73,8 @@ Route::get('/createSubaccount', CreateSubaccount::class)->middleware(['auth']);
 // Route::get('/viewSubMember/{id}', ViewSubMember::class)->middleware(['auth']);
 Route::get('/createSubProxy/{id}', CreateSubProxy::class)->middleware(['auth']);
 Route::get('/setSubaccount/{id}', SetSubaccount::class)->middleware(['auth']);
+Route::get('/paymentReview', PaymentReview::class)->middleware(['auth']);
+Route::get('/memberOutPoint', MemberOutPoint::class)->middleware(['auth']);
 
 
 Route::get('/notfound', NotFound::class)->middleware(['auth']);

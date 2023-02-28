@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\BetList;
 use App\Models\StorePointRecord;
+use App\Models\User;
 use App\Models\Withdraw;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -13,6 +14,7 @@ class WithdrawInfo extends Component
 {
     public $withdrawId;
     public $user_id;
+    public $username;
     public $platform;
     public $order_number;
     public $money;
@@ -22,7 +24,7 @@ class WithdrawInfo extends Component
     public $comment;
     public $gapMoney;
     public $created_at;
-    public $totalBet;
+    public $betweenBet;
     public function mount($id){
         if(Auth::user()->highest_auth !=1){
             return redirect('/notfound');
@@ -38,11 +40,18 @@ class WithdrawInfo extends Component
         $this->comment =$withdraw->comment ;
         $this->currency = '-';
         $this->created_at = $withdraw->created_at;
+        $this->username = User::find($this->user_id)->username;
 
-        $storePoinr = StorePointRecord::where([['member_id', $this->user_id], ['store', 1], ['store_type', '<=', 3], ['created_at' ,'<=', $this->created_at]])->orderBy('created_at', 'DESC')->first();
-        $initialDate = $storePoinr->created_at; //最近一次儲值時間
+        $with = Withdraw::where([['user_id', $this->user_id], ['status', 1], ['paidout', 1]])->orderBy('updated_at')->first();;
+        if($with != null){
+            $lastPayoutTime = $with->updated_at;
+        }else{
+            $lastPayoutTime = date("Y-m-d H:i:s", strtotime("1970-01-01 00:00:00"));
+        }
+       
 
-        $this->totalBet = BetList::where([['user_id', $this->user_id], ['created_at', '>=',$initialDate]])->sum('money');
+        $this->betweenBet = BetList::where([['user_id', $this->user_id], ['bet_time', '>', $lastPayoutTime], ['bet_time', '<=', $this->created_at]])->sum('money');
+     
 
     }
     public function updateWithdraw(){
@@ -52,8 +61,28 @@ class WithdrawInfo extends Component
         $withdraw->order_number =   $this->order_number;
         $withdraw->money =   $this->money;
         $withdraw->status =    intval($this->status);
-        $withdraw->warning =    $this->warning; 
         $withdraw->comment =    $this->comment;
+        $withdraw->proxy_id = Auth::id();
+
+        if($withdraw->status < 0){
+            if(!$withdraw->returned){
+                $withdraw->returned = true;
+                $user = User::find($this->user_id);
+                $user->money = $user->money + $this->money;
+                $user->handle_money = $user->handle_money - $this->money;
+                $withdraw->warning = "提領失敗，已退款 $" . strval($this->money);
+                $user->save();
+
+            }
+        }elseif($withdraw->status > 0){
+            if(!$withdraw->paidout){
+                $withdraw->paidout = true;
+                $user = User::find($this->user_id);
+                $user->handle_money = $user->handle_money - $this->money;
+                $withdraw->warning = "提領成功，已出款 $" . strval($this->money);
+                $user->save();
+            }
+        }
 
         $withdraw->save();
 

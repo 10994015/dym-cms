@@ -21,7 +21,7 @@
               <a href="/createMember"  class="btn btn-success block">新增會員</a>
             </div>
         </div>
-          <table class="table">
+          <table class="table table-bordered table-hover">
             <thead>
               <tr>
                 <th scope="col">id</th>
@@ -59,7 +59,7 @@
                     <td scope="col">@if($down['recommender'] == NULL) - @else {{$down['recommender']}} @endif</td>
                     <td scope="col"> @if($down['status'] == 1) <button class="btn text-light closeStatusBtn"  value="{{$down->id}}">啟用</button> @else <button class="btn text-light openStatusBtn" value="{{$down->id}}">關閉</button> @endif</td>
                     <td scope="col">{{$down['created_at']}}</td>
-                    <td scope="col"><a href="/setMember/{{$down->id}}" type="button" class="btn btn-success">設定</a></td>
+                    <td scope="col"><a href="/setMember/{{$down->id}}" type="button" class="btn btn-success" style="background:#198754">設定</a></td>
                     {{-- <td scope="col"></td> --}}
                   </tr>
                 @endforeach

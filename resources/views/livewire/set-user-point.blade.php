@@ -1,7 +1,10 @@
-<div id="setUserPoint" class="app" wire:ignore>
+<div id="setUserPoint" class="app" >
     @include('livewire.components.slidebar')
     <div class="main-content">
-        <h1>上下分管理</h1>
+        <h1>上分管理</h1>
+        @if(session()->has('error'))
+            <div class="alert alert-danger"> {{session('error')}} </div>
+        @endif
         <table class="table table-striped table-bordered">
             <tbody>
               <tr>

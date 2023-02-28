@@ -41,6 +41,11 @@ class SetUserPoint extends Component
     }
 
     public function storePoint(){
+        if($this->point <=0){
+            session()->flash('error', '上分金額須超過0');
+            return;
+        }
+        
         $user = User::find($this->member_id);
         if($this->store == 1){
             $user->money = $user->money + $this->point;

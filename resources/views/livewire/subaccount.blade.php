@@ -15,7 +15,7 @@
                 <a href="/createSubaccount" class="btn btn-success">新增子帳號</a>
             </div>
         </div>
-        <table class="table">
+        <table class="table table-bordered table-hover">
             <thead>
               <tr>
                 <th scope="col">#</th>

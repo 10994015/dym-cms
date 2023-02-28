@@ -1,11 +1,11 @@
 <div class="app" id="store-record">
     @include('livewire.components.slidebar')
     <div class="main-content">
-        <h1>儲值紀錄</h1>
+        <h1>上分紀錄</h1>
         <div class="nav mb-3">
             <button onclick="window.history.back()" class="btn btn-success" style="width:80px">回前頁</button>
         </div>
-        <table class="table">
+        <table class="table table-bordered table-hover">
             <thead>
               <tr>
                 <th scope="col">帳號</th>

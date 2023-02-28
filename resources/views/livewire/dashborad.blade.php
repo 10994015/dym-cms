@@ -49,7 +49,7 @@
                   
                 </tbody>
               </table>
-              {{$withdraw->links()}}
+              <a href="/paymentReview" class="btn btn-primary">查看更多</a>
         </div>
         @endif
     </div>

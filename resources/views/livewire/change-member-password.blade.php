@@ -2,7 +2,7 @@
     @include('livewire.components.slidebar')
     <div class="main-content">
         <h1>密碼修改</h1>
-        <table class="table table-striped table-bordered">
+        <table class="table table-striped table-bordered ">
             <form action="/chk_change_password" method="post">
                 @csrf
                 <tbody>

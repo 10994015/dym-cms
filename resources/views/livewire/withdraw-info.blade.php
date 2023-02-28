@@ -16,6 +16,10 @@
                 <td><input type="text" class="form-control" disabled wire:model="order_number" /></td>
               </tr>
               <tr>
+                <th>提領帳號</th>
+                <td><input type="text" class="form-control" disabled wire:model="username" /></td>
+              </tr>
+              <tr>
                 <th>轉出金額</th>
                 <td><input type="text" class="form-control" disabled wire:model="money" /></td>
               </tr>
@@ -37,18 +41,14 @@
               <tr>
                 <th>與上次儲值使用的點數相差</th>
                 <td>
-                    <span class="@if($totalBet -$money>=0) text-success @else text-danger @endif" >{{$totalBet -$money }}</span>
-                        @if($totalBet -$money>=0)
+                    <span class="@if($betweenBet -$money>=0) text-success @else text-danger @endif" >{{$betweenBet -$money }}</span>
+                        @if($betweenBet -$money>=0)
                         <span class="text-success">(符合出金資格)<span>
                         @else
                         <span class="text-danger">(不符合出金資格)<span>
                         @endif
                     
                 </td>
-              </tr>
-              <tr>
-                <th>警告文字</th>
-                <td><input type="text" class="form-control"  wire:model="warning" /></td>
               </tr>
               <tr>
                 <th>補充說明</th>

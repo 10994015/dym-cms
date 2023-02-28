@@ -16,7 +16,7 @@
                   <input type="text" class="form-control searchInput" placeholder="搜尋..." wire:model="searchText">
               </div>
           </div>
-            <table class="table">
+            <table class="table table-bordered table-hover">
               <thead>
                 <tr>
                   <th scope="col">id</th>
@@ -27,7 +27,7 @@
                   <th scope="col">點數</th>
                   <th scope="col">累計儲值</th>
                   <th scope="col">總上分</th>
-                  <th scope="col">儲值紀錄</th>
+                  <th scope="col">上分紀錄</th>
                   <th scope="col">管理</th>
                 </tr>
               </thead>
@@ -42,7 +42,7 @@
                      <td> <span class="fw-bold @if($user->money>0) text-success @else text-black-50 @endif">{{$user->money}}</span></td>
                      <td><span class="fw-bold @if($user->total_money>0) text-success @else text-black-50 @endif">{{$user->total_money}}</span></td>
                      <td><span class="fw-bold text-success">{{DB::table('store_point_record')->where([['member_id', $user->id], ['store', 1]])->sum('money')}}</span></td>
-                     <td><a href="/storeRecord/{{$user->id}}" class="btn btn-primary">儲值紀錄</a></td>
+                     <td><a href="/storeRecord/{{$user->id}}" class="btn btn-primary">上分紀錄</a></td>
                      <td><a href="/setUserPoint/{{$user->id}}" class="btn btn-success">上分管理</a></td>
                   </tr>
                   @endforeach

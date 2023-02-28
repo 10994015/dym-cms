@@ -27,7 +27,7 @@
               <button class="btn btn-primary ml-2" id="searchBtn" wire:click="searchFn">搜尋</button>
           </div> 
         </div>
-        <table class="table">
+        <table class="table table-bordered table-hover">
           <thead>
             <tr>
               <th scope="col">#</th>

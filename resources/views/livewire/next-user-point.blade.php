@@ -1,7 +1,10 @@
-<div id="nextUserPoint" class="app" wire:ignore>
+<div id="nextUserPoint" class="app" >
     @include('livewire.components.slidebar')
     <div class="main-content">
         <h1>下分管理</h1>
+        @if(session()->has('error'))
+            <div class="alert alert-danger"> {{session('error')}} </div>
+        @endif
         <table class="table table-striped table-bordered">
             <tbody>
               <tr>
@@ -29,9 +32,9 @@
                 <th></th>
                 <td>
                     <select class="form-control" wire:model="store_type">
-                        <option value="4">違規下分</option>
-                        <option value="5">出款下分</option>
-                        <option value="6">活動下分</option>
+                        <option value="1">違規下分</option>
+                        <option value="2">出款下分</option>
+                        <option value="3">活動下分</option>
                     </select>
                 </td>
               </tr>
@@ -55,6 +58,14 @@
     <script>
         window.addEventListener("storeSuccessFn", ()=>{
             alert("更新成功!!");
+            window.location.reload();
+        });
+        windaow.addEventListener("storeErrorFn", ()=>{
+            alert("交易失敗！下分金額須超過0");
+            window.location.reload();
+        })
+        windaow.addEventListener("storeError2Fn", ()=>{
+            alert("交易失敗！會員餘額不足！");
             window.location.reload();
         })
     </script>

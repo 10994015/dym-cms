@@ -27,7 +27,7 @@ class StoreRecord extends Component
     }
     public function render()
     {
-        $list = StorePointRecord::where('member_id', $this->member_id)->get();
+        $list = StorePointRecord::where([['member_id', $this->member_id], ['store_type' ,'<=' , 3]])->orderBy('created_at', 'DESC')->get();
         return view('livewire.store-record', ['list'=>$list])->layout('layouts.base');
     }
 }
