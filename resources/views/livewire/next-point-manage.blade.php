@@ -1,7 +1,7 @@
 <div id="next-point-manage" class="app">
     @include('livewire.components.slidebar')
       <div class="main-content">
-          <h1>管理者列表</h1>
+          <h1>下分管理</h1>
           <div class="nav">
               <div class="form-group">
                   <label for="">每頁顯示</label>

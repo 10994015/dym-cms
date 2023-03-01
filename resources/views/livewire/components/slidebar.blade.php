@@ -8,7 +8,7 @@
         <a href="/member">會員管理</a>
         <a href="javascript:;" id="point">上下分管理<i class="fa-solid fa-chevron-down ml-2" id="point-down-icon"></i></a>
         <ul class="child-link" id="point-child">
-            <a href="/pointManage" >上分管理</a>
+            <a href="/storageValue" >上分管理</a>
             <a href="/nextPointManage">下分管理</a>
         </ul>
         <a href="/gameManage">投注紀錄</a>
@@ -22,7 +22,7 @@
         @if(DB::table('subaccount')->where('user_id', Auth::id())->first()->store === 1)
         <a href="javascript:;" id="point">上下分管理<i class="fa-solid fa-chevron-down ml-2" id="point-down-icon"></i></a>
         <ul class="child-link" id="point-child">
-            <a href="/pointManage" >上分管理</a>
+            <a href="/storageValue" >上分管理</a>
             <a href="/nextPointManage">下分管理</a>
         </ul>
          @endif

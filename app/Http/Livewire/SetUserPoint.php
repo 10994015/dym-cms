@@ -57,6 +57,9 @@ class SetUserPoint extends Component
             $user->money = $user->money - $this->point;
             $user->save();
         }
+        $rand = rand(10000, 99999);
+
+        $order_number = "SB" . $rand . date('YmdHi');
 
         $store_point_record = new StorePointRecord();
         $store_point_record->money = $this->point;
@@ -64,6 +67,9 @@ class SetUserPoint extends Component
         $store_point_record->store_type = $this->store_type;
         $store_point_record->proxy_id = Auth::user()->id;
         $store_point_record->member_id = $this->member_id;
+        $store_point_record->order_number = $order_number;
+        $store_point_record->username = $this->username;
+        $store_point_record->status = 1;
         $store_point_record->save();
 
         $this->dispatchBrowserEvent('storeSuccessFn');

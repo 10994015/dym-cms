@@ -32,7 +32,7 @@ class NextPointManage extends Component
             $withdraws = Withdraw::where([['status', 1], ['paidout', 1],['username', 'like', "%$this->searchText%"]])->orderBy('updated_at', 'DESC')->paginate($this->pageNumber);
             // $users = User::where([['utype', 'USR'], ['username', 'like', '%'.$this->searchText.'%']])->paginate($this->pageNumber);
         }else{
-            $withdraws = Withdraw::where([['status', 1], ['paidout', 1],['username', 'like', "%$this->searchText%"]])->orderBy('updated_at', 'DESC')->paginate($this->pageNumber);
+            $withdraws = Withdraw::where([['status', 1], ['paidout', 1],['proxy_id', Auth::id()], ['username', 'like', "%$this->searchText%"]])->orderBy('updated_at', 'DESC')->paginate($this->pageNumber);
         }
         return view('livewire.next-point-manage', ['withdraws'=>$withdraws])->layout('layouts.base');
     }

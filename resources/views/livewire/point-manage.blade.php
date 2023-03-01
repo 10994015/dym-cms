@@ -16,6 +16,10 @@
                   <input type="text" class="form-control searchInput" placeholder="搜尋..." wire:model="searchText">
               </div>
           </div>
+          <div class="form-group mt-4">
+            <a href="/storageValue" class="btn btn-info ml-3">上分管理</a>
+            <a href="/pointManage" class="btn btn-success ml-3">單項會員上分</a>
+          </div>
             <table class="table table-bordered table-hover">
               <thead>
                 <tr>

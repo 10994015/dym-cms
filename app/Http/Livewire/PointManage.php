@@ -21,7 +21,7 @@ class PointManage extends Component
                 return redirect('/');
             }
         }
-
+        
         $this->pageNumber = 15;
     }
     public function render()
