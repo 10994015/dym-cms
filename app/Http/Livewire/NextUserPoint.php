@@ -66,6 +66,10 @@ class NextUserPoint extends Component
         $withdraw->proxy_id = Auth::id();
         $withdraw->paidout = 1;
         $withdraw->save();
+        
+        $user->money = intval($user->money) - intval($this->point);
+        $user->save();
+
         $this->dispatchBrowserEvent('storeSuccessFn');
     }
     public function render()
