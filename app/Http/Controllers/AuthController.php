@@ -12,8 +12,10 @@ use Validator;
 class AuthController extends Controller
 {
     public function register(Request $req){
-        if(!Auth::user()->is_create_member){
-            return redirect('/notfound');
+        if(!Auth::user()->highest_auth){
+            if($req->proxy_id != Auth::id()){
+                return redirect('/notfound');
+            }
         }
         $validator =$req->validate([
             'name' => 'required|string',
@@ -35,7 +37,10 @@ class AuthController extends Controller
             'password.min'=>'密碼最少為8碼',
             'password.max'=>'密碼最多為20碼',
         ]);
-       
+        
+        $iscreatmember = (isset($req->is_create_member)) ? 1 : 0;
+
+        log::info($iscreatmember);
         $user = new User();
 
         $user->username = $req->username;
@@ -44,6 +49,7 @@ class AuthController extends Controller
         $user->register_number = $this->generateRandomString(30);
         $user->utype = "ADM";
         $user->toponline = $req->proxy_id;
+        $user->is_create_member = $iscreatmember;
         $user->save();
         request()->session()->flash('status', '新增代理成功!');
         return redirect('/proxy')->withInput();

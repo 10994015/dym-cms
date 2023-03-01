@@ -63,8 +63,9 @@ var html = "";
 var shtml = "";
 window.addEventListener('viewDownlineFn', function (e) {
   var data = e.detail.data;
-  var isCreateMember = e.detail.isCreateMember;
-  if (isCreateMember) {
+  var highest_auth = e.detail.highest_auth;
+  console.log("highest_auth", highest_auth);
+  if (highest_auth == 1) {
     html += "<table class=\"table\">\n      <thead>\n        <tr>\n          <th scope=\"col\">#</th>\n          <th scope=\"col\">\u5206\u7AD9</th>\n          <th scope=\"col\">\u7D1A\u5225</th>\n          <th scope=\"col\">\u5E33\u865F</th>\n          <th scope=\"col\">\u540D\u7A31</th>\n          <th scope=\"col\">\u4E0B\u7DDA</th>\n          <th scope=\"col\">\u6703\u54E1\u4EBA\u6578</th>\n          <th scope=\"col\">\u72C0\u614B</th>\n          <th scope=\"col\">\u6700\u5F8C\u767B\u5165\u65E5\u671F</th>\n          <th scope=\"col\">\u6703\u54E1\u5206\u7D05\u8A2D\u5B9A</th>\n          <th scope=\"col\">\u8A3B\u518A\u65E5\u671F</th>\n          <th scope=\"col\">\u65B0\u589E\u4E0B\u7DDA</th>\n          <th scope=\"col\">\u8A2D\u5B9A</th>\n        </tr>\n      </thead>\n      <tbody>";
     data.forEach(function (e) {
       var statusBtn = e.status === 1 ? "<button class=\"btn closeStatusBtn\" value=\"".concat(e.id, "\">\u555F\u7528</button>") : "<button class=\"btn openStatusBtn\" value=\"".concat(e.id, "\">\u95DC\u9589</button>");
@@ -92,8 +93,8 @@ window.addEventListener('viewDownlineFn', function (e) {
 var searchList = document.getElementById('searchList');
 window.addEventListener('searchUsersFn', function (e) {
   var data = e.detail.data;
-  var isCreateMember = e.detail.isCreateMember;
-  if (isCreateMember) {
+  var highest_auth = e.detail.highest_auth;
+  if (highest_auth) {
     shtml += "<table class=\"table\">\n    <thead>\n      <tr>\n        <th scope=\"col\">#</th>\n        <th scope=\"col\">\u5206\u7AD9</th>\n        <th scope=\"col\">\u7D1A\u5225</th>\n        <th scope=\"col\">\u5E33\u865F</th>\n        <th scope=\"col\">\u540D\u7A31</th>\n        <th scope=\"col\">\u4E0B\u7DDA</th>\n        <th scope=\"col\">\u6703\u54E1\u4EBA\u6578</th>\n        <th scope=\"col\">\u72C0\u614B</th>\n        <th scope=\"col\">\u6700\u5F8C\u767B\u5165\u65E5\u671F</th>\n        <th scope=\"col\">\u6703\u54E1\u5206\u7D05\u8A2D\u5B9A</th>\n        <th scope=\"col\">\u8A3B\u518A\u65E5\u671F</th>\n        <th scope=\"col\">\u65B0\u589E\u4E0B\u7DDA</th>\n        <th scope=\"col\">\u8A2D\u5B9A</th>\n      </tr>\n    </thead>\n    <tbody>";
     data.forEach(function (e) {
       var statusBtn = e.status === 1 ? "<button class=\"btn closeStatusBtn\" value=\"".concat(e.id, "\">\u555F\u7528</button>") : "<button class=\"btn openStatusBtn\" value=\"".concat(e.id, "\">\u95DC\u9589</button>");

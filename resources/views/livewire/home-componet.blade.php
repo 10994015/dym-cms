@@ -41,9 +41,7 @@
               <th scope="col">最後登入日期</th>
               {{-- <th scope="col">會員分紅設定</th> --}}
               <th scope="col">註冊日期</th>
-              @if(Auth::user()->is_create_member)
               <th scope="col">新增下線</th>
-              @endif
               <th scope="col">設定</th>
             </tr>
           </thead>
@@ -61,9 +59,7 @@
               <td scope="col">{{$me['last_login_date']}}</td>
               {{-- <td scope="col">{{$me['dividends']}}</td> --}}
               <td scope="col">{{$me['register_date']}}</td>
-              @if(Auth::user()->is_create_member)
               <td scope="col"><a href="/createProxy/{{$me['id']}}" class="btn btn-success">新增下線</a></td>
-              @endif
               <td scope="col"><a href="/setProxy/{{$me['id']}}" class="btn btn-success">設定</a></td>
             </tr>
           </tbody>

@@ -11,6 +11,7 @@ class HomeComponet extends Component
 {
     public $searchText;
     public $isCreateMember;
+    public $highest_auth;
     protected $listeners = ['viewDownline' => 'viewDownline', 'openStatus'=>'openStatus', 'closeStatus'=>'closeStatus'];
     
     public function mount(){
@@ -21,6 +22,7 @@ class HomeComponet extends Component
             }
         }
         $this->isCreateMember = Auth::user()->is_create_member;
+        $this->highest_auth = Auth::user()->highest_auth;
     }
 
     public function openStatus($id){
@@ -62,7 +64,7 @@ class HomeComponet extends Component
             $data[$key]['register_date'] =  $user->created_at->format("Y-m-d H:i:s");
             log::info($user->created_at);
         }
-        $this->dispatchBrowserEvent('viewDownlineFn', ['data'=>$data, 'isCreateMember'=>$this->isCreateMember]);
+        $this->dispatchBrowserEvent('viewDownlineFn', ['data'=>$data, 'highest_auth'=>$this->highest_auth]);
     }
     public function searchFn(){
         $data = [];
@@ -92,7 +94,7 @@ class HomeComponet extends Component
             log::info($user->created_at);
         }
         log::info($data);
-        $this->dispatchBrowserEvent('searchUsersFn', ['data'=>$data, 'isCreateMember'=>$this->isCreateMember]);
+        $this->dispatchBrowserEvent('searchUsersFn', ['data'=>$data, 'highest_auth'=>$this->highest_auth]);
     }
     public function render()
     {

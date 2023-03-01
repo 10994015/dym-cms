@@ -77,8 +77,9 @@ let html = "";
 let shtml = "";
 window.addEventListener('viewDownlineFn', e=>{
     let data = e.detail.data;
-    let isCreateMember = e.detail.isCreateMember;
-    if(isCreateMember){
+    let highest_auth = e.detail.highest_auth;
+    console.log("highest_auth", highest_auth);
+    if(highest_auth == 1){
       html += `<table class="table">
       <thead>
         <tr>
@@ -174,8 +175,8 @@ window.addEventListener('viewDownlineFn', e=>{
 const searchList = document.getElementById('searchList');
 window.addEventListener('searchUsersFn', e=>{
   let data = e.detail.data;
-  let isCreateMember = e.detail.isCreateMember;
-  if(isCreateMember){
+  let highest_auth = e.detail.highest_auth;
+  if(highest_auth){
     shtml += `<table class="table">
     <thead>
       <tr>
