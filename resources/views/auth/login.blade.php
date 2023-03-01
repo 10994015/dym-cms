@@ -13,8 +13,12 @@
                     <input type="password" name="password" placeholder="請輸入密碼..." class="form-control text-light " id="password">
                 </div>
                 <x-jet-validation-errors class="mb-4 text-danger" />
+                @if(session()->has('islogin'))
+                    <div class="alert alert-danger"> {{session('islogin')}} </div>
+                @endif
                 <button type="submit" class="btn btn-light bg-light mt-3 loginBtn">LOGIN</button>
             </form>
+            
             {{-- <a href="/register" class="gotoregister">沒有帳號嗎?點擊註冊</a> --}}
         </div>
     </div>

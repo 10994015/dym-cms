@@ -33,6 +33,7 @@ class User extends Authenticatable
         'toponline',
         'last_login_time',
         'last_login_ip',
+        'islogin',
     ];
 
     /**

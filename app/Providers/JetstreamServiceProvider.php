@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
 use Laravel\Jetstream\Jetstream;
-
+use Illuminate\Validation\ValidationException;
 class JetstreamServiceProvider extends ServiceProvider
 {
     /**
@@ -35,9 +35,13 @@ class JetstreamServiceProvider extends ServiceProvider
 
         Fortify::authenticateUsing(function (Request $request) {
             $user = User::where('username', $request->username)->where([['utype', 'ADM'], ['status', 1]])->first();
-    
+            
             if ($user &&
                 Hash::check($request->password, $user->password)) {
+                if($user->islogin == true){
+                    throw ValidationException::withMessages(['此帳號已被登入!']);        
+                    return;
+                }
                 return $user;
             }
         });
