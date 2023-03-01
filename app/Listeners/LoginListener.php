@@ -28,7 +28,7 @@ class LoginListener
         $event->user->update([
             'last_login_time' => now(),
             'last_login_ip' => request()->getClientIp(),
-            'islogin'=>true,
+            'islogin'=>false,
         ]);
         $login_record = new LoginRecord();
         $login_record->username = $event->user->username;
