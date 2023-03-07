@@ -46,7 +46,7 @@
                     <th scope="col" class="fw-bold">{{$store->order_number}}</th>
                     <th scope="col">{{DB::table('users')->where('id', DB::table('users')->where('id', $store->member_id)->first()->toponline)->first()->username}}</th>
                     <th scope="col" class="text-danger">{{$store->money}}</th>
-                    <th scope="col">@if($store->store_type==1)違規下分@elseif($store->store_type==2)出款下分@elseif($store->store_type==3)活動下分@endif</th>
+                    <th scope="col">@if($store->store_type==1)車商上分@elseif($store->store_type==2)手動上分@elseif($store->store_type==3)活動上分@endif</th>
                     <th scope="col"><span class="@if($store->status > 0) text-success @else text-danger @endif">@if($store->status==-2)取消@elseif($store->status==-1)交易失敗@elseif($store->status==0)待處理@elseif($store->status==1)交易成功@endif</span></th>
                     <th scope="col">{{DB::table('users')->where('id', $store->proxy_id)->first()->username}}</th>
                     <th scope="col">{{$store->created_at}}</th>
