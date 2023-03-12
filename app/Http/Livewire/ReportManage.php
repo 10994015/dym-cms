@@ -50,6 +50,14 @@ class ReportManage extends Component
             ->whereBetween('reports.created_at', [$this->startTime,   $this->endTime])
             ->orderBy('id', 'DESC')
             ->paginate($this->pageNumber);
+
+            $reports_total = Report::join('users', 'reports.user_id','=', 'users.id')
+            ->select('users.username', 'reports.*')
+            ->where([['reports.bet_number', 'like', '%'.$this->betNumber.'%'], ['users.username', 'like', '%'. $this->account .'%'], ['reports.game_type', 'like', '%'.$this->game_type.'%']])
+            ->whereBetween('reports.bet_money', [$this->startMoney,   $this->endMoney])
+            ->whereBetween('reports.created_at', [$this->startTime,   $this->endTime])
+            ->orderBy('id', 'DESC')
+            ->get();
         }else{
             $reports = Report::join('users', 'reports.user_id','=', 'users.id')
             ->select('users.username', 'reports.*')
@@ -58,9 +66,16 @@ class ReportManage extends Component
             ->whereBetween('reports.created_at', [$this->startTime,   $this->endTime])
             ->orderBy('id', 'DESC')
             ->paginate($this->pageNumber);
+
+            $reports_total = Report::join('users', 'reports.user_id','=', 'users.id')
+            ->select('users.username', 'reports.*')
+            ->where([['topline', Auth::id()], ['reports.bet_number', 'like', '%'.$this->betNumber.'%'], ['users.username', 'like', '%'. $this->account .'%'], ['reports.game_type', 'like', '%'.$this->game_type.'%']])
+            ->whereBetween('reports.bet_money', [$this->startMoney,   $this->endMoney])
+            ->whereBetween('reports.created_at', [$this->startTime,   $this->endTime])
+            ->orderBy('id', 'DESC')->get();
         }
-        $this->total_bet_money = $reports->sum('bet_money');
-        $this->total_win_money = $reports->sum('result') - $reports->sum('bet_money');
+        $this->total_bet_money = $reports_total->sum('bet_money');
+        $this->total_win_money = $reports_total->sum('result') - $reports_total->sum('bet_money');
 
         return view('livewire.report-manage', ['reports'=>$reports])->layout('layouts.base');
     }
